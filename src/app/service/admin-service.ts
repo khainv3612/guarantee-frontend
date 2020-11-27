@@ -5,16 +5,20 @@ import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
 export class AdminService {
-    urlPolicy = environment.URL_API_POLICY;
+  urlPolicy = environment.URL_API_POLICY;
 
-    constructor(private httpClient: HttpClient) {
-    }
+  constructor(private httpClient: HttpClient) {
+  }
 
-     getPolicy(id: number): Observable<Policy> {
-        return this.httpClient.get<Policy>(this.urlPolicy + id);
-    }
+  getPolicy(id: number): Observable<Policy> {
+    return this.httpClient.get<Policy>(this.urlPolicy + id);
+  }
+
+  savePolicy(policy: Policy) {
+    return this.httpClient.post(this.urlPolicy + 'save-policy', policy);
+  }
 }

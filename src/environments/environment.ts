@@ -6,6 +6,9 @@ export const environment = {
   production: false,
   URL_API_AUTH: 'http://localhost:8080/api/auth/',
   URL_API_POLICY: 'http://localhost:8080/api/policy/',
+  URL_API_PROVINCE: 'http://localhost:8080/api/province/',
+  URL_API_DISTRICT: 'http://localhost:8080/api/district/',
+  URL_API_WARD: 'http://localhost:8080/api/ward/',
 };
 
 /*

@@ -15,6 +15,7 @@ import {EditorModule} from '@tinymce/tinymce-angular';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
+import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {AppRoutingModule} from './app-routing.module';
     SignInComponent,
     ForgotPassComponent,
     ChinhsachhdComponent,
+    ViewchinhsachhdComponent,
   ],
   imports: [
     HttpClientModule,
@@ -40,6 +42,7 @@ import {AppRoutingModule} from './app-routing.module';
       {path: 'sign-up', component: SignUpComponent},
       {path: 'sign-in', component: SignInComponent},
       {path: 'admin/chinhsachhd', component: ChinhsachhdComponent},
+      {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
     ]),
   ],
   providers: [],

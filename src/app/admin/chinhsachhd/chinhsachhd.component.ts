@@ -11,6 +11,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class ChinhsachhdComponent implements OnInit {
   firstPage = 1;
+  idPolicy = this.firstPage;
   policy: Policy;
   policyForm: FormGroup;
   body = new FormControl('', {
@@ -18,7 +19,7 @@ export class ChinhsachhdComponent implements OnInit {
   });
   editorConfig: any = {
     // theme: 'modern',
-    height: '600',
+    height: '500',
     image_title: true,
     automatic_uploads: true,
     paste_data_images: true,
@@ -29,7 +30,7 @@ export class ChinhsachhdComponent implements OnInit {
       'advlist autolink lists link image charmap print preview hr anchor pagebreak ' +
       'searchreplace wordcount visualblocks visualchars code fullscreen' +
       ' insertdatetime media nonbreaking save table contextmenu directionality' +
-      ' emoticons template paste textcolor colorpicker textpattern paste export'
+      ' emoticons template textcolor colorpicker textpattern export powerpaste'
     ,
     // tslint:disable-next-line:max-line-length
     toolbar1: 'insertfile undo redo | styleselect | fontselect  | bold italic underline | alignleft aligncenter alignright alignjustify |' +
@@ -59,24 +60,24 @@ export class ChinhsachhdComponent implements OnInit {
     this.policyForm = new FormGroup({
       body: this.body
     });
-    // this.policy = {
-    //   id: null,
-    //   content: '',
-    //   type: ''
-    // }
+    this.policy = {
+      id: null,
+      content: '',
+      type: ''
+    }
 
     // this.policyForm.get('body').value = this.policy.content;
 
   }
 
   ngOnInit(): void {
-    this.getPolicy(this.firstPage)
+    this.getPolicy(this.firstPage);
   }
 
   getPolicy(id: number) {
+    this.idPolicy = id;
     this.adminService.getPolicy(id).subscribe(result => {
       this.policy = result;
-      console.log(this.policy);
       this.policyForm.get('body').setValue(this.policy.content);
     }, error => {
       console.log(error);
@@ -84,11 +85,14 @@ export class ChinhsachhdComponent implements OnInit {
   }
 
   savePolicy(): void {
-
-  }
-
-  test(): void {
-    console.log(this.policyForm.get('body').value);
+    this.policy.id = this.idPolicy;
+    this.policy.content = this.policyForm.get('body').value;
+    this.adminService.savePolicy(this.policy).subscribe(result => {
+      alert("saved");
+    }, error => {
+      console.log(error);
+      alert('failed');
+    })
   }
 
 }

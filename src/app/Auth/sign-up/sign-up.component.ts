@@ -3,6 +3,7 @@ import {DataService} from "../../service/data-service";
 import {Province} from "../../model/Province";
 import {District} from "../../model/District";
 import {Ward} from "../../model/Ward";
+import {TypeStation} from "../../model/TypeStation";
 
 @Component({
   selector: 'app-sign-up',
@@ -14,6 +15,7 @@ export class SignUpComponent implements OnInit {
   lstProvince: Province[];
   lstDistrict: District[];
   lstWard: Ward[];
+  lstTypeStation: TypeStation[];
   provinceSelected: number;
   districtSelected: number;
 
@@ -22,6 +24,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProvince();
+    this.getTypeStation();
     this.getCapcha(100000, 999999);
   }
 
@@ -42,14 +45,26 @@ export class SignUpComponent implements OnInit {
   getDistrict() {
     this.dataService.getDistrict(this.provinceSelected).subscribe(result => {
       this.lstDistrict = result;
+      this.districtSelected = this.lstDistrict[0].id;
+      this.getWard();
     }, error => {
       console.log(error);
     })
+
+
   }
 
   getWard() {
     this.dataService.getWard(this.districtSelected).subscribe(result => {
       this.lstWard = result;
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  getTypeStation() {
+    this.dataService.getTypeStation().subscribe(data => {
+      this.lstTypeStation = data;
     }, error => {
       console.log(error);
     })

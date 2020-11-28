@@ -21,11 +21,8 @@
         <div class="col-sm-8 col-xs-6">
           <select name="drpDoiTuong" id="drpDoiTuong"
                   class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
-            <option value="-">-</option>
-            <option value="1">Đại l&#253;</option>
-            <option value="2">Nh&#224; ph&#226;n phối</option>
-            <option value="3">Kỹ thuật vi&#234;n lắp đặt</option>
-            <option value="4">Kh&#225;ch h&#224;ng</option>
+            <option *ngFor="let type of lstTypeStation" value="{{type.id}}">{{type.type}}</option>
+
 
           </select>
           <span id="rfvDoiTuong" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn đối tượng.</span>
@@ -46,7 +43,7 @@
           <input name="txtUName" type="text" id="txtUName"
                  class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
                  placeholder="Dùng để đăng nhập hệ thống"/> <span id="rfvUName"
-                                                                  style="color:Red;display:none;">Lỗi, vì bạn chưa nhập sđt.</span>
+                                                                  style=" color:Red;display:none;">Lỗi, vì bạn chưa nhập sđt.</span>
         </div>
         <div class="clearfix mgb10 mgb10x"></div>
 

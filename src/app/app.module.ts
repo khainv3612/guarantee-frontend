@@ -17,6 +17,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.component';
 import {AuthGuard} from "./auth.guard";
+import { YeucaubaohanhComponent } from './view/yeucaubaohanh/yeucaubaohanh.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {AuthGuard} from "./auth.guard";
     ForgotPassComponent,
     ChinhsachhdComponent,
     ViewchinhsachhdComponent,
+    YeucaubaohanhComponent,
   ],
   imports: [
     HttpClientModule,

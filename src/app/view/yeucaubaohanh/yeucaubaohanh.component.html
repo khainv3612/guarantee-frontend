@@ -1,0 +1,231 @@
+
+<div id="pnlYeuCauBaoHanh">
+
+    <div class="wrap bg-color-white">
+        <div class="container pdl60 pdr60 pdt10 pdb10 pdt10x pdb10x">
+
+            <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">Yêu cầu bảo hành
+            </h3>
+            <p class="mgt15 mgt15x text-center">Quý khách có yêu cầu về Bảo hành/ Bảo trì sản phẩm, vui long điền đầy đủ
+                thông tin dưới đây và gửi về cho chúng tôi.<br />
+                Nhân viên chăm sóc khách hàng sẽ liên hệ với quý khách để hỗ trợ trong thời gian sớm nhất.</p>
+            <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
+                class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x" />
+            <div class="clearfix"></div>
+            <form [formGroup]="warrantyClaimFrom" (ngSubmit)="warrantyClaim()">
+            <div class="col-sm-6 col-xs-12 pdr60">
+                <p class="font-size-16 color-green font-bold">Thông tin khách hàng</p>
+
+                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Tên khách hàng:<label
+                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                <div class="col-sm-8 col-xs-6">
+                    <input name="txtten_khach" type="text" id="txtten_khach" value="{{warrantyClaimModel.customerName}}"
+                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /> <span id="rfvten_khach"
+                        style="color:Red;display:none;">Lỗi, vì bạn chưa nhập tên khách hàng.</span>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+
+                <span id="UpdatePanel3">
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tỉnh| Thành phố: <label
+                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                    <div class="col-sm-8 col-xs-6">
+                        <select name="drpTinh_YCBH"
+                            id="drpTinh_YCBH"
+                            class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
+                            <option selected="selected" value="-">-</option>
+                            <option value="101">H&#224; Nội</option>
+                            <option value="103">Hải Ph&#242;ng</option>
+                            <option value="105">H&#224; T&#226;y</option>
+                            <option value="107">Hải Dương</option>
+                            <option value="109">Hưng Y&#234;n</option>
+                            <option value="111">H&#224; Nam</option>
+                            <option value="113">Nam Định</option>
+                            <option value="115">Th&#225;i B&#236;nh</option>
+                            <option value="117">Ninh B&#236;nh</option>
+                            <option value="201">H&#224; Giang</option>
+                            <option value="203">Cao Bằng</option>
+                            <option value="205">L&#224;o Cai</option>
+                            <option value="207">Bắc Cạn</option>
+                            <option value="209">Lạng Sơn</option>
+                            <option value="211">Tuy&#234;n Quang</option>
+                            <option value="213">Y&#234;n B&#225;i</option>
+                            <option value="215">Th&#225;i Nguy&#234;n</option>
+                            <option value="217">Ph&#250; Thọ</option>
+                            <option value="219">Vĩnh Ph&#250;c</option>
+                            <option value="221">Bắc Giang</option>
+                            <option value="223">Bắc Ninh</option>
+                            <option value="225">Quảng Ninh</option>
+                            <option value="300">Khu vực 3</option>
+                            <option value="301">Điện Bi&#234;n</option>
+                            <option value="303">Sơn La</option>
+                            <option value="305">Ho&#224; B&#236;nh</option>
+                            <option value="401">Thanh Ho&#225;</option>
+                            <option value="403">Nghệ An</option>
+                            <option value="405">H&#224; Tĩnh</option>
+                            <option value="407">Quảng B&#236;nh</option>
+                            <option value="409">Quảng Trị</option>
+                            <option value="411">Thừa Thi&#234;n - Huế</option>
+                            <option value="501">Đ&#224; Nẵng</option>
+                            <option value="503">Quảng Nam</option>
+                            <option value="505">Quảng Ng&#227;i</option>
+                            <option value="507">B&#236;nh Định</option>
+                            <option value="509">Ph&#250; Y&#234;n</option>
+                            <option value="511">Kh&#225;nh H&#242;a</option>
+                            <option value="601">Kon Tum</option>
+                            <option value="603">Gia Lai</option>
+                            <option value="605">Đắk Lắk</option>
+                            <option value="606">ĐakN&#244;ng</option>
+                            <option value="701">Tp. HCM</option>
+                            <option value="703">L&#226;m Đồng</option>
+                            <option value="705">Ninh Thuận</option>
+                            <option value="707">B&#236;nh Phước</option>
+                            <option value="709">T&#226;y Ninh</option>
+                            <option value="711">B&#236;nh Dương</option>
+                            <option value="713">Đồng Nai</option>
+                            <option value="715">B&#236;nh Thuận</option>
+                            <option value="717">B&#224; Rịa - Vũng T&#224;u</option>
+                            <option value="801">Long An</option>
+                            <option value="803">Đồng Th&#225;p</option>
+                            <option value="805">An Giang</option>
+                            <option value="807">Tiền Giang</option>
+                            <option value="809">Vĩnh Long</option>
+                            <option value="811">Bến Tre</option>
+                            <option value="813">Ki&#234;n Giang</option>
+                            <option value="815">Cần Thơ</option>
+                            <option value="817">Tr&#224; Vinh</option>
+                            <option value="819">S&#243;c Trăng</option>
+                            <option value="821">Bạc Li&#234;u</option>
+                            <option value="823">C&#224; Mau</option>
+                            <option value="824">Bộ QP</option>
+                            <option value="825">Bộ CA</option>
+                            <option value="827">Hậu Giang</option>
+                            <option value="828">Lai Ch&#226;u</option>
+                            <option value="829">S&#244;ng B&#233;</option>
+                            <option value="913">Nha be</option>
+
+                        </select>
+                        <span id="rfvTinh_YCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn tỉnh/tp.</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Quận huyện: <label
+                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                    <div class="col-sm-8 col-xs-6">
+                        <select name="drpHuyen_YCBH"
+                             id="drpHuyen_YCBH"
+                            class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
+
+                        </select>
+                        <span id="rfvHuyen_YCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn
+                            quận/huyện.</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Phưỡng xã: <label
+                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                    <div class="col-sm-8 col-xs-6">
+                        <select name="drpXa_YCBH" id="drpXa_YCBH"
+                            class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
+
+                        </select>
+                        <span id="rfvXa_YCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn phường xã.</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                </span>
+
+                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Địa chỉ:<label
+                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                <div class="col-sm-8 col-xs-6">
+                    <input name="txtdiachi_ycbh" type="text" value="{{warrantyClaimModel.address}}" maxlength="128" id="txtdiachi_ycbh"
+                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
+                        placeholder="Nhập tối đa 128 ký tự" /> <span id="rfvdiachi_ycbh"
+                        style="color:Red;display:none;">Lỗi, vì bạn chưa nhập địa chỉ.</span>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">ĐT liên hệ:<label
+                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                <div class="col-sm-8 col-xs-6">
+                    <input name="txtsdt2" type="text" id="txtsdt2" value="{{warrantyClaimModel.phone}}"
+                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /> <span id="rfvsdt2"
+                        style="color:Red;display:none;">Lỗi, vì bạn chưa nhập SĐT.</span>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">ĐT khác:</div>
+                <div class="col-sm-8 col-xs-6">
+                    <input name="txtsdt3" type="text" value="{{warrantyClaimModel.phone2}}" id="txtsdt3"
+                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" />
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Địa chỉ Email:</div>
+                <div class="col-sm-8 col-xs-6">
+                    <input name="txtemail_ycbh" type="text" value="{{warrantyClaimModel.email}}" id="txtemail_ycbh"
+                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
+                        placeholder="Email nhận thông tin mã phiếu sửa chữa" />
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+                <span id="lblabc"></span>
+            </div>
+            </form>
+            <div class="col-sm-6 col-xs-12 pdl60">
+
+                <p class="font-size-16 color-green font-bold">Thông tin sản phẩm</p>
+
+                <span id="UpdatePanel4">
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Serial:</div>
+                    <div class="col-sm-8 col-xs-6">
+                        <input name="txtSerial_YCBH" type="text" value="{{warrantyClaimModel.serial}}"
+                             id="txtSerial_YCBH" class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" />
+                        <span id="rfvSerial_YCBH" style="color:Red;display:none;">Lỗi, vì không tìm thấy Serial trong hệ
+                            thống.</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Tên sản phẩm:</div>
+                    <div class="col-sm-8 col-xs-6">
+                        <input name="txtten_vt" type="text" id="txtten_vt" value="{{warrantyClaimModel.productName}}"
+                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" />
+
+
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Model sản phẩm: <label
+                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                    <div class="col-sm-8 col-xs-6">
+                        <input name="txtmodel" type="text" id="txtmodel" value="{{warrantyClaimModel.modelProduct}}"
+                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /><span id="rfvmodel"
+                            style="color:Red;display:none;">Lỗi, vì bạn chưa nhập Model.</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                </span>
+
+                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Mô tả lỗi: <label
+                        class="color-orange vertical-align-middle">&nbsp;*</label></div>
+                <div class="col-sm-8 col-xs-6">
+                    <textarea name="txtmota_loi" rows="3" cols="20" id="txtmota_loi" value="{{warrantyClaimModel.description}}"
+                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+</textarea> <span id="rfvmota_loi" style="color:Red;display:none;">Lỗi, vì bạn chưa mô tả lỗi.</span>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+
+                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Mã xác nhận: <label
+                        class="color-orange vertical-align-middle">&nbsp;*</label></div>
+                <div class="col-sm-8 col-xs-8">
+                    <input name="txtCode_YCBH" type="text" id="txtCode_YCBH"
+                        class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x" />
+                    <label class="cr-4" style="padding: 3px 30px;">
+                        709742
+                    </label>
+                    <span id="rfvCode_YCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập mã xác nhận.</span>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+
+                <div class="col-sm-push-4 col-sm-8 col-xs-12">
+                    <p class="color-orange mg0 mg0x">Lưu ý: Dòng có dấu (*) là bắt buộc</p>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <input type="submit" name="cmdYCBH" value="Gửi yêu cầu"
+                       id="cmdYCBH" class="cr-3 mgb10 mgb10x mgr5 mgr5x" />
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+
+
+        </div>
+    </div>

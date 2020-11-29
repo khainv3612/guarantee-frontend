@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from "@angular/router";
 import {AuthService} from "./service/auth-service";
 import {Observable} from "rxjs";
+import {SignInComponent} from "./Auth/sign-in/sign-in.component";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class AuthGuard implements CanActivate {
     if (isAuthenticated) {
       return true;
     } else {
-      this.router.navigateByUrl('/login');
+      this.authService.openDialog(SignInComponent);
+      // this.router.navigateByUrl('/login');
     }
   }
 

@@ -17,6 +17,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.component';
 import {AuthGuard} from "./auth.guard";
+import {ViewStationComponent} from './view/view-station/view-station.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {AuthGuard} from "./auth.guard";
     ForgotPassComponent,
     ChinhsachhdComponent,
     ViewchinhsachhdComponent,
+    ViewStationComponent,
   ],
   imports: [
     HttpClientModule,
@@ -45,6 +47,7 @@ import {AuthGuard} from "./auth.guard";
       {path: 'sign-in', component: SignInComponent},
       {path: 'admin/chinhsachhd', component: ChinhsachhdComponent, canActivate: [AuthGuard]},
       {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
+      {path: 'station', component: ViewStationComponent},
     ]),
   ],
   providers: [],

@@ -1,0 +1,9 @@
+.save-btn{
+  color: #ffffff;
+  font-size: 13px;
+  height: 25px;
+  font-family: arial, verdana, helvetica, sans-serif;
+  background-color: #24b700;
+  border: 0px;
+  cursor: pointer;
+}

@@ -2,10 +2,19 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
+import {Const} from "../app/const";
+const domainUrl = 'http://localhost:8080/';
+
 export const environment = {
   production: false,
-  URL_API_AUTH: 'http://localhost:8080/api/auth/',
-  URL_API_POLICY: 'http://localhost:8080/api/policy/',
+  URL_API_AUTH: domainUrl + 'api/auth/',
+  URL_API_POLICY: domainUrl + 'api/policy/',
+  URL_API_PROVINCE: domainUrl + 'api/province/',
+  URL_API_DISTRICT: domainUrl + 'api/district/',
+  URL_API_WARD: domainUrl + 'api/ward/',
+  URL_API_TYPESTATION: domainUrl + 'api/type-station/',
+  URL_API_STATION: domainUrl + 'api/station/',
 };
 
 /*

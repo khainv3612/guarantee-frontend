@@ -1,0 +1,19 @@
+.capcha-forgot {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  font-size: 15px;
+  font-weight: bold;
+  display: inline-block;
+  background: #aeacac;
+  color: #12620f;
+  padding: 2px 5px 2px;
+  border: 0;
+  border: 1px solid #ddd;
+  transition: all 0.5s;
+  text-transform: uppercase;
+  vertical-align: top;
+}

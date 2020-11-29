@@ -12,10 +12,14 @@
 
         <div class="pad_t20" style="width:100%;">Mã an toàn:</div>
         <div class="pad_t5" style="width:100%;"><input name="txtCode" type="text" id="txtCode" class="tbox_24"
-                                                       placeholder="Mã an toàn" style="width:190px;"/>&nbsp;<span
-                id="RequiredFieldValidator1" class="cred2" style="color:Red;display:none;">*</span>&nbsp;<img
-                id="imgCode_Reg" class="align_midle" src="code8ab3.gif?id=68094"
-                style="height:24px;width:60px;border-width:0px;"/></div>
+                                                       placeholder="Mã an toàn" style="width:180px;"/>&nbsp;<span
+                id="RequiredFieldValidator1" class="cred2" style="color:Red;display:none;">*</span>&nbsp;
+<!--          <img-->
+<!--                id="imgCode_Reg"  src="code8ab3.gif?id=68094"-->
+<!--                style="height:24px;width:60px;border-width:0px;"/>-->
+          <label readonly="true" class="capcha-forgot" style="background: #ddd;">
+            {{capcha}}
+          </label></div>
 
         <div class="pad_t10" style="width:100%;"></div>
 

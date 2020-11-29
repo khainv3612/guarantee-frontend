@@ -1,273 +1,202 @@
 <div id="pnlDangKi">
 
-    <div class="wrap bg-color-white">
-        <div class="container pdl20 pdr20 pdt10 pdb30 pdt10x pdb30x">
-            <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">Đăng kí thành
-                viên</h3>
-            <p class="mgt15 mgt15x text-center">
-                Quý khách có yêu cầu về đăng kí bảo hành sản phẩm, vui lòng điền đầy đủ thông tin dưới đây và gửi về
-                cho chúng tôi.<br/>
-                Nhân viên chăm sóc khách hàng sẽ liên hệ với quý khách để hỗ trợ trong thời gian sớm nhất.
-            </p>
-            <img src="assets/images/icon/icon-line.png" alt="kangaroo.vn"
-                 class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
-            <div class="clearfix"></div>
+  <div class="wrap bg-color-white">
+    <div class="container pdl20 pdr20 pdt10 pdb30 pdt10x pdb30x">
+      <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">Đăng kí thành
+        viên</h3>
+      <p class="mgt15 mgt15x text-center">
+        Quý khách có yêu cầu về đăng kí bảo hành sản phẩm, vui lòng điền đầy đủ thông tin dưới đây và gửi về
+        cho chúng tôi.<br/>
+        Nhân viên chăm sóc khách hàng sẽ liên hệ với quý khách để hỗ trợ trong thời gian sớm nhất.
+      </p>
+      <img src="assets/images/icon/icon-line.png" alt="kangaroo.vn"
+           class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+      <div class="clearfix"></div>
 
-            <div class="col-sm-6 col-xs-12 pdr60">
-                <p class="font-size-16 color-green font-bold">Thông tin NPP, Đại lý, Cộng tác viên </p>
+      <div class="col-sm-6 col-xs-12 pdr60">
+        <p class="font-size-16 color-green font-bold">Thông tin NPP, Đại lý, Cộng tác viên </p>
 
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Đối tượng: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-6">
-                    <select name="drpDoiTuong" id="drpDoiTuong"
-                            class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
-                        <option value="-">-</option>
-                        <option value="1">Đại l&#253;</option>
-                        <option value="2">Nh&#224; ph&#226;n phối</option>
-                        <option value="3">Kỹ thuật vi&#234;n lắp đặt</option>
-                        <option value="4">Kh&#225;ch h&#224;ng</option>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Đối tượng: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-6">
+          <select name="drpDoiTuong" id="drpDoiTuong"
+                  class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
+            <option *ngFor="let type of lstTypeStation" value="{{type.id}}">{{type.type}}</option>
 
-                    </select>
-                    <span id="rfvDoiTuong" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn đối tượng.</span>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x">Tên cửa hàng: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtten_ch" type="text" id="txtten_ch"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span id="rfvten_ch"
-                                                                                                      style="color:Red;display:none;">Lỗi, vì bạn chưa nhập tên cửa hàng.</span>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
 
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">SĐT: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtUName" type="text" id="txtUName"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
-                           placeholder="Dùng để đăng nhập hệ thống"/> <span id="rfvUName"
-                                                                            style="color:Red;display:none;">Lỗi, vì bạn chưa nhập sđt.</span>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
+          </select>
+          <span id="rfvDoiTuong" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn đối tượng.</span>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x">Tên cửa hàng: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtten_ch" type="text" id="txtten_ch"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span id="rfvten_ch"
+                                                                                            style="color:Red;display:none;">Lỗi, vì bạn chưa nhập tên cửa hàng.</span>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
 
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Mật khẩu: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtPass" type="text" id="txtPass"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x pass"/> <span
-                        id="rfvPass" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập mật khẩu.</span>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">SĐT: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtUName" type="text" id="txtUName"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
+                 placeholder="Dùng để đăng nhập hệ thống"/> <span id="rfvUName"
+                                                                  style=" color:Red;display:none;">Lỗi, vì bạn chưa nhập sđt.</span>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
 
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Nhập lại mật khẩu: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtRePass" type="text" id="txtRePass"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x pass"/> <span
-                        id="rfvRePass" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập mật khẩu.</span>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Mật khẩu: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtPass" type="text" id="txtPass"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x pass"/> <span
+          id="rfvPass" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập mật khẩu.</span>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
 
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Email: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtEmail" type="text" id="txtEmail"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span id="rfvEmail"
-                                                                                                      style="color:Red;display:none;">Lỗi, vì bạn chưa nhập email.</span>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Nhập lại mật khẩu: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtRePass" type="text" id="txtRePass"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x pass"/> <span
+          id="rfvRePass" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập mật khẩu.</span>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
 
-                <span id="UpdatePanel1">
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Email: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtEmail" type="text" id="txtEmail"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span id="rfvEmail"
+                                                                                            style="color:Red;display:none;">Lỗi, vì bạn chưa nhập email.</span>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+
+        <span id="UpdatePanel1">
                         <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x">Tỉnh/ Thành phố: <label
-                                class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                          class="color-orange vertical-align-middle">* &nbsp;</label></div>
                         <div class="col-sm-8 col-xs-6">
                             <select name="drpTinhE"
-                                    onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;drpTinhE\&#39;,\&#39;\&#39;)&#39;, 0)"
-                                    id="drpTinhE"
+                                    (change)="getDistrict()"
+                                    id="drpTinhE" [(ngModel)]="provinceSelected"
                                     class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
 		<option selected="selected" value="-">-</option>
-		<option value="101">H&#224; Nội</option>
-		<option value="103">Hải Ph&#242;ng</option>
-		<option value="105">H&#224; T&#226;y</option>
-		<option value="107">Hải Dương</option>
-		<option value="109">Hưng Y&#234;n</option>
-		<option value="111">H&#224; Nam</option>
-		<option value="113">Nam Định</option>
-		<option value="115">Th&#225;i B&#236;nh</option>
-		<option value="117">Ninh B&#236;nh</option>
-		<option value="201">H&#224; Giang</option>
-		<option value="203">Cao Bằng</option>
-		<option value="205">L&#224;o Cai</option>
-		<option value="207">Bắc Cạn</option>
-		<option value="209">Lạng Sơn</option>
-		<option value="211">Tuy&#234;n Quang</option>
-		<option value="213">Y&#234;n B&#225;i</option>
-		<option value="215">Th&#225;i Nguy&#234;n</option>
-		<option value="217">Ph&#250; Thọ</option>
-		<option value="219">Vĩnh Ph&#250;c</option>
-		<option value="221">Bắc Giang</option>
-		<option value="223">Bắc Ninh</option>
-		<option value="225">Quảng Ninh</option>
-		<option value="300">Khu vực 3</option>
-		<option value="301">Điện Bi&#234;n</option>
-		<option value="303">Sơn La</option>
-		<option value="305">Ho&#224; B&#236;nh</option>
-		<option value="401">Thanh Ho&#225;</option>
-		<option value="403">Nghệ An</option>
-		<option value="405">H&#224; Tĩnh</option>
-		<option value="407">Quảng B&#236;nh</option>
-		<option value="409">Quảng Trị</option>
-		<option value="411">Thừa Thi&#234;n - Huế</option>
-		<option value="501">Đ&#224; Nẵng</option>
-		<option value="503">Quảng Nam</option>
-		<option value="505">Quảng Ng&#227;i</option>
-		<option value="507">B&#236;nh Định</option>
-		<option value="509">Ph&#250; Y&#234;n</option>
-		<option value="511">Kh&#225;nh H&#242;a</option>
-		<option value="601">Kon Tum</option>
-		<option value="603">Gia Lai</option>
-		<option value="605">Đắk Lắk</option>
-		<option value="606">ĐakN&#244;ng</option>
-		<option value="701">Tp. HCM</option>
-		<option value="703">L&#226;m Đồng</option>
-		<option value="705">Ninh Thuận</option>
-		<option value="707">B&#236;nh Phước</option>
-		<option value="709">T&#226;y Ninh</option>
-		<option value="711">B&#236;nh Dương</option>
-		<option value="713">Đồng Nai</option>
-		<option value="715">B&#236;nh Thuận</option>
-		<option value="717">B&#224; Rịa - Vũng T&#224;u</option>
-		<option value="801">Long An</option>
-		<option value="803">Đồng Th&#225;p</option>
-		<option value="805">An Giang</option>
-		<option value="807">Tiền Giang</option>
-		<option value="809">Vĩnh Long</option>
-		<option value="811">Bến Tre</option>
-		<option value="813">Ki&#234;n Giang</option>
-		<option value="815">Cần Thơ</option>
-		<option value="817">Tr&#224; Vinh</option>
-		<option value="819">S&#243;c Trăng</option>
-		<option value="821">Bạc Li&#234;u</option>
-		<option value="823">C&#224; Mau</option>
-		<option value="824">Bộ QP</option>
-		<option value="825">Bộ CA</option>
-		<option value="827">Hậu Giang</option>
-		<option value="828">Lai Ch&#226;u</option>
-		<option value="829">S&#244;ng B&#233;</option>
-		<option value="913">Nha be</option>
-
-	</select>
+		<option *ngFor="let province of lstProvince" value="{{province.id}}">{{province.name}}</option>
+			</select>
                             <span id="rfvdTinhE" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn tỉnh/tp.</span>
                         </div><div class="clearfix mgb10 mgb10x"></div>
 				        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x">Quận/ Huyện: <label
-                                class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                  class="color-orange vertical-align-middle">* &nbsp;</label></div>
                         <div class="col-sm-8 col-xs-6">
                             <select name="drpHuyenE"
-                                    onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;drpHuyenE\&#39;,\&#39;\&#39;)&#39;, 0)"
+                                    (change)="getWard()"
+                                    [(ngModel)]="districtSelected"
                                     id="drpHuyenE"
                                     class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
-
+<option *ngFor="let district of lstDistrict" value="{{district.id}}">{{district.name}}</option>
 	</select>
                             <span id="rfvHuyenE"
                                   style="color:Red;display:none;">Lỗi, vì bạn chưa chọn quận/huyện.</span>
                         </div><div class="clearfix mgb10 mgb10x"></div>
                         <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x">Xã/ Phường: <label
-                                class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                          class="color-orange vertical-align-middle">* &nbsp;</label></div>
                         <div class="col-sm-8 col-xs-6">
                             <select name="drpXaE" id="drpXaE"
                                     class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
-
+<option *ngFor="let ward of lstWard" value="{{ward.id}}">{{ward.name}}</option>
 	</select>
                             <span id="rfvXaE" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn phường/xã.</span>
                             </div><div class="clearfix mgb10 mgb10x"></div>
                         </span>
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Địa chỉ: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtdia_chi" type="text" id="txtdia_chi"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span
-                        id="rfvdia_chi" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập địa chỉ.</span>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-            </div>
-            <div class="col-sm-6 col-xs-12">
-                <p class="font-size-16 color-white font-bold">kangaroo</p>
-
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Tên pháp nhân:</div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtphap_nhan" type="text" id="txtphap_nhan"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Người đại diện:</div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtdai_dien" type="text" id="txtdai_dien"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">CMTND/ Căn cước công dân: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtso_cmt" type="text" id="txtso_cmt"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span id="rfvso_cmt"
-                                                                                                      style="color:Red;display:none;">Lỗi, vì bạn chưa nhập liệu.</span>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Mã số thuế:</div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtmst" type="text" id="txtmst"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Giấy phép kinh doanh:</div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtgpkd" type="text" id="txtgpkd"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Ngân hàng:</div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtngan_hang" type="text" id="txtngan_hang"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Số tài khoản:</div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtso_tk" type="text" id="txtso_tk"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-
-                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Người thụ hưởng:</div>
-                <div class="col-sm-8 col-xs-6">
-                    <input name="txtchu_tk" type="text" id="txtchu_tk"
-                           class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-
-                <div class="col-sm-4 col-xs-4 font-size-14 mgt5 mgt5x ">Nhập mã xác nhận: <label
-                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                <div class="col-sm-8 col-xs-8">
-                    <input name="txtma_xacnhan" type="text" id="txtma_xacnhan"
-                           class="border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" style="width:235px;"/>
-                    <label class="cr-4" style="margin-left: 5px">
-                        951094
-                    </label>
-                </div>
-                <div class="clearfix mgb10 mgb10x"></div>
-
-                <div class="col-sm-push-4 col-sm-8 col-xs-12">
-                    <p class="color-orange mg0 mg0x">Lưu ý: Dòng có dấu (*) là bắt buộc</p>
-                    <p><span id="lblMsgDK" class="color-orange mg0 mg0x"></span></p>
-                    <div class="clearfix mgb10 mgb10x"></div>
-                    <input type="submit" name="cmdDangKy" value="Đăng ký"
-                           onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;cmdDangKy&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))"
-                           id="cmdDangKy" class="cr-3 mgb10 mgb10x mgr5 mgr5x"/>
-                    <input type="reset" value="Làm mới" class="cr-3 mgb10 mgb10x mgr5 mgr5x"/>
-                </div>
-            </div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Địa chỉ: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtdia_chi" type="text" id="txtdia_chi"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span
+          id="rfvdia_chi" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập địa chỉ.</span>
         </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <p class="font-size-16 color-white font-bold">kangaroo</p>
+
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Tên pháp nhân:</div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtphap_nhan" type="text" id="txtphap_nhan"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Người đại diện:</div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtdai_dien" type="text" id="txtdai_dien"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">CMTND/ Căn cước công dân: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtso_cmt" type="text" id="txtso_cmt"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span id="rfvso_cmt"
+                                                                                            style="color:Red;display:none;">Lỗi, vì bạn chưa nhập liệu.</span>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Mã số thuế:</div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtmst" type="text" id="txtmst"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Giấy phép kinh doanh:</div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtgpkd" type="text" id="txtgpkd"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Ngân hàng:</div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtngan_hang" type="text" id="txtngan_hang"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Số tài khoản:</div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtso_tk" type="text" id="txtso_tk"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+
+        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Người thụ hưởng:</div>
+        <div class="col-sm-8 col-xs-6">
+          <input name="txtchu_tk" type="text" id="txtchu_tk"
+                 class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+
+        <div class="col-sm-4 col-xs-4 font-size-14 mgt5 mgt5x ">Nhập mã xác nhận: <label
+          class="color-orange vertical-align-middle">* &nbsp;</label></div>
+        <div class="col-sm-8 col-xs-8">
+          <input name="txtma_xacnhan" type="text" id="txtma_xacnhan"
+                 class="border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" style="width:235px;"/>
+          <label class="cr-4 capcha" style="margin-left: 5px" readonly="true">
+            {{capcha}}
+          </label>
+        </div>
+        <div class="clearfix mgb10 mgb10x"></div>
+
+        <div class="col-sm-push-4 col-sm-8 col-xs-12">
+          <p class="color-orange mg0 mg0x">Lưu ý: Dòng có dấu (*) là bắt buộc</p>
+          <p><span id="lblMsgDK" class="color-orange mg0 mg0x"></span></p>
+          <div class="clearfix mgb10 mgb10x"></div>
+          <input type="submit" name="cmdDangKy" value="Đăng ký"
+                 onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;cmdDangKy&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))"
+                 id="cmdDangKy" class="cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+          <input type="reset" value="Làm mới" class="cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+        </div>
+      </div>
     </div>
+  </div>
 
 </div>

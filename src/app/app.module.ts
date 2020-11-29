@@ -15,6 +15,8 @@ import {EditorModule} from '@tinymce/tinymce-angular';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
+import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.component';
+import {AuthGuard} from "./auth.guard";
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import {AppRoutingModule} from './app-routing.module';
     SignInComponent,
     ForgotPassComponent,
     ChinhsachhdComponent,
+    ViewchinhsachhdComponent,
   ],
   imports: [
     HttpClientModule,
@@ -37,9 +40,11 @@ import {AppRoutingModule} from './app-routing.module';
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot([
+      {path: 'home', component: ViewchinhsachhdComponent},
       {path: 'sign-up', component: SignUpComponent},
       {path: 'sign-in', component: SignInComponent},
-      {path: 'admin/chinhsachhd', component: ChinhsachhdComponent},
+      {path: 'admin/chinhsachhd', component: ChinhsachhdComponent, canActivate: [AuthGuard]},
+      {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
     ]),
   ],
   providers: [],

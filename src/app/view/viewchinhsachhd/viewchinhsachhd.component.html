@@ -3,7 +3,7 @@
   <div id="pnlInfo">
 
     <div class="wrap bg-color-white">
-      <div class="container pdl0 pdr0 pdt10  pdt10x ">
+      <div class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
 
         <p class="mgt15 mgt15x text-center">Thông tin về chính sách bảo hành, hướng dẫn kích hoạt bảo hành,
           hướng dẫn tra cứu hạn bảo hành</p>
@@ -19,18 +19,11 @@
         </p>
         <img src="assets/images/icon/icon-line.png" alt="kangaroo.vn"
              class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+<!--        <div>-->
+          <span [innerHTML]="policy.content"></span>
+<!--        </div>-->
       </div>
     </div>
-    <form [formGroup]="policyForm" (ngSubmit)="savePolicy()">
-      <div class="form-group">
-        <button class="save-btn" style="float:right;" type="submit">SAVE</button>
-        <label class="post-content">Content</label>
-        <editor apiKey="46cgjpsw26c04md2bv7slhzvuf034btn6qsb3akrj1mieps5"
-                [formControlName]="'body'" [init]="editorConfig"></editor>
-
-      </div>
-    </form>
   </div>
-
 
 </div>

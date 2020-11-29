@@ -17,6 +17,11 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.component';
 import {AuthGuard} from "./auth.guard";
+import {KichHoatBaoHanhComponent} from './view/kich-hoat-bao-hanh/kich-hoat-bao-hanh.component';
+import {TraCuuHanBaoHanhComponent} from './view/tra-cuu-han-bao-hanh/tra-cuu-han-bao-hanh.component';
+import {TraCuuYeuCauBaoHanhComponent} from './view/tra-cuu-yeu-cau-bao-hanh/tra-cuu-yeu-cau-bao-hanh.component';
+import {TramBaoHanhComponent} from './view/tram-bao-hanh/tram-bao-hanh.component';
+import {YeuCauBaoHanhComponent} from './view/yeu-cau-bao-hanh/yeu-cau-bao-hanh.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,11 @@ import {AuthGuard} from "./auth.guard";
     ForgotPassComponent,
     ChinhsachhdComponent,
     ViewchinhsachhdComponent,
+    KichHoatBaoHanhComponent,
+    TraCuuHanBaoHanhComponent,
+    TraCuuYeuCauBaoHanhComponent,
+    TramBaoHanhComponent,
+    YeuCauBaoHanhComponent
   ],
   imports: [
     HttpClientModule,
@@ -45,6 +55,12 @@ import {AuthGuard} from "./auth.guard";
       {path: 'sign-in', component: SignInComponent},
       {path: 'admin/chinhsachhd', component: ChinhsachhdComponent, canActivate: [AuthGuard]},
       {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
+      {path: 'kich-hoat-bao-hanh', component: KichHoatBaoHanhComponent},
+      {path: 'tra-cuu-han-bao-hanh', component: TraCuuHanBaoHanhComponent},
+      {path: 'yeu-cau-bao-hanh', component: YeuCauBaoHanhComponent},
+      {path: 'tra-cuu-yeu-cau-bao-hanh', component: TraCuuYeuCauBaoHanhComponent},
+      {path: 'tram-bao-hanh', component: TramBaoHanhComponent},
+
     ]),
   ],
   providers: [],

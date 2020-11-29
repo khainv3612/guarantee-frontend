@@ -22,13 +22,16 @@ export class YeucaubaohanhComponent implements OnInit {
       productName: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       modelProduct: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       serial: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
-      description: new FormControl('',[Validators.required,Validators.maxLength(200),Validators.minLength(5)])
+      description: new FormControl('',[Validators.required,Validators.maxLength(200),Validators.minLength(5)]),
+      province: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
+      district: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
+      ward: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)])
     })
   }
   ngOnInit(): void {
 
   }
   warrantyClaim(){
-    console.log("aa");
+    console.log(this.warrantyClaimFrom)
   }
 }

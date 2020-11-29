@@ -18,6 +18,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.component';
 import {AuthGuard} from "./auth.guard";
 import { YeucaubaohanhComponent } from './view/yeucaubaohanh/yeucaubaohanh.component';
+import {ViewStationComponent} from './view/view-station/view-station.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { YeucaubaohanhComponent } from './view/yeucaubaohanh/yeucaubaohanh.compo
     ChinhsachhdComponent,
     ViewchinhsachhdComponent,
     YeucaubaohanhComponent,
+    ViewStationComponent
   ],
   imports: [
     HttpClientModule,
@@ -47,6 +49,7 @@ import { YeucaubaohanhComponent } from './view/yeucaubaohanh/yeucaubaohanh.compo
       {path: 'sign-in', component: SignInComponent},
       {path: 'admin/chinhsachhd', component: ChinhsachhdComponent, canActivate: [AuthGuard]},
       {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
+      {path: 'station', component: ViewStationComponent},
     ]),
   ],
   providers: [],

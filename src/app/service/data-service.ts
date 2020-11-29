@@ -6,6 +6,7 @@ import {environment} from "../../environments/environment";
 import {District} from "../model/District";
 import {Ward} from "../model/Ward";
 import {TypeStation} from "../model/TypeStation";
+import {Station} from "../model/Station";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class DataService {
   urlDistrict = environment.URL_API_DISTRICT;
   urlWard = environment.URL_API_WARD;
   urlTypeStation = environment.URL_API_TYPESTATION;
+  urlStation = environment.URL_API_STATION;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -24,15 +26,19 @@ export class DataService {
     return this.httpClient.get<Province[]>(this.urlProvince + 'all');
   }
 
-  getDistrict(id: number): Observable<District[]> {
-    return this.httpClient.get<District[]>(this.urlDistrict + 'provinceid/' + id);
+  getDistrict(proname: string): Observable<District[]> {
+    return this.httpClient.get<District[]>(this.urlDistrict + 'get/' + proname);
   }
 
-  getWard(id: number): Observable<Ward[]> {
-    return this.httpClient.get<Ward[]>(this.urlWard + 'districtid/' + id);
+  getWard(proname: string, district: string): Observable<Ward[]> {
+    return this.httpClient.get<Ward[]>(this.urlWard + 'get/' + proname + '/' + district);
   }
 
   getTypeStation(): Observable<TypeStation[]> {
     return this.httpClient.get<TypeStation[]>(this.urlTypeStation + 'all');
+  }
+
+  getAllStation(): Observable<Station[]> {
+    return this.httpClient.get<Station[]>(this.urlStation + 'getall');
   }
 }

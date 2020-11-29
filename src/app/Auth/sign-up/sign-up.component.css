@@ -7,3 +7,14 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
+
+/*#msg-register {*/
+/*  animation: cssAnimation 0s 2s forwards;*/
+/*  visibility: visible;*/
+/*}*/
+
+/*@keyframes cssAnimation {*/
+/*  to   { visibility: hidden; }*/
+/*}*/
+
+

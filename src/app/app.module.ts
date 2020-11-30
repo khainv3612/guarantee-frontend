@@ -8,7 +8,7 @@ import {FooterComponent} from './footer/footer.component';
 import {SignUpComponent} from './Auth/sign-up/sign-up.component';
 import {SignInComponent} from './Auth/sign-in/sign-in.component';
 import {ForgotPassComponent} from './Auth/forgot-pass/forgot-pass.component';
-import {ChinhsachhdComponent} from './admin/chinhsachhd/chinhsachhd.component';
+import {ChinhsachhdComponent} from './manage/chinhsachhd/chinhsachhd.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {EditorModule} from '@tinymce/tinymce-angular';

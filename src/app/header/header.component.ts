@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {AuthService} from '../service/auth-service';
 import {SignInComponent} from '../Auth/sign-in/sign-in.component';
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import {SignInComponent} from '../Auth/sign-in/sign-in.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private authService: AuthService) {
+  constructor(public dialog: MatDialog, public authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -18,6 +19,16 @@ export class HeaderComponent implements OnInit {
 
   openDialogSignIn(): void {
     this.authService.openDialog(SignInComponent);
+  }
+
+  logOut() {
+    this.authService.logOut().subscribe(result => {
+      sessionStorage.clear();
+      sessionStorage.setItem('user', 'anonymous');
+      this.router.navigate(['/']);
+    }, error => {
+      console.log(error);
+    })
   }
 
 }

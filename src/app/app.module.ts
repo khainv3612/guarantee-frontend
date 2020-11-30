@@ -19,6 +19,7 @@ import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.c
 import {AuthGuard} from "./auth.guard";
 import {ViewStationComponent} from './view/view-station/view-station.component';
 import * as $ from 'jquery';
+import {ManageStationComponent} from './manage/manage-station/manage-station.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import * as $ from 'jquery';
     ChinhsachhdComponent,
     ViewchinhsachhdComponent,
     ViewStationComponent,
+    ManageStationComponent,
   ],
   imports: [
     HttpClientModule,
@@ -47,6 +49,7 @@ import * as $ from 'jquery';
       {path: 'sign-up', component: SignUpComponent},
       {path: 'sign-in', component: SignInComponent},
       {path: 'manage/chinhsachhd', component: ChinhsachhdComponent, canActivate: [AuthGuard]},
+      {path: 'manage/station', component: ManageStationComponent, canActivate: [AuthGuard]},
       {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
       {path: 'station', component: ViewStationComponent},
     ]),

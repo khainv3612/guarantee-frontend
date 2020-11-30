@@ -42,11 +42,12 @@ export class SignInComponent implements OnInit {
     this.authService.login(this.loginPayload).subscribe(data => {
 
       this.isLogined = true;
-      sessionStorage.setItem('role', data.role)
+      sessionStorage.setItem('user', JSON.stringify({'username': data.username, 'role': data.role}));
       this.dialogRef.close();
       this.router.navigateByUrl('/manage/chinhsachhd');
     }, error => {
-      console.log(error);
+      sessionStorage.removeItem('user');
+      sessionStorage.setItem('user', 'anonymous');
       this.isLogined = false;
     });
   }

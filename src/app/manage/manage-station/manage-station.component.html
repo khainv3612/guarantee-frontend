@@ -1,0 +1,82 @@
+<div id="pnlTramBaoHanh">
+  <div class="wrap bg-color-white">
+
+    <div class="container pdl0 pdr0 pdt10  pdt10x ">
+
+      <p class="mgt15 mgt15x text-center">Thông tin về chính sách bảo hành, hướng dẫn kích hoạt bảo hành,
+        hướng dẫn tra cứu hạn bảo hành</p>
+      <p class="mgt20 mgt20x text-center"><a class="cursor-pointer"
+                                             style='color:orange;'>CHÍNH
+        SÁCH BẢO
+        HÀNH</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="cursor-pointer">CHÍNH SÁCH
+        BẢO
+        MẬT
+        THÔNG TIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="cursor-pointer">HƯỚNG
+        DẪN SỬ
+        DỤNG</a>
+      </p>
+      <img src="assets/images/icon/icon-line.png" alt="kangaroo.vn"
+           class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+    </div>
+
+    <div class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
+      <strong><h3 class="color-gray-2 font-bold font-size-18 text-uppercase mgt20 mgt20x">Trạm bảo hành</h3></strong>
+      <p class="mgt15 mgt15x">Địa chỉ các TTBHUQ của KANGAROO trên toàn quốc.</p>
+      <form [formGroup]="formFilter" (submit)="filter()">
+        <div class="pull-left">
+          <label for="txtSearch"></label><input [formControlName]="'name'" name="txtSearch" type="text"
+                                                id="txtSearch"
+                                                class="width-200px btn height-30 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
+                                                placeholder="Tìm kiếm"/>
+          <span style="padding-left: 5px">
+                        <select name="drpVung" id="drpVung" [formControlName]="'area'"
+                                class="width-100px height-30 text-align btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
+		<option selected="selected" value="">-</option>
+		<option value="North">Miền Bắc</option>
+		<option value="Central">Miền Trung</option>
+		<option value="South">Miền Nam</option>
+
+	</select>
+           </span>
+          <span style="padding-left: 5px">
+                        <select name="drpTinh" id="drpTinh" [formControlName]="'province'"
+                                class="width-200px height-30 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
+		<option value="all">-</option>
+		<option *ngFor="let province of lstAllProvince" value="{{province.name}}">{{province.name}}</option>
+
+	</select>
+        </span>
+          <span style="padding-left: 5px">
+        <input type="submit" name="cmdSearch" value="Tìm kiếm"
+
+               id="cmdSearch" class="height-30 cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+        </span>
+
+        </div>
+      </form>
+      <div class="clearfix"></div>
+      <div class="table-responsive mgt20 mgt20x">
+        <div>
+          <table [cellSpacing]="0" border="1" id="grd_Tram" style="width:100%;border-collapse:collapse;">
+            <tr style="background-color:Silver;font-size:12px;height:30px;">
+              <th scope="col" class="text-center">TT</th>
+              <th scope="col" style="padding: 10px">T&#234;n trạm</th>
+              <th scope="col" style="padding: 10px">Địa chỉ</th>
+              <th class="text-center" scope="col">Điện thoại</th>
+              <th class="text-center" scope="col">Tỉnh th&#224;nh</th>
+            </tr>
+            <tr *ngFor="let station of lstFilterStation" style="font-size:12px;height:22px;">
+              <th scope="col" class="text-center">{{station.id}}</th>
+              <th scope="col" style="padding: 10px">{{station.name}}</th>
+              <th scope="col" style="padding: 10px">{{station.address}}</th>
+              <th class="text-center" scope="col">{{station.phone}}</th>
+              <th class="text-center" scope="col">{{station.province}}</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="clearfix mgt30 mgt30x"></div>
+    </div>
+  </div>
+
+</div>

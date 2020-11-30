@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return sessionStorage.getItem('role') != null;
+    return this.getCurrentUser() != null && this.getCurrentUser() != 'anonymous';
   }
 
   registerStation(station: Station) {
@@ -48,6 +48,18 @@ export class AuthService {
 
   login(user: LoginRequest): Observable<Account> {
     return this.httpClient.post<Account>(this.urlAuth + 'login', user);
+  }
+
+  getCurrentUser() {
+    if (sessionStorage.getItem('user') != 'anonymous') {
+      const user = JSON.parse(sessionStorage.getItem('user'));
+      return user;
+    }
+    return sessionStorage.getItem('user');
+  }
+
+  logOut() {
+    return this.httpClient.get(this.urlAuth + 'logout');
   }
 
 }

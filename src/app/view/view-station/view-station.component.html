@@ -6,17 +6,17 @@
       <p class="mgt15 mgt15x">Địa chỉ các TTBHUQ của KANGAROO trên toàn quốc.</p>
       <form [formGroup]="formFilter" (submit)="filter()">
         <div class="pull-left">
-          <label for="txtSearch"></label><input [formControlName]="'stationName'" name="txtSearch" type="text"
+          <label for="txtSearch"></label><input [formControlName]="'name'" name="txtSearch" type="text"
                                                 id="txtSearch"
                                                 class="width-200px btn height-30 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
                                                 placeholder="Tìm kiếm"/>
           <span style="padding-left: 5px">
                         <select name="drpVung" id="drpVung" [formControlName]="'area'"
                                 class="width-100px height-30 text-align btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
-		<option selected="selected" value="0">-</option>
-		<option value="1">Miền Bắc</option>
-		<option value="2">Miền Trung</option>
-		<option value="3">Miền Nam</option>
+		<option selected="selected" value="">-</option>
+		<option value="North">Miền Bắc</option>
+		<option value="Central">Miền Trung</option>
+		<option value="South">Miền Nam</option>
 
 	</select>
            </span>
@@ -47,7 +47,7 @@
               <th class="text-center" scope="col">Điện thoại</th>
               <th class="text-center" scope="col">Tỉnh th&#224;nh</th>
             </tr>
-            <tr *ngFor="let station of lstAllStation" style="font-size:12px;height:22px;">
+            <tr *ngFor="let station of lstFilterStation" style="font-size:12px;height:22px;">
               <th scope="col" class="text-center">{{station.id}}</th>
               <th scope="col" style="padding: 10px">{{station.name}}</th>
               <th scope="col" style="padding: 10px">{{station.address}}</th>

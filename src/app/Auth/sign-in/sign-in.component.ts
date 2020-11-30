@@ -44,7 +44,7 @@ export class SignInComponent implements OnInit {
       this.isLogined = true;
       sessionStorage.setItem('role', data.role)
       this.dialogRef.close();
-      this.router.navigateByUrl('/chinhsachhd');
+      this.router.navigateByUrl('/manage/chinhsachhd');
     }, error => {
       console.log(error);
       this.isLogined = false;

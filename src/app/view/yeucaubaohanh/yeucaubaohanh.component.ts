@@ -47,7 +47,7 @@ export class YeucaubaohanhComponent implements OnInit {
 
   }
   warrantyClaim(){
-    this.dataService.saveWarrantyClaim(this.convertWarranty());
+    this.dataService.saveWarrantyClaim(this.convertWarranty()).subscribe(data => { console.log(data)},error => {console.log(error)});
   }
   convertWarranty():WarrantyClaimModel{
     this.warrantyClaimModel.address= this.warrantyClaimFrom.value.address;

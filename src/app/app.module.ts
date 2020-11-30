@@ -19,6 +19,7 @@ import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.c
 import {AuthGuard} from "./auth.guard";
 import { YeucaubaohanhComponent } from './view/yeucaubaohanh/yeucaubaohanh.component';
 import {ViewStationComponent} from './view/view-station/view-station.component';
+import { TracuubaohanhComponent } from './view/tracuubaohanh/tracuubaohanh.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ViewStationComponent} from './view/view-station/view-station.component';
     ChinhsachhdComponent,
     ViewchinhsachhdComponent,
     YeucaubaohanhComponent,
-    ViewStationComponent
+    ViewStationComponent,
+    TracuubaohanhComponent
   ],
   imports: [
     HttpClientModule,

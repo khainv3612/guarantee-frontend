@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { YeucaubaohanhComponent } from './view/yeucaubaohanh/yeucaubaohanh.component';
+import { TracuubaohanhComponent } from './view/tracuubaohanh/tracuubaohanh.component';
 
-const routes: Routes = [{path:'yeucaubaohanh',component: YeucaubaohanhComponent}];
+const routes: Routes = [{path:'yeucaubaohanh',component: YeucaubaohanhComponent},
+                        {path:'tra-cuu-yeu-cau-bao-hanh.html',component: TracuubaohanhComponent},
+                       ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

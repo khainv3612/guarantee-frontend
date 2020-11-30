@@ -18,6 +18,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.component';
 import {AuthGuard} from "./auth.guard";
 import {ViewStationComponent} from './view/view-station/view-station.component';
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [

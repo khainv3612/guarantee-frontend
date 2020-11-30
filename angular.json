@@ -31,7 +31,10 @@
               "src/assets/css/main.css",
               "src/assets/css/font-awesome.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/library.js"
+            ]
           },
           "configurations": {
             "production": {

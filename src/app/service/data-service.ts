@@ -1,12 +1,13 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, from} from "rxjs";
 import {Province} from "../model/Province";
 import {environment} from "../../environments/environment";
 import {District} from "../model/District";
 import {Ward} from "../model/Ward";
 import {TypeStation} from "../model/TypeStation";
 import {Station} from "../model/Station";
+import {WarrantyClaimModel} from "../model/WarrantyClaimModel";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class DataService {
   urlWard = environment.URL_API_WARD;
   urlTypeStation = environment.URL_API_TYPESTATION;
   urlStation = environment.URL_API_STATION;
+  urlWarranty = environment.URL_API_WARRANTYCLAIM;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -40,5 +42,9 @@ export class DataService {
 
   getAllStation(): Observable<Station[]> {
     return this.httpClient.get<Station[]>(this.urlStation + 'getall');
+  }
+
+  saveWarrantyClaim(warrantyClaimModel: WarrantyClaimModel) : Observable<boolean[]>{
+    return this.httpClient.post<any>(this.urlWarranty + "save",warrantyClaimModel);
   }
 }

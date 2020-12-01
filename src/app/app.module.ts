@@ -22,6 +22,13 @@ import {TraCuuHanBaoHanhComponent} from './view/tra-cuu-han-bao-hanh/tra-cuu-han
 import {TraCuuYeuCauBaoHanhComponent} from './view/tra-cuu-yeu-cau-bao-hanh/tra-cuu-yeu-cau-bao-hanh.component';
 import {TramBaoHanhComponent} from './view/tram-bao-hanh/tram-bao-hanh.component';
 import {YeuCauBaoHanhComponent} from './view/yeu-cau-bao-hanh/yeu-cau-bao-hanh.component';
+import {ViewStationComponent} from './view/view-station/view-station.component';
+import * as $ from 'jquery';
+import {ManageStationComponent} from './manage/manage-station/manage-station.component';
+import {MatIconModule} from '@angular/material/icon';
+import {AdminGuard} from "./Guard/admin/admin.guard";
+import {TecnicianGuard} from "./Guard/technician/tecnician.guard";
+import {SalerGuard} from "./Guard/saler/saler.guard";
 
 @NgModule({
   declarations: [
@@ -38,6 +45,8 @@ import {YeuCauBaoHanhComponent} from './view/yeu-cau-bao-hanh/yeu-cau-bao-hanh.c
     TraCuuYeuCauBaoHanhComponent,
     TramBaoHanhComponent,
     YeuCauBaoHanhComponent
+    ViewStationComponent,
+    ManageStationComponent,
   ],
   imports: [
     HttpClientModule,
@@ -49,12 +58,15 @@ import {YeuCauBaoHanhComponent} from './view/yeu-cau-bao-hanh/yeu-cau-bao-hanh.c
     EditorModule,
     ReactiveFormsModule,
     FormsModule,
+    MatIconModule,
     RouterModule.forRoot([
       {path: 'home', component: ViewchinhsachhdComponent},
       {path: 'sign-up', component: SignUpComponent},
       {path: 'sign-in', component: SignInComponent},
-      {path: 'admin/chinhsachhd', component: ChinhsachhdComponent, canActivate: [AuthGuard]},
+      {path: 'manage/station', component: ManageStationComponent, canActivate: [SalerGuard]},
+      {path: 'manage/chinhsachhd', component: ChinhsachhdComponent, canActivate: [TecnicianGuard]},
       {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
+      {path: 'station', component: ViewStationComponent},
       {path: 'kich-hoat-bao-hanh', component: KichHoatBaoHanhComponent},
       {path: 'tra-cuu-han-bao-hanh', component: TraCuuHanBaoHanhComponent},
       {path: 'yeu-cau-bao-hanh', component: YeuCauBaoHanhComponent},

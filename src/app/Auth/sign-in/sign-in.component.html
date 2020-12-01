@@ -7,6 +7,7 @@
         <div class="pad_t15" style="float:left; width:300px;">
           <input [formControlName]="'username'" name="txtuName" type="text" id="txtuName"
                  class="tbox_22 text_b12" style="width:270px;"/>
+          <!--          <span style="color: red" *ngIf="isNeedCheck&&!loginForm.get('username').valid"></span>-->
         </div>
         <div style="clear:both;"></div>
 
@@ -16,6 +17,12 @@
                  class="tbox_22 text_b12" style="width:270px;"/>
         </div>
         <div style="clear:both;"></div>
+        <div class="pad_t20" style="float:left; width:120px;"></div>
+        <div class="pad_t20" style="float:left; width:300px;">
+          <span style="color: red" *ngIf="!isValidate">Bạn phải nhập Tên tài khoản và Mật khẩu</span>
+          <span style="color: red" *ngIf="isValidate&&!isLogined">Tên tài khoản hoặc Mật khẩu không đúng</span>
+        </div>
+        <div style="clear:both;"></div>
 
         <div class="pad_t5" style="float:left; width:120px;">&nbsp;</div>
         <div class="pad_t5" style="float:left; width:300px;"></div>
@@ -23,6 +30,7 @@
 
         <div class="pad_t5" style="float:left; width:120px;">&nbsp;</div>
         <div class="pad_t5" style="float:left; width:300px;">
+
           <input type="submit" name="cmdLogin" value="Đăng nhập "
                  id="cmdLogin" class="cmd_01" style="width:80px;"/>
         </div>

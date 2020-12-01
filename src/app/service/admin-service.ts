@@ -10,6 +10,7 @@ import {environment} from '../../environments/environment';
 
 export class AdminService {
   urlPolicy = environment.URL_API_POLICY;
+  urlStation = environment.URL_API_STATION;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -20,5 +21,13 @@ export class AdminService {
 
   savePolicy(policy: Policy) {
     return this.httpClient.post(this.urlPolicy + 'save-policy', policy);
+  }
+
+  acceptStation(id: number) {
+    return this.httpClient.post(this.urlStation + 'accept', id);
+  }
+
+  removeStation(id: number) {
+    return this.httpClient.post(this.urlStation + 'remove', id);
   }
 }

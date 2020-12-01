@@ -43,7 +43,11 @@ export class DataService {
     return this.httpClient.get<Station[]>(this.urlStation + 'getall');
   }
 
-  // saveWarrantyClaim(warrantyClaimModel: WarrantyClaimModel) : Observable<boolean[]>{
-  //   return this.httpClient.post<any>(this.urlWarranty + "save",warrantyClaimModel);
-  // }
+  getAllStationPending(): Observable<Station[]> {
+    return this.httpClient.get<Station[]>(this.urlStation + 'all-pending');
+  }
+
+  getAllStationAccepted(): Observable<Station[]> {
+    return this.httpClient.get<Station[]>(this.urlStation + 'all-accepted');
+  }
 }

@@ -15,6 +15,8 @@ import {Router} from "@angular/router";
 export class SignInComponent implements OnInit {
   loginForm: FormGroup;
   loginPayload: LoginRequest;
+  isValidate = true;
+  isLogined = true;
   @Output() submitClicked = new EventEmitter<any>();
 
   constructor(public dialogRef: MatDialogRef<SignInComponent>, private authService: AuthService, private router: Router) {
@@ -32,22 +34,26 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.validateForm();
-    this.loginPayload.username = this.loginForm.get('username').value;
-    this.loginPayload.password = this.loginForm.get('password').value;
-    if (!this.loginForm.valid) {
-      console.log('Error;');
+    if (!this.validateForm()) {
       return;
     }
+    this.loginPayload.username = this.loginForm.get('username').value;
+    this.loginPayload.password = this.loginForm.get('password').value;
     this.authService.login(this.loginPayload).subscribe(data => {
-      if (data) {
-        console.log('login success');
-        this.dialogRef.close();
-        this.router.navigateByUrl('/homes');
-      } else {
-        console.log('Login failed');
-      }
+
+      this.isLogined = true;
+      sessionStorage.setItem('user', JSON.stringify({'username': data.username, 'role': data.role}));
+      this.dialogRef.close();
+      this.router.navigateByUrl('');
+    }, error => {
+      sessionStorage.removeItem('user');
+      sessionStorage.setItem('user', 'anonymous');
+      this.isLogined = false;
     });
+  }
+
+  validateForm(): boolean {
+    return this.isValidate = this.loginForm.valid;
   }
 
   openDialogForgot(): void {

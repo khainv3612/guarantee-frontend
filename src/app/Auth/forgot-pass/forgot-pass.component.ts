@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-forgot-pass',
@@ -8,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class ForgotPassComponent implements OnInit {
 
   capcha: number;
+  formForgot: FormGroup;
 
   constructor() {
+    this.formForgot = new FormGroup({
+      loginName: new FormControl(),
+      verifyCode: new FormControl()
+    })
   }
 
   ngOnInit(): void {
@@ -18,6 +24,9 @@ export class ForgotPassComponent implements OnInit {
 
   getCapcha(min, max) {
     this.capcha = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  onSubmit() {
   }
 
 }

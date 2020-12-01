@@ -5,6 +5,8 @@ import {Station} from "../model/Station";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {LoginRequest} from "../model/LoginRequest";
+import {Observable} from "rxjs";
+import {Account} from "../model/Account";
 
 @Injectable({
   providedIn: 'root'
@@ -37,15 +39,31 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return sessionStorage.retrieve('token') != null;
+    return this.getCurrentUser() != null && this.getCurrentUser() != 'anonymous';
   }
 
   registerStation(station: Station) {
     return this.httpClient.post(this.urlStation + 'register', station);
   }
 
-  login(user: LoginRequest) {
-    return this.httpClient.post(this.urlAuth + 'login', user);
+  login(user: LoginRequest): Observable<Account> {
+    return this.httpClient.post<Account>(this.urlAuth + 'login', user);
+  }
+
+  getCurrentUser() {
+    if (sessionStorage.getItem('user') != 'anonymous') {
+      const user = JSON.parse(sessionStorage.getItem('user'));
+      return user;
+    }
+    return sessionStorage.getItem('user');
+  }
+
+  logOut() {
+    return this.httpClient.get(this.urlAuth + 'logout');
+  }
+
+  getRole() {
+    return this.getCurrentUser().role;
   }
 
 }

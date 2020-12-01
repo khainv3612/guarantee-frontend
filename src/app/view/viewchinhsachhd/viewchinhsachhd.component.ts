@@ -11,6 +11,7 @@ import {AdminService} from "../../service/admin-service";
 export class ViewchinhsachhdComponent implements OnInit {
   firstPage = 1;
   policy: Policy;
+  menuTabPrevious: any = null;
 
   constructor(private routerActive: ActivatedRoute, private adminService: AdminService) {
   }
@@ -20,11 +21,20 @@ export class ViewchinhsachhdComponent implements OnInit {
   }
 
   getPolicy(id: number) {
+    this.setColorMenu('menu-tab', id - 1);
     this.adminService.getPolicy(id).subscribe(result => {
       this.policy = result;
     }, error => {
       console.log(error);
     });
+  }
+
+  setColorMenu(name: string, stt: number) {
+    if (null != this.menuTabPrevious)
+      this.menuTabPrevious.style.color = "";
+    const ele = document.getElementsByName(name)[stt];
+    ele.style.color = "orange";
+    this.menuTabPrevious = ele;
   }
 
 }

@@ -10,6 +10,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./chinhsachhd.component.css'],
 })
 export class ChinhsachhdComponent implements OnInit {
+  menuTabPrevious: any = null;
   firstPage = 1;
   idPolicy = this.firstPage;
   policy: Policy;
@@ -75,6 +76,7 @@ export class ChinhsachhdComponent implements OnInit {
   }
 
   getPolicy(id: number) {
+    this.setColorMenu('menu-tab', id - 1);
     this.idPolicy = id;
     this.adminService.getPolicy(id).subscribe(result => {
       this.policy = result;
@@ -93,6 +95,14 @@ export class ChinhsachhdComponent implements OnInit {
       console.log(error);
       alert('failed');
     })
+  }
+
+  setColorMenu(name: string, stt: number) {
+    if (null != this.menuTabPrevious)
+      this.menuTabPrevious.style.color = "";
+    const ele = document.getElementsByName(name)[stt];
+    ele.style.color = "orange";
+    this.menuTabPrevious = ele;
   }
 
 }

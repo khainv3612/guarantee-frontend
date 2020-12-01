@@ -62,4 +62,8 @@ export class AuthService {
     return this.httpClient.get(this.urlAuth + 'logout');
   }
 
+  getRole() {
+    return this.getCurrentUser().role;
+  }
+
 }

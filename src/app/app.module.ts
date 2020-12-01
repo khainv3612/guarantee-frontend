@@ -21,6 +21,9 @@ import {ViewStationComponent} from './view/view-station/view-station.component';
 import * as $ from 'jquery';
 import {ManageStationComponent} from './manage/manage-station/manage-station.component';
 import {MatIconModule} from '@angular/material/icon';
+import {AdminGuard} from "./Guard/admin/admin.guard";
+import {TecnicianGuard} from "./Guard/technician/tecnician.guard";
+import {SalerGuard} from "./Guard/saler/saler.guard";
 
 @NgModule({
   declarations: [
@@ -50,8 +53,8 @@ import {MatIconModule} from '@angular/material/icon';
       {path: 'home', component: ViewchinhsachhdComponent},
       {path: 'sign-up', component: SignUpComponent},
       {path: 'sign-in', component: SignInComponent},
-      {path: 'manage/chinhsachhd', component: ChinhsachhdComponent, canActivate: [AuthGuard]},
-      {path: 'manage/station', component: ManageStationComponent, canActivate: [AuthGuard]},
+      {path: 'manage/station', component: ManageStationComponent, canActivate: [SalerGuard]},
+      {path: 'manage/chinhsachhd', component: ChinhsachhdComponent, canActivate: [TecnicianGuard]},
       {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
       {path: 'station', component: ViewStationComponent},
     ]),

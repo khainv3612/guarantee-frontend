@@ -44,7 +44,7 @@ export class SignInComponent implements OnInit {
       this.isLogined = true;
       sessionStorage.setItem('user', JSON.stringify({'username': data.username, 'role': data.role}));
       this.dialogRef.close();
-      this.router.navigateByUrl('/manage/chinhsachhd');
+      this.router.navigateByUrl('');
     }, error => {
       sessionStorage.removeItem('user');
       sessionStorage.setItem('user', 'anonymous');

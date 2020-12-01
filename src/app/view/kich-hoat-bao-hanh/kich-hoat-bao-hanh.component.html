@@ -1,146 +1,202 @@
 <div id="pnlKichHoatBaoHanh">
 
-    <div class="wrap bg-color-white">
-        <div class="container pdl60 pdr60 pdt10 pdb30 pdt10x pdb30x">
-            <div class="pdl60 pdr60">
-                <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">kích hoạt bảo
-                    hành</h3>
-                <p class="mgt15 mgt15x text-center">Vui lòng điền đầy đủ các thông tin vào form dưới đây. Thông tin bạn
-                    cung cấp sẽ được hệ thống kích hoạt bảo hành điện tử cho sản phẩm của bạn</p>
-                <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
-                     class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
-                <div class="clearfix"></div>
+  <div class="wrap bg-color-white">
+    <div class="container pdl60 pdr60 pdt10 pdb30 pdt10x pdb30x">
+      <div class="pdl60 pdr60">
+        <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">kích hoạt bảo
+          hành</h3>
+        <p class="mgt15 mgt15x text-center">Vui lòng điền đầy đủ các thông tin vào form dưới đây. Thông tin bạn
+          cung cấp sẽ được hệ thống kích hoạt bảo hành điện tử cho sản phẩm của bạn</p>
+        <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
+             class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+        <div class="clearfix"></div>
 
-                <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+        <form [formGroup]="warrantyActiveForm" (ngSubmit)="onSubmit()">
 
-                    <p class="font-size-16 color-green font-bold">Thông tin khách hàng</p>
+          <div class="col-sm-6 col-xs-12 pdl30 pdr30">
 
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tên khách hàng: <label
-                            class="color-orange vertical-align-middle">*</label></div>
-                    <div class="col-sm-8 col-xs-6">
-                        <input name="txtten_kh" type="text" id="txtten_kh"
-                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                        <span id="rfvten_kh"
-                              style="color:Red;display:none;">Lỗi, vì bạn chưa nhập tên khách hàng.</span>
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">ĐT liên hệ: <label
-                            class="color-orange vertical-align-middle">*</label></div>
-                    <div class="col-sm-8 col-xs-6">
-                        <input name="txtsdt_kh" type="text" id="txtsdt_kh"
-                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                        <span id="rfvsdt_kh"
-                              style="color:Red;display:none;">Lỗi, vì bạn chưa nhập điện thoại.</span>
-                        <span id="revsdt_kh" style="color:Red;display:none;">Lỗi, vì sđt không hợp lệ</span>
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
+            <p class="font-size-16 color-green font-bold">Thông tin khách hàng</p>
 
-                    <span id="UpdatePanel2">
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tên khách hàng: <label
+              class="color-orange vertical-align-middle">*</label></div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="fullName" name="txtten_kh" type="text" id="txtten_kh"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+              <span id="rfvten_kh" style="color:Red"
+                    *ngIf="warrantyActiveForm.controls.fullName.hasError('required')
+                    && !isValidFormSubmitted && isValidFormSubmitted != null">
+                          Lỗi, vì bạn chưa nhập tên khách hàng.
+              </span>
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">ĐT liên hệ: <label
+              class="color-orange vertical-align-middle">*</label></div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="phone" name="txtsdt_kh" type="text" id="txtsdt_kh"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+              <span id="rfvsdt_kh" style="color:Red"
+                    *ngIf="warrantyActiveForm.controls.phone.hasError('required')
+                    && !isValidFormSubmitted && isValidFormSubmitted != null">
+                          Lỗi, vì bạn chưa nhập điện thoại.
+              </span>
+              <span id="revsdt_kh" style="color:Red"
+                    *ngIf="warrantyActiveForm.controls.phone.errors?.pattern
+                    || warrantyActiveForm.controls.phone.errors?.maxlength
+                    && !isValidFormSubmitted && isValidFormSubmitted != null">
+                Lỗi, vì sđt không hợp lệ
+              </span>
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <span id="UpdatePanel2">
                         <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tỉnh| Thành phố: <label
-                                class="color-orange vertical-align-middle">*</label></div>
+                          class="color-orange vertical-align-middle">*</label></div>
                         <div class="col-sm-8 col-xs-6">
-                            <select name="drpTinh_KH" id="drpTinh_KH"
+                            <select name="drpTinh_KH"
+                                    (change)="getDistrict()"
+                                    formControlName="province"
+                                    id="drpTinh_KH"
                                     class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
-
-	</select>
-                            <span id="rfvTinh_KH" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn tỉnh/tp.</span>
+                              <option selected="selected" value="">-</option>
+                              <option *ngFor="let province of lstProvince"
+                                      value="{{province.name}}">{{province.name}}
+                              </option>
+	                          </select>
+                            <span id="rfvTinh_KH" style="color:Red"
+                                  *ngIf="warrantyActiveForm.controls.province.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+                              Lỗi, vì bạn chưa chọn tỉnh/tp.
+                            </span>
                         </div>
                         <div class="clearfix mgb10 mgb10x"></div>
 				        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Quận huyện: <label
-                                class="color-orange vertical-align-middle">*</label></div>
+                  class="color-orange vertical-align-middle">*</label></div>
                         <div class="col-sm-8 col-xs-6">
-                            <select name="drpHuyen_KH" id="drpHuyen_KH"
+                            <select name="drpHuyen_KH"
+                                    (change)="getWard()"
+                                    formControlName="district"
+                                    id="drpHuyen_KH"
                                     class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
 
-	</select>
-                            <span id="rfvHuyen_KH"
-                                  style="color:Red;display:none;">Lỗi, vì bạn chưa chọn quận/huyện.</span>
+                              <option selected="selected" value="">-</option>
+                              <option *ngFor="let district of lstDistrict" value="{{district.name}}">
+                                {{district.name}}
+                              </option>
+                            </select>
+                            <span id="rfvHuyen_KH" style="color:Red"
+                                  *ngIf="warrantyActiveForm.controls.district.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+                              Lỗi, vì bạn chưa chọn quận/huyện.
+                            </span>
                         </div>
                         <div class="clearfix mgb10 mgb10x"></div>
 				        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Phưỡng xã: <label
-                                class="color-orange vertical-align-middle">*</label></div>
+                  class="color-orange vertical-align-middle">*</label></div>
                         <div class="col-sm-8 col-xs-6">
-                            <select name="drpXa_KH" id="drpXa_KH"
+                            <select name="drpXa_KH"
+                                    formControlName="ward"
+                                    id="drpXa_KH"
                                     class="width_100 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
+                              <option selected="selected" value="">-</option>
+                              <option *ngFor="let ward of lstWard" value="{{ward.name}}">
+                                {{ward.name}}
+                              </option>
 
-	</select>
-                            <span id="rfvXa_KH" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn phường xã.</span>
+                            </select>
+                            <span id="rfvXa_KH" style="color:Red"
+                                  *ngIf="warrantyActiveForm.controls.ward.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+                              Lỗi, vì bạn chưa chọn phường xã.
+                            </span>
                         </div><div class="clearfix mgb10 mgb10x"></div>
                         </span>
 
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Địa chỉ: <label
-                            class="color-orange vertical-align-middle">*</label></div>
-                    <div class="col-sm-8 col-xs-6">
-                        <input name="txtdiachi_kh" type="text" id="txtdiachi_kh"
-                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span
-                            id="rfvdiachi_kh" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập địa chỉ.</span>
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-
-                    <p class="font-size-16 color-green font-bold">Nơi mua sản phẩm</p>
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tên cửa hàng:</div>
-                    <div class="col-sm-8 col-xs-6">
-                        <input name="txttench_kh" type="text" id="txttench_kh"
-                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">SĐT cửa hàng:</div>
-                    <div class="col-sm-8 col-xs-6">
-                        <input name="txtten_dn" type="text" id="txtten_dn"
-                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-
-                </div>
-                <div class="col-sm-6 col-xs-12 pdl30 pdr30">
-                    <p class="font-size-16 color-green font-bold">Thông tin sản phẩm</p>
-
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Số serial: <label
-                            class="color-orange vertical-align-middle">*</label></div>
-                    <div class="col-sm-8 col-xs-6">
-                        <input name="txtSerial_KH" type="text" id="txtSerial_KH"
-                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
-
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Ngày mua:</div>
-                    <div class="col-sm-8 col-xs-6" style="position:relative;">
-                        <input name="txtngay_mua" type="text" id="txtngay_mua"
-                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
-                               placeholder="dd/MM/yyyy"/>
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-                    <script type="text/javascript">$(function () {
-                        $('#txtngay_mua').datetimepicker({locale: 'vi', format: 'DD/MM/YYYY'});
-                    });</script>
-
-
-                    <div class="col-sm-4 col-xs-4 font-size-14 mgt5 mgt5x ">Mã xác nhận: <label
-                            class="color-orange vertical-align-middle">*</label></div>
-                    <div class="col-sm-8 col-xs-8">
-                        <input name="txtCode_KH" type="text" id="txtCode_KH"
-                               class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x"/>
-                        <label class="cr-4" style="padding: 3px 30px;">
-                            215247
-                        </label>
-                        <span id="rfvCode_KH" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập mã xác nhận.</span>
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-
-                    <div class="col-sm-push-4 col-sm-8 col-xs-12">
-                        <p class="color-orange mg0 mg0x">Lưu ý: Dòng có dấu (*) là bắt buộc</p>
-                        <div class="clearfix mgb10 mgb10x"></div>
-                        <input type="submit" name="cmdKichHoat" value="Gửi yêu cầu" id="cmdKichHoat"
-                               class="cr-3 mgb10 mgb10x mgr5 mgr5x"/>
-                    </div>
-                </div>
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Địa chỉ: <label
+              class="color-orange vertical-align-middle">*</label></div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="address" name="txtdiachi_kh" type="text" id="txtdiachi_kh"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+              <span id="rfvdiachi_kh" style="color:Red"
+                    *ngIf="warrantyActiveForm.controls.address.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+              Lỗi, vì bạn chưa nhập địa chỉ.
+            </span>
             </div>
-            <div style="clear:both;"></div>
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <p class="font-size-16 color-green font-bold">Nơi mua sản phẩm</p>
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tên cửa hàng:</div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="storeAddr" name="txttench_kh" type="text" id="txttench_kh"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">SĐT cửa hàng:</div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="storePhone" name="txtten_dn" type="text" id="txtten_dn"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+
+          </div>
 
 
-        </div>
+          <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+            <p class="font-size-16 color-green font-bold">Thông tin sản phẩm</p>
+
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Số serial: <label
+              class="color-orange vertical-align-middle">*</label></div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="serialNumber" name="txtSerial_KH" type="text" id="txtSerial_KH"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+              <span id="rfvXa_KH" style="color:Red"
+                    *ngIf="warrantyActiveForm.controls.serialNumber.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+              Lỗi, vì bạn chưa nhập số serial.
+              </span>
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Ngày mua:</div>
+            <div class="col-sm-8 col-xs-6" style="position:relative;">
+              <input formControlName="soldDate" name="txtngay_mua" type="date" id="txtngay_mua"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <div class="col-sm-4 col-xs-4 font-size-14 mgt5 mgt5x ">Mã xác nhận: <label
+              class="color-orange vertical-align-middle">*</label></div>
+            <div class="col-sm-8 col-xs-8">
+              <input formControlName="verifyCode" name="txtCode_KH" type="text" id="txtCode_KH"
+                     class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x"/>
+
+              <label class="cr-4 captcha" style="padding: 3px 30px;" readonly="true">
+                {{captcha}}
+              </label>
+
+              <span id="rfvCode_KH" style="color:Red"
+                    *ngIf="warrantyActiveForm.controls.verifyCode.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+                                  Lỗi, vì bạn chưa nhập mã xác nhận.</span>
+              <span id="rfvVerify1" *ngIf="!isValidFormSubmitted && isValidFormSubmitted != null&&!isVerify"
+                    style="color:Red;">Lỗi, vì mã xác nhận không khớp</span>
+
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <div class="col-sm-push-4 col-sm-8 col-xs-12">
+              <p class="color-orange mg0 mg0x">Lưu ý: Dòng có dấu (*) là bắt buộc</p>
+              <div class="clearfix mgb10 mgb10x"></div>
+              <input type="submit" name="cmdKichHoat" value="Gửi yêu cầu" id="cmdKichHoat"
+                     class="cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div style="clear:both;"></div>
     </div>
-
+  </div>
 </div>
+

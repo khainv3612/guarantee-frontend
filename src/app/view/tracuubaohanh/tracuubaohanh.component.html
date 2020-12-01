@@ -16,19 +16,18 @@
                             class="font-bold color-gray-2 bg-color-gray">Tra cứu bằng serial, mã phiếu</a></li>
 
                 </ul>
-
                 <div class="tab-content">
-
+                    <form [formGroup]="searchForm" (ngSubmit)="searchFormFn()">
                     <div id="phone" class="tab-pane fade in ">
                         <div class="mgt30 mgb30 mgl30 mgr30 pdl30 pdr30 mg10x">
                             <div id="pnlPhone_HanBH">
-                                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Số điện thoại:<label
+                                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Số serial:<label
                                         class="color-orange vertical-align-middle">* &nbsp;</label></div>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input name="txtPhone_HanBH" type="text" id="txtPhone_HanBH"
+                                    <input name="txtPhone_HanBH" type="text" id="txtPhone_HanBH" formControlName="serial"
                                         class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /> <span
                                         id="rfvPhone_HanBH" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập số
-                                        điện thoại.</span>
+                                        seriali.</span>
                                 </div>
                                 <div class="clearfix mgb10 mgb10x"></div>
                                 <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Mã xác nhận: <label
@@ -51,52 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="serial" class="tab-pane fade in active">
-                        <div class="mgt30 mgb30 mgl30 mgr30 pdl30 pdr30 mg10x">
-                            <div id="pnlSerial_HanBH">
-
-                                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Số Serial:<label
-                                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                                <div class="col-sm-9 col-xs-8">
-                                    <input name="txtSerial_TC" type="text" id="txtSerial_TC"
-                                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /> <span
-                                        id="rfvSerial_TC" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập
-                                        serial.</span>
-                                </div>
-                                <div class="clearfix mgb10 mgb10x"></div>
-
-                                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Điện thoại:</div>
-                                <div class="col-sm-9 col-xs-8">
-                                    <input name="txtSDT_TC" type="text" id="txtSDT_TC"
-                                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
-                                        placeholder="Nhập 4 số cuối Sdt Khách hàng để xem ngày hết hạn" />
-                                </div>
-                                <div class="clearfix mgb10 mgb10x"></div>
-
-                                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Mã xác nhận: <label
-                                        class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                                <div class="col-sm-9 col-xs-8">
-                                    <input name="txtCode_TC2" type="text" id="txtCode_TC2"
-                                        class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x" />
-                                    <label class="cr-4" style="padding: 3px 30px;">
-                                        616695
-                                    </label>
-                                </div>
-                                <div class="clearfix mgb10 mgb10x"></div>
-                                <p class="color-orange mg0 mg0x">Lưu ý:</p>
-                                <p class="color-orange mg0 mg0x">- Dòng có dấu (*) là bắt buộc</p>
-                                <p class="color-orange mg0 mg0x">- SĐT khách hàng là số đã đăng ký thành công với số
-                                    serial cần tra cứu.</p>
-                                <div class="col-sm-push-3 col-sm-9 col-xs-12">
-
-                                    <div class="clearfix mgb10 mgb10x"></div>
-                                    <input type="submit" name="cmdHanBH2" value="Tra cứu thông tin"
-                                        id="cmdHanBH2" class="cr-3 mgb10 mgb10x mgr5 mgr5x" />
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                </form>
                     <div id="file" class="tab-pane fade in ">
                         <div class="mgt30 mgb30 mgl30 mgr30 pdl30 pdr30 mg10x">
 
@@ -107,8 +61,97 @@
                 </div>
             </div>
             <div class="clearfix"></div>
+        </div>
+         <!-- ket qua -->
+         <div *ngIf=!warrantyClaimModel&&message class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
+             <p class="mgt15 mgt15x text-center" style="color:Red;">{{message}}</p></div>
+        <div *ngIf=warrantyClaimModel class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
+            <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">Thông tin phiếu bảo hành
+            </h3>
+            <!-- <p class="mgt15 mgt15x text-center">Quý khách có yêu cầu về Bảo hành/ Bảo trì sản phẩm, vui long điền đầy đủ
+                thông tin dưới đây và gửi về cho chúng tôi.<br />
+                Nhân viên chăm sóc khách hàng sẽ liên hệ với quý khách để hỗ trợ trong thời gian sớm nhất.</p> -->
+            <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
+                class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x" />
+            <div class="clearfix"></div>
+                <div class="col-sm-6 col-xs-12 pdr60">
+                    <p class="font-size-16 color-green font-bold">Thông tin khách hàng</p>
 
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Tên khách hàng:<label
+                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                    <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.customerName}}</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
 
+                    <span id="UpdatePanel3">
+                        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tỉnh| Thành phố: <label
+                                class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                                <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.province}}</span>
+                                </div>
+                        <div class="clearfix mgb10 mgb10x"></div>
+                        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Quận huyện: <label
+                                class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                                <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.district}}</span>
+                                </div>
+                        <div class="clearfix mgb10 mgb10x"></div>
+                        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Phưỡng xã: <label
+                                class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                                <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.ward}}</span>
+                                </div>
+                        <div class="clearfix mgb10 mgb10x"></div>
+                    </span>
+
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Địa chỉ:<label
+                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                            <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.address}}</span>
+                            </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">ĐT liên hệ:<label
+                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                            <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.phone}}</span>
+                            </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">ĐT khác:</div>
+                    <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.phone2}}</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Địa chỉ Email:</div>
+                    <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.email}}</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <span id="lblabc"></span>
+                </div>
+           
+            <div class="col-sm-6 col-xs-12 pdl60">
+
+                <p class="font-size-16 color-green font-bold">Thông tin sản phẩm</p>
+
+                <span id="UpdatePanel4">
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Serial:</div>
+                    <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.serial}}</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Tên sản phẩm:</div>
+                    <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.product}}</span>
+                    </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Model sản phẩm: <label
+                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                            <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x"><span>{{warrantyClaimModel.modelProduct}}</span>
+                            </div>
+                    <div class="clearfix mgb10 mgb10x"></div>
+                </span>
+
+                <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Mô tả lỗi: <label
+                        class="color-orange vertical-align-middle">&nbsp;*</label></div>
+                <div class="col-sm-8 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">
+                    <textarea name="txtmota_loi" rows="3" cols="20" id="txtmota_loi" readonly="true"
+                        class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">{{warrantyClaimModel.description}}
+                    </textarea>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+            </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 

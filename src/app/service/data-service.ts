@@ -44,7 +44,11 @@ export class DataService {
     return this.httpClient.get<Station[]>(this.urlStation + 'getall');
   }
 
-  saveWarrantyClaim(warrantyClaimModel: WarrantyClaimModel) : Observable<boolean[]>{
+  saveWarrantyClaim(warrantyClaimModel: WarrantyClaimModel) : Observable<boolean>{
     return this.httpClient.post<any>(this.urlWarranty + "save",warrantyClaimModel);
+  }
+
+  getWarrantyClaim(serial: String) : Observable<WarrantyClaimModel>{
+    return this.httpClient.post<any>(this.urlWarranty + "get",serial);
   }
 }

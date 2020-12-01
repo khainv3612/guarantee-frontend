@@ -21,6 +21,7 @@ export class ManageStationComponent implements OnInit {
   lstFilterStation: Station[];
   formFilter: FormGroup;
   typeStation: string;
+  menuTabPrevious: any = null;
 
 
   constructor(private dataService: DataService, private authService: AuthService, private manageService: AdminService) {
@@ -48,6 +49,7 @@ export class ManageStationComponent implements OnInit {
     this.dataService.getAllStationPending().subscribe(data => {
       this.lstSource = data;
       this.lstFilterStation = data;
+      this.setColorMenu('menu-tab', 0);
     }, error => {
       console.log(error);
     })
@@ -58,6 +60,7 @@ export class ManageStationComponent implements OnInit {
     this.dataService.getAllStationAccepted().subscribe(data => {
       this.lstSource = data;
       this.lstFilterStation = data;
+      this.setColorMenu('menu-tab', 1);
     }, error => {
       console.log(error);
     })
@@ -115,6 +118,14 @@ export class ManageStationComponent implements OnInit {
     }, error => {
       alert("co loi xay ra");
     })
+  }
+
+  setColorMenu(name: string, stt: number) {
+    if (null != this.menuTabPrevious)
+      this.menuTabPrevious.style.color = "";
+    const ele = document.getElementsByName(name)[stt];
+    ele.style.color = "orange";
+    this.menuTabPrevious = ele;
   }
 }
 

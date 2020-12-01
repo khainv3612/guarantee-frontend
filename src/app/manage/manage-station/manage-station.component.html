@@ -5,9 +5,16 @@
 
       <p class="mgt15 mgt15x text-center">Thông tin về chính sách bảo hành, hướng dẫn kích hoạt bảo hành,
         hướng dẫn tra cứu hạn bảo hành</p>
-      <p class="mgt20 mgt20x text-center"><a class="cursor-pointer" (click)="getAllPending()"
-                                             style='color:orange;'>CHỜ PHÊ DUYỆT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-        class="cursor-pointer" (click)="getAllAccept()">ĐÃ PHÊ DUYỆT</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <p class="mgt20 mgt20x text-center">
+        <span>
+        <a name="menu-tab" class="cursor-pointer" (click)="getAllPending()"
+        >CHỜ PHÊ DUYỆT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+        <span>
+        <a name="menu-tab"
+           class="cursor-pointer" (click)="getAllAccept()">ĐÃ PHÊ
+          DUYỆT</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
       </p>
       <img src="assets/images/icon/icon-line.png" alt="kangaroo.vn"
            class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>

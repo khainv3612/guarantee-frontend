@@ -10,6 +10,7 @@ import {Route, Router} from "@angular/router";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  menuTabPrevious: any = null;
 
   constructor(public dialog: MatDialog, public authService: AuthService, private router: Router) {
   }
@@ -29,6 +30,14 @@ export class HeaderComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+  }
+
+  setColorMenu(name: string, stt: number) {
+    if (null != this.menuTabPrevious)
+      this.menuTabPrevious.classList.remove("ac");
+    const ele = document.getElementsByName(name)[stt];
+    ele.className = "ac";
+    this.menuTabPrevious = ele;
   }
 
 }

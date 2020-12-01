@@ -5,22 +5,16 @@
 
       <p class="mgt15 mgt15x text-center">Thông tin về chính sách bảo hành, hướng dẫn kích hoạt bảo hành,
         hướng dẫn tra cứu hạn bảo hành</p>
-      <p class="mgt20 mgt20x text-center"><a class="cursor-pointer"
-                                             style='color:orange;'>CHÍNH
-        SÁCH BẢO
-        HÀNH</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="cursor-pointer">CHÍNH SÁCH
-        BẢO
-        MẬT
-        THÔNG TIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="cursor-pointer">HƯỚNG
-        DẪN SỬ
-        DỤNG</a>
+      <p class="mgt20 mgt20x text-center"><a class="cursor-pointer" (click)="getAllPending()"
+                                             style='color:orange;'>CHỜ PHÊ DUYỆT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        class="cursor-pointer" (click)="getAllAccept()">ĐÃ PHÊ DUYỆT</a>&nbsp;&nbsp;&nbsp;&nbsp;
       </p>
       <img src="assets/images/icon/icon-line.png" alt="kangaroo.vn"
            class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
     </div>
 
-    <div class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
-      <strong><h3 class="color-gray-2 font-bold font-size-18 text-uppercase mgt20 mgt20x">Trạm bảo hành</h3></strong>
+    <div class="container pdl0 pdr0  pdb10 pdt0 pdt0x pdb10x">
+      <strong><h3 class="color-gray-2 font-bold font-size-18 text-uppercase">Trạm bảo hành</h3></strong>
       <p class="mgt15 mgt15x">Địa chỉ các TTBHUQ của KANGAROO trên toàn quốc.</p>
       <form [formGroup]="formFilter" (submit)="filter()">
         <div class="pull-left">
@@ -41,7 +35,7 @@
           <span style="padding-left: 5px">
                         <select name="drpTinh" id="drpTinh" [formControlName]="'province'"
                                 class="width-200px height-30 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
-		<option value="all">-</option>
+		<option value="">-</option>
 		<option *ngFor="let province of lstAllProvince" value="{{province.name}}">{{province.name}}</option>
 
 	</select>
@@ -59,18 +53,32 @@
         <div>
           <table [cellSpacing]="0" border="1" id="grd_Tram" style="width:100%;border-collapse:collapse;">
             <tr style="background-color:Silver;font-size:12px;height:30px;">
-              <th scope="col" class="text-center">TT</th>
-              <th scope="col" style="padding: 10px">T&#234;n trạm</th>
+              <th scope="col" class="text-center width-35px">TT</th>
+              <th scope="col" class="width-320px" style="padding: 10px">T&#234;n trạm</th>
               <th scope="col" style="padding: 10px">Địa chỉ</th>
-              <th class="text-center" scope="col">Điện thoại</th>
-              <th class="text-center" scope="col">Tỉnh th&#224;nh</th>
+              <th class="text-center width-125px" scope="col">Điện thoại</th>
+              <th class="text-center width-125px" scope="col">Tỉnh th&#224;nh</th>
+              <th class="text-center width-80px" scope="col">Thao tác</th>
             </tr>
-            <tr *ngFor="let station of lstFilterStation" style="font-size:12px;height:22px;">
-              <th scope="col" class="text-center">{{station.id}}</th>
-              <th scope="col" style="padding: 10px">{{station.name}}</th>
-              <th scope="col" style="padding: 10px">{{station.address}}</th>
-              <th class="text-center" scope="col">{{station.phone}}</th>
-              <th class="text-center" scope="col">{{station.province}}</th>
+            <tr *ngFor="let station of lstFilterStation; index as i" style="font-size:12px;height:22px;">
+              <td scope="col" class="text-center">{{i + 1}}</td>
+              <td scope="col" style="padding: 10px">{{station.name}}</td>
+              <td scope="col" style="padding: 10px">{{station.address}}</td>
+              <td class="text-center" scope="col">{{station.phone}}</td>
+              <td class="text-center" scope="col">{{station.province}}</td>
+              <td *ngIf="typeStation=='pending'" class="text-center" scope="col">
+                <mat-icon color="primary" title="Accept" class="cursor-pointer" (click)="acceptStation(station.id)">
+                  verified_user
+                </mat-icon>
+                <mat-icon color="warn" title="Remove" class="pdl10 cursor-pointer" (click)="removeStation(station.id)">
+                  delete
+                </mat-icon>
+              </td>
+              <td *ngIf="typeStation=='accepted'" class="text-center" scope="col">
+                <mat-icon color="warn" title="Remove" class="cursor-pointer" (click)="removeStation(station.id)">
+                  delete
+                </mat-icon>
+              </td>
             </tr>
           </table>
         </div>

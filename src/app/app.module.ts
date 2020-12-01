@@ -20,6 +20,7 @@ import {AuthGuard} from "./auth.guard";
 import {ViewStationComponent} from './view/view-station/view-station.component';
 import * as $ from 'jquery';
 import {ManageStationComponent} from './manage/manage-station/manage-station.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {ManageStationComponent} from './manage/manage-station/manage-station.com
     EditorModule,
     ReactiveFormsModule,
     FormsModule,
+    MatIconModule,
     RouterModule.forRoot([
       {path: 'home', component: ViewchinhsachhdComponent},
       {path: 'sign-up', component: SignUpComponent},

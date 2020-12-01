@@ -47,7 +47,7 @@ export class ViewStationComponent implements OnInit {
     const province = this.formFilter.get('province').value;
     if (undefined != name) {
       if (name != '') {
-        this.lstFilterStation = this.lstFilterStation.filter(station => station.name == name);
+        this.lstFilterStation = this.lstFilterStation.filter(station => station.name.includes(name));
       } else {
         this.lstFilterStation = this.lstFilterStation.filter(station => station.name != name);
       }

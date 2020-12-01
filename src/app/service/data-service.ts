@@ -41,4 +41,12 @@ export class DataService {
   getAllStation(): Observable<Station[]> {
     return this.httpClient.get<Station[]>(this.urlStation + 'getall');
   }
+
+  getAllStationPending(): Observable<Station[]> {
+    return this.httpClient.get<Station[]>(this.urlStation + 'all-pending');
+  }
+
+  getAllStationAccepted(): Observable<Station[]> {
+    return this.httpClient.get<Station[]>(this.urlStation + 'all-accepted');
+  }
 }

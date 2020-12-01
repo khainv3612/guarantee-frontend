@@ -23,7 +23,7 @@
           <span style="padding-left: 5px">
                         <select name="drpTinh" id="drpTinh" [formControlName]="'province'"
                                 class="width-200px height-30 text-align-left btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
-		<option value="all">-</option>
+		<option value="">-</option>
 		<option *ngFor="let province of lstAllProvince" value="{{province.name}}">{{province.name}}</option>
 
 	</select>

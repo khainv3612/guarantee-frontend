@@ -29,6 +29,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {AdminGuard} from "./Guard/admin/admin.guard";
 import {TecnicianGuard} from "./Guard/technician/tecnician.guard";
 import {SalerGuard} from "./Guard/saler/saler.guard";
+import { KetQuaTraCuuHanBaoHanhComponent } from './view/ket-qua-tra-cuu-han-bao-hanh/ket-qua-tra-cuu-han-bao-hanh.component';
 
 @NgModule({
   declarations: [
@@ -44,9 +45,10 @@ import {SalerGuard} from "./Guard/saler/saler.guard";
     TraCuuHanBaoHanhComponent,
     TraCuuYeuCauBaoHanhComponent,
     TramBaoHanhComponent,
-    YeuCauBaoHanhComponent
+    YeuCauBaoHanhComponent,
     ViewStationComponent,
     ManageStationComponent,
+    KetQuaTraCuuHanBaoHanhComponent,
   ],
   imports: [
     HttpClientModule,
@@ -72,7 +74,7 @@ import {SalerGuard} from "./Guard/saler/saler.guard";
       {path: 'yeu-cau-bao-hanh', component: YeuCauBaoHanhComponent},
       {path: 'tra-cuu-yeu-cau-bao-hanh', component: TraCuuYeuCauBaoHanhComponent},
       {path: 'tram-bao-hanh', component: TramBaoHanhComponent},
-
+      {path: 'ket-qua-tra-cuu-han-bao-hanh', component: KetQuaTraCuuHanBaoHanhComponent}
     ]),
   ],
   providers: [],

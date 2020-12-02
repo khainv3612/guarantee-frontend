@@ -17,4 +17,8 @@ export class WarrantyCardService {
   activeWarranty(warrantyActiveDTO: WarrantyActiveDTO): Observable<string> {
     return this.httpClient.post<any>(this.urlWarrantyCard + 'active', warrantyActiveDTO);
   }
+
+  searchWarranty(serialNumber: string): Observable<WarrantyCard> {
+    return this.httpClient.get<any>(this.urlWarrantyCard + serialNumber);
+  }
 }

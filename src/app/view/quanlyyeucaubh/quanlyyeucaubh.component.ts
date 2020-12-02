@@ -18,6 +18,7 @@ export class QuanlyyeucaubhComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.searchAll();
     this.lstModel = [];
   }
 
@@ -25,10 +26,22 @@ export class QuanlyyeucaubhComponent implements OnInit {
    let serial =(<HTMLInputElement> document.getElementById("txtSearch")).value;
    if(!serial || serial == ""){
      serial = "all";
-     this.dataService.getAllWarrantyClaim().subscribe(result => {this.lstModel = result;});
+     this.searchAll();
    }
    if(serial != "all"){
     this.dataService.getWarrantyClaim(serial).subscribe(result => {this.warrantyClaimModel = result;this.lstModel.push(this.warrantyClaimModel)});
    }
+  }
+  searchAll(){
+    this.dataService.getAllWarrantyClaim().subscribe(result => {this.lstModel = result;});
+  }
+  acceptBtn(event){
+   let serial = event.target.id;
+   this.dataService.acceptRequestWarranty(serial).subscribe(result => {this.lstModel = this.lstModel.filter(p => (!p.serial.includes(serial)));});
+   
+  }
+  rejectBtn(event){
+    let serial = event.target.id;
+    this.dataService.rejectRequestWarranty(serial).subscribe(result => {this.lstModel = this.lstModel.filter(p => (!p.serial.includes(serial)));});
   }
 }

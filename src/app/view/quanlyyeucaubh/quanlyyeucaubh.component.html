@@ -17,11 +17,15 @@
 			</tr>
 			<tr *ngFor="let row of lstModel"  style="font-size:12px;height:22px;">
 				<td align="center" style="width:30px;">1</td><td>{{row.customerName}}</td><td>{{row.description}}</td><td align="center" style="width:110px;">{{row.phone}}</td><td align="center" style="width:100px;">{{row.serial}}</td><td align="center" style="width:100px;">{{row.province}}</td><td align="center" style="width:100px;">{{row.modelProduct}}</td>
-				<td align="center" style="width:100px;"><button type="button" class="btn btn-labeled btn-success">
-					<span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span></button>
+				<td align="center" style="width:100px;">
+					<button id="{{row.serial}}" (click)="acceptBtn($event)" class="btn btn-success i-btn"><i class="fa fa-check"></i></button>
 				</td>
-				<td align="center" style="width:100px;"><button type="button" class="btn btn-labeled btn-danger">
-					<span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span></button>
+				<td align="center" style="width:100px;">
+					<button id="{{row.serial}}" (click)="rejectBtn($event)" class="btn btn-danger i-btn"><i class="fa fa-close"></i></button>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
 				</td>
 			</tr>
 		</table>

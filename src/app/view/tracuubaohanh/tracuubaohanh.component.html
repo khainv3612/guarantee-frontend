@@ -33,11 +33,13 @@
                                 <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Mã xác nhận: <label
                                         class="color-orange vertical-align-middle">* &nbsp;</label></div>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input name="txtCode_TC1" type="text" id="txtCode_TC1"
-                                        class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x" />
-                                    <label class="cr-4" style="padding: 3px 30px;">
-                                        616695
-                                    </label>
+                                    <input name="txtCode_YCBH" type="text" id="txtCode_YCBH" formControlName="verifyCode"
+                        class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x" />
+                    <label class="cr-4" style="padding: 3px 30px;">
+                        {{capcha}}
+                    </label>
+                    <span *ngIf="isSubmited&&isCapcha" id="rfvTinh_YCBH"
+                            style="color:Red;">Lỗi, Mã xác nhận chưa đúng.</span>
                                 </div>
                                 <div class="clearfix mgb10 mgb10x"></div>
 

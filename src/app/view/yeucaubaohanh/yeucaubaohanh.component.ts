@@ -20,22 +20,27 @@ export class YeucaubaohanhComponent implements OnInit {
   lstDistrict: District[];
   lstWard: Ward[];
   currentDistrict: string = '';
+  isSubmited = false;
+  capcha: number;
+  isCapcha: boolean = false;
+  isMessage: boolean = false;
 
   constructor(dataService: DataService) { 
     this.dataService = dataService;
     this.warrantyClaimFrom = new FormGroup({
       customerName: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
-      address: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
+      address: new FormControl('',[Validators.required,Validators.maxLength(200),Validators.minLength(5)]),
       phone: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       phone2: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       email: new FormControl('',[Validators.required,Validators.email,Validators.required,Validators.maxLength(30),Validators.minLength(5)]),
       product: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       modelProduct: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       serial: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
-      description: new FormControl('',[Validators.required,Validators.maxLength(200),Validators.minLength(5)]),
+      description: new FormControl('',[Validators.required,Validators.maxLength(300),Validators.minLength(5)]),
       province: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       district: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
-      ward: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)])
+      ward: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
+      verifyCode: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)])
     });
     this.dataService.getProvince().subscribe(data => {
       this.lstAllProvince = data;
@@ -44,11 +49,27 @@ export class YeucaubaohanhComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-
+    this.getCapcha(100000, 999999);
   }
   warrantyClaim(){
-    this.dataService.saveWarrantyClaim(this.convertWarranty()).subscribe(data => { console.log(data)},error => {console.log(error)});
+    this.isSubmited = true;
+    if(!this.validateForm()){
+      return;
+    }
+    this.dataService.saveWarrantyClaim(this.convertWarranty()).subscribe(data => { 
+      this.resetData();
+      this.isMessage = true;
+    },error => {console.log(error)});
   }
+  resetData(){
+    this.isSubmited = false;
+    this.warrantyClaimFrom.reset();
+  }
+
+  getCapcha(min, max) {
+    this.capcha = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   convertWarranty():WarrantyClaimModel{
     this.warrantyClaimModel.address= this.warrantyClaimFrom.value.address;
     this.warrantyClaimModel.customerName= this.warrantyClaimFrom.value.customerName;
@@ -66,6 +87,22 @@ export class YeucaubaohanhComponent implements OnInit {
     return this.warrantyClaimModel;
   }
 
+  validateForm(): boolean {
+    let result = true;
+    let isVerifyCapcha = this.warrantyClaimFrom.get('verifyCode').value != this.capcha.toString();
+    if (isVerifyCapcha){
+      this.isCapcha = true;
+      result = false;
+    } else {
+      this.isCapcha = false;
+    }
+    if (!this.warrantyClaimFrom.valid) {
+      result = false;
+    }
+    this.getCapcha(100000, 999999);
+    return result;
+  }
+
   boxselect(name:String,event:any){
     let value = event.target.value;
     switch(name){
@@ -78,7 +115,7 @@ export class YeucaubaohanhComponent implements OnInit {
         });
       case 'district':
         this.dataService.getWard(this.currentDistrict,value).subscribe(data => {
-          this.lstDistrict = data;
+          this.lstWard = data;
         }, error => {
           console.log(error);
         });

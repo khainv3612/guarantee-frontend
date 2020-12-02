@@ -51,4 +51,7 @@ export class DataService {
   getWarrantyClaim(serial: String) : Observable<WarrantyClaimModel>{
     return this.httpClient.post<any>(this.urlWarranty + "get",serial);
   }
+  getAllWarrantyClaim() : Observable<any>{
+    return this.httpClient.get<any>(this.urlWarranty + "get");
+  }
 }

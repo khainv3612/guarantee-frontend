@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import { DataTablesModule } from 'angular-datatables';
 
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
@@ -40,6 +41,7 @@ import { QuanlyyeucaubhComponent } from './view/quanlyyeucaubh/quanlyyeucaubh.co
   imports: [
     HttpClientModule,
     BrowserModule,
+    DataTablesModule,
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,

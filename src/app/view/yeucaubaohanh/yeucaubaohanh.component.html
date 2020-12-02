@@ -10,6 +10,7 @@
                 Nhân viên chăm sóc khách hàng sẽ liên hệ với quý khách để hỗ trợ trong thời gian sớm nhất.</p>
             <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
                 class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x" />
+                <p *ngIf="isMessage" style="color:Red;" class="mgt15 mgt15x text-center">Lưu thành công</p>
             <div class="clearfix"></div>
             <form [formGroup]="warrantyClaimFrom" (ngSubmit)="warrantyClaim()">
                 <div class="col-sm-6 col-xs-12 pdr60">
@@ -20,8 +21,9 @@
                     <div class="col-sm-8 col-xs-6">
                         <input name="txtten_khach" type="text" id="txtten_khach"
                             value="{{warrantyClaimModel.customerName}}" formControlName="customerName"
-                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /> <span
-                            id="rfvten_khach" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập tên khách
+                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" />
+                            <span *ngIf="isSubmited&&warrantyClaimFrom.controls['customerName'].errors.required"
+                            id="rfvten_khach" style="color:Red;">Lỗi, vì bạn chưa nhập tên khách
                             hàng.</span>
                     </div>
                     <div class="clearfix mgb10 mgb10x"></div>
@@ -35,7 +37,7 @@
                                 <option value="all">-</option>
 		                        <option *ngFor="let province of lstAllProvince" value="{{province.name}}">{{province.name}}</option>
                             </select>
-                            <span id="rfvTinh_YCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn
+                            <span *ngIf="isSubmited&&warrantyClaimFrom.controls['province'].errors.required" id="rfvTinh_YCBH" style="color:Red;">Lỗi, vì bạn chưa chọn
                                 tỉnh/tp.</span>
                         </div>
                         <div class="clearfix mgb10 mgb10x"></div>
@@ -47,7 +49,7 @@
                                 <option value="all">-</option>
 		                        <option *ngFor="let district1 of lstDistrict" value="{{district1.name}}">{{district1.name}}</option>
                             </select>
-                            <span id="rfvHuyen_YCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn
+                            <span *ngIf="isSubmited&&warrantyClaimFrom.controls['district'].errors.required" id="rfvTinh_YCBH" style="color:Red;">Lỗi, vì bạn chưa chọn
                                 quận/huyện.</span>
                         </div>
                         <div class="clearfix mgb10 mgb10x"></div>
@@ -59,7 +61,7 @@
                                 <option value="all">-</option>
 		                        <option *ngFor="let ward of lstWard" value="{{ward.name}}">{{ward.name}}</option>
                             </select>
-                            <span id="rfvXa_YCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa chọn phường
+                            <span *ngIf="isSubmited&&warrantyClaimFrom.controls['ward'].errors.required" id="rfvTinh_YCBH" style="color:Red;">Lỗi, vì bạn chưa chọn phường
                                 xã.</span>
                         </div>
                         <div class="clearfix mgb10 mgb10x"></div>
@@ -70,16 +72,16 @@
                     <div class="col-sm-8 col-xs-6">
                         <input name="txtdiachi_ycbh" type="text" value="{{warrantyClaimModel.address}}" formControlName="address" maxlength="128"
                             id="txtdiachi_ycbh" class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
-                            placeholder="Nhập tối đa 128 ký tự" /> <span id="rfvdiachi_ycbh"
-                            style="color:Red;display:none;">Lỗi, vì bạn chưa nhập địa chỉ.</span>
+                            placeholder="Nhập tối đa 128 ký tự" /> <span *ngIf="isSubmited&&warrantyClaimFrom.controls['address'].errors.required" id="rfvTinh_YCBH"
+                            style="color:Red;">Lỗi, vì bạn chưa nhập địa chỉ.</span>
                     </div>
                     <div class="clearfix mgb10 mgb10x"></div>
                     <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">ĐT liên hệ:<label
                             class="color-orange vertical-align-middle">* &nbsp;</label></div>
                     <div class="col-sm-8 col-xs-6">
                         <input name="txtsdt2" type="text" id="txtsdt2" value="{{warrantyClaimModel.phone}}" formControlName="phone"
-                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /> <span id="rfvsdt2"
-                            style="color:Red;display:none;">Lỗi, vì bạn chưa nhập SĐT.</span>
+                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /> <span *ngIf="isSubmited&&warrantyClaimFrom.controls['phone'].errors.required" id="rfvTinh_YCBH"
+                            style="color:Red;">Lỗi, vì bạn chưa nhập SĐT.</span>
                     </div>
                     <div class="clearfix mgb10 mgb10x"></div>
                     <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">ĐT khác:</div>
@@ -97,7 +99,7 @@
                     <div class="clearfix mgb10 mgb10x"></div>
                     <span id="lblabc"></span>
                 </div>
-           
+
             <div class="col-sm-6 col-xs-12 pdl60">
 
                 <p class="font-size-16 color-green font-bold">Thông tin sản phẩm</p>
@@ -107,7 +109,8 @@
                     <div class="col-sm-8 col-xs-6">
                         <input name="txtSerial_YCBH" type="text" value="{{warrantyClaimModel.serial}}" formControlName="serial"
                             id="txtSerial_YCBH" class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" />
-                        <span id="rfvSerial_YCBH" style="color:Red;display:none;">Lỗi, vì không tìm thấy Serial trong hệ
+                            <span *ngIf="isSubmited&&warrantyClaimFrom.controls['serial'].errors.required" id="rfvTinh_YCBH"
+                            style="color:Red;">Lỗi, vì không tìm thấy Serial trong hệ
                             thống.</span>
                     </div>
                     <div class="clearfix mgb10 mgb10x"></div>
@@ -123,8 +126,8 @@
                             class="color-orange vertical-align-middle">* &nbsp;</label></div>
                     <div class="col-sm-8 col-xs-6">
                         <input name="txtmodel" type="text" id="txtmodel" value="{{warrantyClaimModel.modelProduct}}" formControlName="modelProduct"
-                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /><span id="rfvmodel"
-                            style="color:Red;display:none;">Lỗi, vì bạn chưa nhập Model.</span>
+                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /><span *ngIf="isSubmited&&warrantyClaimFrom.controls['modelProduct'].errors.required" id="rfvTinh_YCBH"
+                            style="color:Red;">Lỗi, vì bạn chưa nhập Model.</span>
                     </div>
                     <div class="clearfix mgb10 mgb10x"></div>
                 </span>
@@ -136,19 +139,21 @@
                         value="{{warrantyClaimModel.description}}"
                         class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
                     </textarea>
-                    <span id="rfvmota_loi" style="color:Red;display:none;">Lỗi, vì bạn chưa mô tả lỗi.</span>
+                    <span *ngIf="isSubmited&&warrantyClaimFrom.controls['description'].errors.required" id="rfvTinh_YCBH"
+                            style="color:Red;">Lỗi, vì bạn chưa mô tả lỗi.</span>
                 </div>
                 <div class="clearfix mgb10 mgb10x"></div>
 
                 <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Mã xác nhận: <label
                         class="color-orange vertical-align-middle">&nbsp;*</label></div>
                 <div class="col-sm-8 col-xs-8">
-                    <input name="txtCode_YCBH" type="text" id="txtCode_YCBH"
+                    <input name="txtCode_YCBH" type="text" id="txtCode_YCBH" formControlName="verifyCode"
                         class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x" />
                     <label class="cr-4" style="padding: 3px 30px;">
-                        709742
+                        {{capcha}}
                     </label>
-                    <span id="rfvCode_YCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập mã xác nhận.</span>
+                    <span *ngIf="isSubmited&&isCapcha" id="rfvTinh_YCBH"
+                            style="color:Red;">Lỗi, Mã xác nhận chưa đúng.</span>
                 </div>
                 <div class="clearfix mgb10 mgb10x"></div>
 

@@ -12,6 +12,7 @@ export class QuanlyyeucaubhComponent implements OnInit {
   lstModel: WarrantyClaimModel[];
   warrantyClaimModel :WarrantyClaimModel;
   dataService:DataService;
+  isMessage:boolean = false;
 
   constructor(dataService:DataService) {
     this.dataService = dataService;
@@ -29,10 +30,11 @@ export class QuanlyyeucaubhComponent implements OnInit {
      this.searchAll();
    }
    if(serial != "all"){
-    this.dataService.getWarrantyClaim(serial).subscribe(result => {this.warrantyClaimModel = result;this.lstModel.push(this.warrantyClaimModel)});
+    this.dataService.getWarrantyClaim(serial).subscribe(result => {this.lstModel = [];this.lstModel.push(result);this.isMessage = false;},err => this.isMessage = true);
    }
   }
   searchAll(){
+    this.isMessage = false;
     this.dataService.getAllWarrantyClaim().subscribe(result => {this.lstModel = result;});
   }
   acceptBtn(event){

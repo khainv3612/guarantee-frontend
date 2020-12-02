@@ -6,8 +6,12 @@
                 <div class="pull-left">
                     <input name="txtSearch" type="text" id="txtSearch" class="width-200px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" placeholder="Tìm kiếm theo serial" />
                     
-                    <input type="submit" name="cmdSearch" value="Tìm kiếm" (click)="searchBySerial()" id="cmdSearch" class="cr-3 mgb10 mgb10x mgr5 mgr5x" />
-			    </div>
+					<input type="submit" name="cmdSearch" value="Tìm kiếm" (click)="searchBySerial()" id="cmdSearch" class="cr-3 mgb10 mgb10x mgr5 mgr5x" />
+					<div *ngIf="isMessage" class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
+						<p  class="mgt15 mgt15x text-center" style="color:Red;">Không tìm thấy yêu cầu với serial này.</p>
+					</div>	
+				</div>
+				
 			    <div class="clearfix"></div>
                 <div class="table-responsive mgt20 mgt20x">
                     <div>

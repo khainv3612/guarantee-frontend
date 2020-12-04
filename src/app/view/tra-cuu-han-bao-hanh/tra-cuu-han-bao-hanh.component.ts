@@ -49,8 +49,6 @@ export class TraCuuHanBaoHanhComponent implements OnInit {
       return;
     }
     const serialNumber = this.searchWarrantyForm.get('serialNumber').value;
-    this.router.navigate(['ket-qua-tra-cuu-han-bao-hanh'], {queryParams: {serialNumber: serialNumber}}).then((e) => {
-      console.log('Navigation is successful!');
-    });
+    this.router.navigate(['ket-qua-tra-cuu-han-bao-hanh'], {queryParams: {serialNumber: serialNumber}}).then();
   }
 }

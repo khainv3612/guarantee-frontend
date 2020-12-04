@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
       sessionStorage.setItem('user', 'anonymous');
       this.router.navigate(['/']);
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     })
   }
 

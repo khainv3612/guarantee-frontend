@@ -7,6 +7,7 @@ import {TypeStation} from "../../model/TypeStation";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Station} from "../../model/Station";
 import {AuthService} from "../../service/auth-service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -25,7 +26,9 @@ export class SignUpComponent implements OnInit {
   isVerify = true;
   isPassMatch = true;
 
-  constructor(private dataService: DataService, private authService: AuthService) {
+  constructor(private dataService: DataService,
+              private authService: AuthService,
+              private router: Router) {
     this.stationForm = new FormGroup({
       // username: new FormControl('', [Validators.required]),
       object: new FormControl('', [Validators.required]),
@@ -66,8 +69,7 @@ export class SignUpComponent implements OnInit {
         this.lstProvince = data;
       },
       error => {
-        console.log('error when get list province');
-        console.log(error);
+        this.router.navigate(['error']).then();
       })
   }
 
@@ -77,7 +79,7 @@ export class SignUpComponent implements OnInit {
       this.stationForm.get('district').setValue(this.lstDistrict[0].name);
       this.getWard();
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     })
 
 
@@ -87,7 +89,7 @@ export class SignUpComponent implements OnInit {
     this.dataService.getWard(this.stationForm.get('province').value, this.stationForm.get('district').value).subscribe(result => {
       this.lstWard = result;
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     })
   }
 
@@ -95,7 +97,7 @@ export class SignUpComponent implements OnInit {
     this.dataService.getTypeStation().subscribe(data => {
       this.lstTypeStation = data;
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     })
   }
 
@@ -108,7 +110,6 @@ export class SignUpComponent implements OnInit {
     }
     this.stationDTO = this.stationForm.value;
     this.authService.registerStation(this.stationDTO).subscribe(result => {
-      console.log('success');
       this.reset();
       this.getCapcha(100000, 999999);
       message.style.display = 'block';
@@ -116,7 +117,7 @@ export class SignUpComponent implements OnInit {
         message.style.display = 'none';
       }, 3000);
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     });
   }
 

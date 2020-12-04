@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Policy} from "../../model/Policy";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 import {AdminService} from "../../service/admin-service";
 
 @Component({
@@ -13,7 +13,9 @@ export class ViewchinhsachhdComponent implements OnInit {
   policy: Policy;
   menuTabPrevious: any = null;
 
-  constructor(private routerActive: ActivatedRoute, private adminService: AdminService) {
+  constructor(private routerActive: ActivatedRoute,
+              private adminService: AdminService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class ViewchinhsachhdComponent implements OnInit {
     this.adminService.getPolicy(id).subscribe(result => {
       this.policy = result;
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     });
   }
 

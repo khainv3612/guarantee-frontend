@@ -3,6 +3,7 @@ import {Product} from '../../../model/Product';
 import {ProductService} from '../../../service/product-service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+import {WarrantyCardService} from '../../../service/warranty-card-service';
 
 @Component({
   selector: 'app-view-all-product',
@@ -15,9 +16,11 @@ export class ViewAllProductComponent implements OnInit {
   });
   lstProduct: Product[] = [];
   lstAllProduct: Product[] = [];
+  fileUpload: File;
 
   constructor(private productService: ProductService,
-              private router: Router) {
+              private router: Router,
+              private warrantyCardService: WarrantyCardService) {
   }
 
   ngOnInit(): void {
@@ -67,5 +70,23 @@ export class ViewAllProductComponent implements OnInit {
         product: JSON.stringify(p),
       }
     }).then();
+  }
+
+  selectFile(event) {
+    const file = event.target.files.item(0);
+
+    if (!file.name.match('(.xlsx)$')) {
+       alert("Không đúng định dạng file .xlsx");
+       return;
+    }
+    this.fileUpload = file;
+  }
+
+  uploadDataWarranty() {
+    this.warrantyCardService.uploadDataWarranty(this.fileUpload).subscribe(value => {
+      alert("Upload dữ liệu bảo hành thành công");
+    }, error => {
+      this.router.navigate(['error']).then();
+    })
   }
 }

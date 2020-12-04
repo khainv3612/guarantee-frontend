@@ -29,11 +29,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {AdminGuard} from "./Guard/admin/admin.guard";
 import {TecnicianGuard} from "./Guard/technician/tecnician.guard";
 import {SalerGuard} from "./Guard/saler/saler.guard";
-import { KetQuaTraCuuHanBaoHanhComponent } from './view/ket-qua-tra-cuu-han-bao-hanh/ket-qua-tra-cuu-han-bao-hanh.component';
-import { CreateProductComponent } from './manage/product/create-product/create-product.component';
-import { ViewAllProductComponent } from './manage/product/view-all-product/view-all-product.component';
-import { ViewDetailProductComponent } from './manage/product/view-detail-product/view-detail-product.component';
-import { ErrorPageComponent } from './view/error-page/error-page.component';
+import {KetQuaTraCuuHanBaoHanhComponent} from './view/ket-qua-tra-cuu-han-bao-hanh/ket-qua-tra-cuu-han-bao-hanh.component';
+import {CreateProductComponent} from './manage/product/create-product/create-product.component';
+import {ViewAllProductComponent} from './manage/product/view-all-product/view-all-product.component';
+import {ViewDetailProductComponent} from './manage/product/view-detail-product/view-detail-product.component';
+import {ErrorPageComponent} from './view/error-page/error-page.component';
+import {ManageUserComponent} from './manage/User/manage-user/manage-user.component';
+import { CreateUserComponent } from './manage/User/create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { ErrorPageComponent } from './view/error-page/error-page.component';
     ViewAllProductComponent,
     ViewDetailProductComponent,
     ErrorPageComponent,
+    ManageUserComponent,
+    CreateUserComponent,
   ],
   imports: [
     HttpClientModule,
@@ -75,6 +79,8 @@ import { ErrorPageComponent } from './view/error-page/error-page.component';
       {path: 'sign-in', component: SignInComponent},
       {path: 'manage/station', component: ManageStationComponent, canActivate: [SalerGuard]},
       {path: 'manage/chinhsachhd', component: ChinhsachhdComponent, canActivate: [TecnicianGuard]},
+      {path: 'manage/user', component: ManageUserComponent, canActivate: [AdminGuard]},
+      {path: 'manage/create-user', component: CreateUserComponent, canActivate: [AdminGuard]},
       {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
       {path: 'station', component: ViewStationComponent},
       {path: 'kich-hoat-bao-hanh', component: KichHoatBaoHanhComponent},

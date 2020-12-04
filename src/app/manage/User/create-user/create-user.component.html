@@ -1,0 +1,37 @@
+<div class="container pdt20 pdb20">
+  <div class="border-1px-blue" style="width: 50%;margin: auto">
+    <div class="width-320px pdt20 pdb20" style="margin: auto">
+      <form [formGroup]="formUser" (ngSubmit)="ngSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Tên đăng nhập</label>
+          <input [formControlName]="'username'" type="text" class="form-control" id="exampleInputEmail1"
+                 aria-describedby="emailHelp">
+          <small *ngIf="isNeedCheck&&!formUser.get('username').valid" style="color: red">Tên đăng nhập không được để
+            trống</small>
+          <small *ngIf="isNeedCheck&&isExsistUsername" style="color: red">Tên đăng nhập đã tồn tại</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Mật khẩu</label>
+          <input [formControlName]="'password'" type="password" class="form-control" id="exampleInputPassword1">
+          <small *ngIf="isNeedCheck&&!formUser.get('password').valid" style="color: red">Mật khẩu không được đẻ trống và
+            nhỏ hơn 15 ký
+            tự</small>
+        </div>
+        <div class="form-group">
+          <label for="rePass">Nhập lại mật khẩu</label>
+          <input [formControlName]="'repass'" type="password" class="form-control" id="rePass">
+          <small *ngIf="isNeedCheck&&!isPassMatch" style="color: red">Mật khẩu không khớp</small>
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label><br>
+          <select name="drpVung" id="role" [formControlName]="'role'"
+                  class="width-100px height-30 text-align btn border-radius-0 bg-color-white border-1px-gray dropdown-toggle">
+            <option *ngFor="let role of lstRole" value="{{role}}">{{role}}</option>
+          </select>
+          <small *ngIf="isNeedCheck&&!formUser.get('role').valid" style="color: red">Role không được để trống</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Tạo mới</button>
+      </form>
+    </div>
+  </div>
+</div>

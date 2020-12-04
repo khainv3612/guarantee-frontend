@@ -19,6 +19,7 @@ export class DataService {
   urlTypeStation = environment.URL_API_TYPESTATION;
   urlStation = environment.URL_API_STATION;
   urlWarranty = environment.URL_API_WARRANTYCLAIM;
+  urlAccount = environment.URL_API_ACCOUNT;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -49,5 +50,9 @@ export class DataService {
 
   getAllStationAccepted(): Observable<Station[]> {
     return this.httpClient.get<Station[]>(this.urlStation + 'all-accepted');
+  }
+
+  getAllRoleUnderAdmin(): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.urlAccount + 'get-role-under-admin');
   }
 }

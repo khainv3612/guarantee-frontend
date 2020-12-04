@@ -25,7 +25,6 @@ export class KetQuaTraCuuHanBaoHanhComponent implements OnInit {
   searchWarranty(serialNumber: string) {
     this.warrantyCardService.searchWarranty(serialNumber).subscribe(result => {
       this.warrantyCard = result;
-      console.log(this.warrantyCard);
     }, error => {
       this.isWrongSerialNumber = true;
     });

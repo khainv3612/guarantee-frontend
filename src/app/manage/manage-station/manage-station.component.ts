@@ -5,6 +5,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {DataService} from "../../service/data-service";
 import {AuthService} from "../../service/auth-service";
 import {AdminService} from "../../service/admin-service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-manage-station',
@@ -15,8 +16,6 @@ export class ManageStationComponent implements OnInit {
 
   lstSource: Station[];
   order = 0;
-  // lstAllPending: Station[];
-  // lstAllAccepted: Station[];
   lstAllProvince: Province[];
   lstFilterStation: Station[];
   formFilter: FormGroup;
@@ -24,7 +23,10 @@ export class ManageStationComponent implements OnInit {
   menuTabPrevious: any = null;
 
 
-  constructor(private dataService: DataService, private authService: AuthService, private manageService: AdminService) {
+  constructor(private dataService: DataService,
+              private authService: AuthService,
+              private manageService: AdminService,
+              private router: Router) {
     this.formFilter = new FormGroup({
       name: new FormControl(),
       area: new FormControl(),
@@ -35,7 +37,7 @@ export class ManageStationComponent implements OnInit {
     this.dataService.getProvince().subscribe(data => {
       this.lstAllProvince = data;
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     })
   }
 
@@ -51,7 +53,7 @@ export class ManageStationComponent implements OnInit {
       this.lstFilterStation = data;
       this.setColorMenu('menu-tab', 0);
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     })
   }
 
@@ -62,7 +64,7 @@ export class ManageStationComponent implements OnInit {
       this.lstFilterStation = data;
       this.setColorMenu('menu-tab', 1);
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     })
   }
 
@@ -99,8 +101,7 @@ export class ManageStationComponent implements OnInit {
       alert("DUYỆT THÀNH CÔNG");
       this.getAllPending();
     }, error => {
-      alert("CÓ LỖI XẢY RA");
-      console.log('error');
+      this.router.navigate(['error']).then();
     })
   }
 
@@ -108,15 +109,14 @@ export class ManageStationComponent implements OnInit {
     if (!confirm("ARE YOU SURE?"))
       return;
     return this.manageService.removeStation(id).subscribe(result => {
-      console.log(result)
-      alert("xoa thanh cong");
+      alert("XÓA THÀNH CÔNG");
       if (this.typeStation == 'pending') {
         this.getAllPending();
       } else {
         this.getAllAccept();
       }
     }, error => {
-      alert("co loi xay ra");
+      this.router.navigate(['error']).then();
     })
   }
 

@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Station} from "../../model/Station";
-import {DataService} from "../../service/data-service";
-import {Province} from "../../model/Province";
-import {FormControl, FormGroup} from "@angular/forms";
+import {Station} from '../../model/Station';
+import {DataService} from '../../service/data-service';
+import {Province} from '../../model/Province';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-view-station',
@@ -16,24 +17,25 @@ export class ViewStationComponent implements OnInit {
   formFilter: FormGroup;
 
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService,
+              private router: Router) {
     this.formFilter = new FormGroup({
       name: new FormControl(),
       area: new FormControl(),
       province: new FormControl()
-    })
+    });
     this.dataService.getAllStation().subscribe(data => {
       this.lstAllStation = data;
       this.lstFilterStation = data;
     }, error => {
-      console.log(error);
-    })
+      this.router.navigate(['error']).then();
+    });
 
     this.dataService.getProvince().subscribe(data => {
       this.lstAllProvince = data;
     }, error => {
-      console.log(error);
-    })
+      this.router.navigate(['error']).then();
+    });
   }
 
   ngOnInit(): void {

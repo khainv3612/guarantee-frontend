@@ -47,8 +47,8 @@
               <th class="text-center" scope="col">Điện thoại</th>
               <th class="text-center" scope="col">Tỉnh th&#224;nh</th>
             </tr>
-            <tr *ngFor="let station of lstFilterStation" style="font-size:12px;height:22px;">
-              <th scope="col" class="text-center">{{station.id}}</th>
+            <tr *ngFor="let station of lstFilterStation, index as i" style="font-size:12px;height:22px;">
+              <th scope="col" class="text-center">{{i + 1}}</th>
               <th scope="col" style="padding: 10px">{{station.name}}</th>
               <th scope="col" style="padding: 10px">{{station.address}}</th>
               <th class="text-center" scope="col">{{station.phone}}</th>

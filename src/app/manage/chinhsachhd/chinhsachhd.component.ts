@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Policy} from '../../model/Policy';
 import {AdminService} from '../../service/admin-service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -57,7 +57,9 @@ export class ChinhsachhdComponent implements OnInit {
     }
   };
 
-  constructor(private routerActive: ActivatedRoute, private adminService: AdminService) {
+  constructor(private routerActive: ActivatedRoute,
+              private adminService: AdminService,
+              private router: Router) {
     this.policyForm = new FormGroup({
       body: this.body
     });
@@ -82,7 +84,7 @@ export class ChinhsachhdComponent implements OnInit {
       this.policy = result;
       this.policyForm.get('body').setValue(this.policy.content);
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     });
   }
 
@@ -90,10 +92,9 @@ export class ChinhsachhdComponent implements OnInit {
     this.policy.id = this.idPolicy;
     this.policy.content = this.policyForm.get('body').value;
     this.adminService.savePolicy(this.policy).subscribe(result => {
-      alert("saved");
+      alert("Lưu thành công");
     }, error => {
-      console.log(error);
-      alert('failed');
+      this.router.navigate(['error']).then();
     })
   }
 

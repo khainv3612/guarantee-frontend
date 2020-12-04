@@ -6,11 +6,13 @@
 
       <form [formGroup]="formFilter" (submit)="filter()">
         <div class="pull-left">
-          <label for="txtSearch">Tên hoặc mã sản phẩm: </label>
+
+          <div class="clearfix mgt5 mgt5x"></div>
+          <label for="txtSearch">Tên hoặc mã sản phẩm : </label>
 
           <input formControlName="txtSearch" name="txtSearch" type="text"
                  id="txtSearch"
-                 class="width-200px btn height-30 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
+                 class="width-200px btn height-30 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgl5"
                  placeholder="Tìm kiếm"/>
 
           <span style="padding-left: 5px">
@@ -23,6 +25,7 @@
                    id="cmAdd" class="height-30 cr-3 mgb10 mgb10x mgr5 mgr5x"/>
           </span>
 
+
         </div>
       </form>
       <div class="clearfix"></div>
@@ -33,30 +36,40 @@
               <th class="text-center" scope="col">TT</th>
               <th class="pd10" scope="col">Tên sản phẩm</th>
               <th class="text-center pd10" scope="col">Mã sản phẩm</th>
-              <th class="text-center pd10" scope="col">Bảo hành </th>
+              <th class="text-center pd10" scope="col">Bảo hành</th>
               <th class="text-center pd10" scope="col">Thao tác</th>
             </tr>
-              <tr *ngFor="let p of lstProduct, index as i" style="font-size:12px;height:22px;">
-                <th class="text-center pd10" scope="col">{{i + 1}}</th>
-                <th class="pd10" scope="col">{{p.name}}</th>
-                <th class="text-center pd10" scope="col">{{p.productCode}}</th>
-                <th class="text-center pd10" scope="col">{{p.periodMonthWarranty}} tháng</th>
-                <th class="text-center pd10" scope="col">
-                  <mat-icon color="primary" title="Chi tiết" class="cursor-pointer" (click)="viewDetail(p)">
-                    details
-                  </mat-icon>
-                  <mat-icon color="accent" title="Chỉnh sửa" class="mgl20 cursor-pointer" (click)="viewUpdate(p)">
-                    edit
-                  </mat-icon>
-                  <mat-icon color="warn" title="Xóa" class="mgl20 cursor-pointer" (click)="delete(p.id)">
-                    delete
-                  </mat-icon>
-                </th>
-              </tr>
+            <tr *ngFor="let p of lstProduct, index as i" style="font-size:12px;height:22px;">
+              <th class="text-center pd10" scope="col">{{i + 1}}</th>
+              <th class="pd10" scope="col">{{p.name}}</th>
+              <th class="text-center pd10" scope="col">{{p.productCode}}</th>
+              <th class="text-center pd10" scope="col">{{p.periodMonthWarranty}} tháng</th>
+              <th class="text-center pd10" scope="col">
+                <mat-icon color="primary" title="Chi tiết" class="cursor-pointer" (click)="viewDetail(p)">
+                  details
+                </mat-icon>
+                <mat-icon color="accent" title="Chỉnh sửa" class="mgl20 cursor-pointer" (click)="viewUpdate(p)">
+                  edit
+                </mat-icon>
+                <mat-icon color="warn" title="Xóa" class="mgl20 cursor-pointer" (click)="delete(p.id)">
+                  delete
+                </mat-icon>
+              </th>
+            </tr>
           </table>
         </div>
       </div>
       <div class="clearfix mgt30 mgt30x"></div>
+
+      <div class="pull-left">
+        <label for="txtSearch">Nhập liệu data bảo hành :</label>
+        <span style="padding-left: 5px">
+            <input type="file" (change)="selectFile($event)"
+                   name="cmSelect" style="display: inline!important;">
+            <input type="button" (click)="uploadDataWarranty()" name="cmAdd" value="Nhập dữ liệu bảo hành"
+                   id="cmUpload" class="height-30 cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+          </span>
+      </div>
     </div>
   </div>
 

@@ -8,6 +8,7 @@ import {WarrantyActiveDTO} from '../../model/WarrantyActiveDTO';
 import {WarrantyCardService} from '../../service/warranty-card-service';
 import {DatePipe} from '@angular/common';
 import {getAngularClassTransformerFactory} from '@angular/compiler-cli/src/transformers/r3_transform';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-kich-hoat-bao-hanh',
@@ -15,8 +16,6 @@ import {getAngularClassTransformerFactory} from '@angular/compiler-cli/src/trans
   styleUrls: ['./kich-hoat-bao-hanh.component.css']
 })
 export class KichHoatBaoHanhComponent implements OnInit {
-  dataService: DataService;
-  warrantyCardService: WarrantyCardService;
 
   warrantyActiveDTO: WarrantyActiveDTO = new WarrantyActiveDTO();
   warrantyActiveForm: FormGroup = new FormGroup({
@@ -57,9 +56,9 @@ export class KichHoatBaoHanhComponent implements OnInit {
   isValidFormSubmitted = null;
   isVerify = true;
 
-  constructor(dataService: DataService, warrantyCardService: WarrantyCardService) {
-    this.dataService = dataService;
-    this.warrantyCardService = warrantyCardService;
+  constructor(private dataService: DataService,
+              private warrantyCardService: WarrantyCardService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -73,12 +72,10 @@ export class KichHoatBaoHanhComponent implements OnInit {
 
   getProvince() {
     this.dataService.getProvince().subscribe(data => {
-        this.lstProvince = data;
-      },
-      error => {
-        console.log('error when get list province');
-        console.log(error);
-      });
+      this.lstProvince = data;
+    }, error => {
+      this.router.navigate(['error']).then();
+    });
   }
 
   getDistrict() {
@@ -86,7 +83,7 @@ export class KichHoatBaoHanhComponent implements OnInit {
     this.dataService.getDistrict(this.warrantyActiveForm.get('province').value).subscribe(result => {
       this.lstDistrict = result;
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     });
   }
 
@@ -94,7 +91,7 @@ export class KichHoatBaoHanhComponent implements OnInit {
     this.dataService.getWard(this.warrantyActiveForm.get('province').value, this.warrantyActiveForm.get('district').value).subscribe(result => {
       this.lstWard = result;
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     });
   }
 
@@ -114,11 +111,11 @@ export class KichHoatBaoHanhComponent implements OnInit {
     this.isValidFormSubmitted = true;
     this.warrantyActiveDTO = this.warrantyActiveForm.value;
     this.warrantyCardService.activeWarranty(this.warrantyActiveDTO).subscribe(result => {
-      alert("Đăng ký bảo hành thành công")
+      alert('Đăng ký bảo hành thành công');
       this.reset();
     }, error => {
       alert(error.error);
-    })
+    });
   }
 
 }

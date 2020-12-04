@@ -16,7 +16,9 @@ export const environment = {
   URL_API_TYPESTATION: domainUrl + 'api/type-station/',
   URL_API_STATION: domainUrl + 'api/station/',
   URL_API_WARRANTYCLAIM: domainUrl + 'api/',
-  URL_API_WARRANTY_CARD:domainUrl + 'api/warranty/'
+  URL_API_WARRANTY_CARD:domainUrl + 'api/warranty/',
+  URL_API_PRODUCT:domainUrl + 'api/product/',
+  PHONE_CONTACT: '0367924958'
 };
 
 /*

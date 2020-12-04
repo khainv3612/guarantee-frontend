@@ -24,7 +24,7 @@ export class TraCuuHanBaoHanhComponent implements OnInit {
     ]),
   });
 
-  constructor(private route: Router) {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -49,7 +49,7 @@ export class TraCuuHanBaoHanhComponent implements OnInit {
       return;
     }
     const serialNumber = this.searchWarrantyForm.get('serialNumber').value;
-    this.route.navigate(['ket-qua-tra-cuu-han-bao-hanh'], {queryParams: {serialNumber: serialNumber}}).then((e) => {
+    this.router.navigate(['ket-qua-tra-cuu-han-bao-hanh'], {queryParams: {serialNumber: serialNumber}}).then((e) => {
       console.log('Navigation is successful!');
     });
   }

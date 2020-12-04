@@ -1,0 +1,33 @@
+/* prepare wrapper element */
+.monthUnit {
+  display: inline-block;
+  position: relative;
+}
+
+/* position the unit to the right of the wrapper */
+.monthUnit::after {
+  position: absolute;
+  top: 2px;
+  right: .5em;
+  transition: all .05s ease-in-out;
+}
+
+/* move unit more to the left on hover or focus within
+   for arrow buttons will appear to the right of number inputs */
+.monthUnit:hover::after,
+.monthUnit:focus-within::after {
+  right: 1.5em;
+}
+
+/* handle Firefox (arrows always shown) */
+@supports (-moz-appearance:none) {
+  .monthUnit::after {
+    right: 1.5em;
+  }
+}
+
+/* set the unit abbreviation for each unit class */
+.monthUnit::after {
+  padding-top: 5px;
+  content: 'tháng';
+}

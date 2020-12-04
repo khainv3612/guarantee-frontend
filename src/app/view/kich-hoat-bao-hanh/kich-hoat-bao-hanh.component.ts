@@ -98,16 +98,6 @@ export class KichHoatBaoHanhComponent implements OnInit {
     });
   }
 
-  validateForm(): boolean {
-    if (this.warrantyActiveForm.get('verifyCode').value != '') {
-      let isVerify = this.warrantyActiveForm.get('verifyCode').value == this.captcha.toString();
-      if (!isVerify) {
-        return false;
-      }
-    }
-    return true;
-  }
-
   reset() {
     this.isValidFormSubmitted = null;
     this.warrantyActiveForm.reset();

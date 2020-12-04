@@ -30,6 +30,10 @@ import {AdminGuard} from "./Guard/admin/admin.guard";
 import {TecnicianGuard} from "./Guard/technician/tecnician.guard";
 import {SalerGuard} from "./Guard/saler/saler.guard";
 import { KetQuaTraCuuHanBaoHanhComponent } from './view/ket-qua-tra-cuu-han-bao-hanh/ket-qua-tra-cuu-han-bao-hanh.component';
+import { CreateProductComponent } from './manage/product/create-product/create-product.component';
+import { ViewAllProductComponent } from './manage/product/view-all-product/view-all-product.component';
+import { ViewDetailProductComponent } from './manage/product/view-detail-product/view-detail-product.component';
+import { ErrorPageComponent } from './view/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { KetQuaTraCuuHanBaoHanhComponent } from './view/ket-qua-tra-cuu-han-bao-
     ViewStationComponent,
     ManageStationComponent,
     KetQuaTraCuuHanBaoHanhComponent,
+    CreateProductComponent,
+    ViewAllProductComponent,
+    ViewDetailProductComponent,
+    ErrorPageComponent,
   ],
   imports: [
     HttpClientModule,
@@ -74,7 +82,11 @@ import { KetQuaTraCuuHanBaoHanhComponent } from './view/ket-qua-tra-cuu-han-bao-
       {path: 'yeu-cau-bao-hanh', component: YeuCauBaoHanhComponent},
       {path: 'tra-cuu-yeu-cau-bao-hanh', component: TraCuuYeuCauBaoHanhComponent},
       {path: 'tram-bao-hanh', component: TramBaoHanhComponent},
-      {path: 'ket-qua-tra-cuu-han-bao-hanh', component: KetQuaTraCuuHanBaoHanhComponent}
+      {path: 'ket-qua-tra-cuu-han-bao-hanh', component: KetQuaTraCuuHanBaoHanhComponent},
+      {path: 'quan-ly/san-pham', component: ViewAllProductComponent},
+      {path: 'quan-ly/chi-tiet-san-pham', component: ViewDetailProductComponent},
+      {path: 'quan-ly/tao-san-pham', component: CreateProductComponent},
+      {path: 'error', component: ErrorPageComponent},
     ]),
   ],
   providers: [],

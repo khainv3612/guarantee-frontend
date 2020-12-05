@@ -34,8 +34,6 @@ export class YeucaubaohanhComponent implements OnInit {
       phone: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       phone2: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       email: new FormControl('',[Validators.required,Validators.email,Validators.required,Validators.maxLength(30),Validators.minLength(5)]),
-      product: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
-      modelProduct: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       serial: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
       description: new FormControl('',[Validators.required,Validators.maxLength(300),Validators.minLength(5)]),
       province: new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(5)]),
@@ -81,9 +79,7 @@ export class YeucaubaohanhComponent implements OnInit {
     this.warrantyClaimModel.email= this.warrantyClaimFrom.value.email;
     this.warrantyClaimModel.phone2= this.warrantyClaimFrom.value.phone2;
     this.warrantyClaimModel.phone= this.warrantyClaimFrom.value.phone;
-    this.warrantyClaimModel.product= this.warrantyClaimFrom.value.product;
     this.warrantyClaimModel.serial= this.warrantyClaimFrom.value.serial;
-    this.warrantyClaimModel.modelProduct= this.warrantyClaimFrom.value.modelProduct;
     console.log(this.warrantyClaimModel)
     return this.warrantyClaimModel;
   }

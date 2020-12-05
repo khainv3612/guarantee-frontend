@@ -39,11 +39,11 @@ export class QuanlyyeucaubhComponent implements OnInit {
   }
   acceptBtn(event){
    let serial = event.target.id;
-   this.dataService.acceptRequestWarranty(serial).subscribe(result => {this.lstModel = this.lstModel.filter(p => (!p.serial.includes(serial)));});
+   this.dataService.acceptRequestWarranty(serial).subscribe(result => this.searchAll());
    
   }
   rejectBtn(event){
     let serial = event.target.id;
-    this.dataService.rejectRequestWarranty(serial).subscribe(result => {this.lstModel = this.lstModel.filter(p => (!p.serial.includes(serial)));});
+    this.dataService.rejectRequestWarranty(serial).subscribe(result => this.searchAll());
   }
 }

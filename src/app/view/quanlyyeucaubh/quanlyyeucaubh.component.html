@@ -17,10 +17,10 @@
                     <div>
 		<table cellspacing="0" rules="all" border="1" id="grd_Tram" style="width:100%;border-collapse:collapse;">
 			<tr style="background-color:Silver;font-size:12px;height:22px;">
-				<th scope="col">TT</th><th scope="col">Khách hàng</th><th scope="col">Mô tả lỗi</th><th class="text-center" scope="col">Điện thoại</th><th class="text-center" scope="col">Số serial</th><th class="text-center" scope="col">Tỉnh th&#224;nh</th><th class="text-center" scope="col">Sản phẩm</th><th class="text-center" scope="col">Hoàn tất</th><th class="text-center" scope="col">Hủy yêu cầu</th>
+				<th scope="col">TT</th><th scope="col">Số serial</th><th scope="col">Mô tả lỗi</th><th class="text-center" scope="col">Điện thoại</th><th class="text-center" scope="col">Trạng thái</th><th class="text-center" scope="col">Ngày xử lý</th><th class="text-center" scope="col">Ngày tạo</th><th class="text-center" scope="col">Hoàn tất</th><th class="text-center" scope="col">Hủy yêu cầu</th>
 			</tr>
 			<tr *ngFor="let row of lstModel"  style="font-size:12px;height:22px;">
-				<td align="center" style="width:30px;">1</td><td>{{row.customerName}}</td><td>{{row.description}}</td><td align="center" style="width:110px;">{{row.phone}}</td><td align="center" style="width:100px;">{{row.serial}}</td><td align="center" style="width:100px;">{{row.province}}</td><td align="center" style="width:100px;">{{row.modelProduct}}</td>
+				<td align="center" style="width:30px;">1</td><td>{{row.serial}}</td><td>{{row.description}}</td><td align="center" style="width:110px;">{{row.phone}}</td><td align="center" style="width:100px;">{{row.status}}</td><td align="center" style="width:100px;">{{row.doneTime}}</td><td align="center" style="width:100px;">{{row.createTime}}</td>
 				<td align="center" style="width:100px;">
 					<button id="{{row.serial}}" (click)="acceptBtn($event)" class="btn btn-success i-btn"><i class="fa fa-check"></i></button>
 				</td>

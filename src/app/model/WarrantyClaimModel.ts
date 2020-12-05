@@ -1,3 +1,5 @@
+import {Product} from './Product'
+
 export class WarrantyClaimModel{
     customerName?: String ='';
     address?: String ='';
@@ -8,7 +10,8 @@ export class WarrantyClaimModel{
     phone2?: String ='';
     email?: String ='';
     serial?: String ='';
-    modelProduct?: String ='';
-    product?: String ='';
+    product?: Product;
     description?: String ='';
+    doneTime?: String ='';
+    createTime?: String ='';
 }

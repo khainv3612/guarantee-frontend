@@ -30,20 +30,18 @@ export class QuanlyyeucaubhComponent implements OnInit {
      this.searchAll();
    }
    if(serial != "all"){
-    this.dataService.getWarrantyClaim(serial).subscribe(result => {this.lstModel = [];this.lstModel.push(result);this.isMessage = false;},err => this.isMessage = true);
+    this.dataService.getWarrantyClaim(serial).subscribe(result => {this.lstModel = [];this.lstModel = result;this.isMessage = false;},err => this.isMessage = true);
    }
   }
   searchAll(){
     this.isMessage = false;
     this.dataService.getAllWarrantyClaim().subscribe(result => {this.lstModel = result;});
   }
-  acceptBtn(event){
-   let serial = event.target.id;
-   this.dataService.acceptRequestWarranty(serial).subscribe(result => this.searchAll());
+  acceptBtn(id){
+   this.dataService.acceptRequestWarranty(id).subscribe(result => this.searchAll());
    
   }
-  rejectBtn(event){
-    let serial = event.target.id;
-    this.dataService.rejectRequestWarranty(serial).subscribe(result => this.searchAll());
+  rejectBtn(id){
+    this.dataService.rejectRequestWarranty(id).subscribe(result => this.searchAll());
   }
 }

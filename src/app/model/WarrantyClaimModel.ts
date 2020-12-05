@@ -14,4 +14,5 @@ export class WarrantyClaimModel{
     description?: String ='';
     doneTime?: String ='';
     createTime?: String ='';
+    id?: String;
 }

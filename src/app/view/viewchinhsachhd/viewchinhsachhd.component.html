@@ -7,21 +7,21 @@
 
         <p class="mgt15 mgt15x text-center">Thông tin về chính sách bảo hành, hướng dẫn kích hoạt bảo hành,
           hướng dẫn tra cứu hạn bảo hành</p>
-        <p class="mgt20 mgt20x text-center"><a class="cursor-pointer" (click)="getPolicy(1)"
+        <p class="mgt20 mgt20x text-center"><a name="menu-tab" class="cursor-pointer" (click)="getPolicy(1)"
                                                style='color:orange;'>CHÍNH
           SÁCH BẢO
-          HÀNH</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="cursor-pointer" (click)="getPolicy(2)">CHÍNH SÁCH
+          HÀNH</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="menu-tab" class="cursor-pointer" (click)="getPolicy(2)">CHÍNH SÁCH
           BẢO
           MẬT
-          THÔNG TIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="cursor-pointer" (click)="getPolicy(3)">HƯỚNG
+          THÔNG TIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="menu-tab" class="cursor-pointer" (click)="getPolicy(3)">HƯỚNG
           DẪN SỬ
           DỤNG</a>
         </p>
         <img src="assets/images/icon/icon-line.png" alt="kangaroo.vn"
              class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
-<!--        <div>-->
-          <span [innerHTML]="policy.content"></span>
-<!--        </div>-->
+        <!--        <div>-->
+        <span [innerHTML]="policy.content"></span>
+        <!--        </div>-->
       </div>
     </div>
   </div>

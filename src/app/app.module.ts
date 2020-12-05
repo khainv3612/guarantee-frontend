@@ -8,7 +8,7 @@ import {FooterComponent} from './footer/footer.component';
 import {SignUpComponent} from './Auth/sign-up/sign-up.component';
 import {SignInComponent} from './Auth/sign-in/sign-in.component';
 import {ForgotPassComponent} from './Auth/forgot-pass/forgot-pass.component';
-import {ChinhsachhdComponent} from './admin/chinhsachhd/chinhsachhd.component';
+import {ChinhsachhdComponent} from './manage/chinhsachhd/chinhsachhd.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {EditorModule} from '@tinymce/tinymce-angular';
@@ -21,6 +21,20 @@ import { YeucaubaohanhComponent } from './view/yeucaubaohanh/yeucaubaohanh.compo
 import {ViewStationComponent} from './view/view-station/view-station.component';
 import { TracuubaohanhComponent } from './view/tracuubaohanh/tracuubaohanh.component';
 import { QuanlyyeucaubhComponent } from './view/quanlyyeucaubh/quanlyyeucaubh.component';
+import {KichHoatBaoHanhComponent} from './view/kich-hoat-bao-hanh/kich-hoat-bao-hanh.component';
+import {TraCuuHanBaoHanhComponent} from './view/tra-cuu-han-bao-hanh/tra-cuu-han-bao-hanh.component';
+import {TramBaoHanhComponent} from './view/tram-bao-hanh/tram-bao-hanh.component';
+import * as $ from 'jquery';
+import {ManageStationComponent} from './manage/manage-station/manage-station.component';
+import {MatIconModule} from '@angular/material/icon';
+import {AdminGuard} from "./Guard/admin/admin.guard";
+import {TecnicianGuard} from "./Guard/technician/tecnician.guard";
+import {SalerGuard} from "./Guard/saler/saler.guard";
+import { KetQuaTraCuuHanBaoHanhComponent } from './view/ket-qua-tra-cuu-han-bao-hanh/ket-qua-tra-cuu-han-bao-hanh.component';
+import { CreateProductComponent } from './manage/product/create-product/create-product.component';
+import { ViewAllProductComponent } from './manage/product/view-all-product/view-all-product.component';
+import { ViewDetailProductComponent } from './manage/product/view-detail-product/view-detail-product.component';
+import { ErrorPageComponent } from './view/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +49,17 @@ import { QuanlyyeucaubhComponent } from './view/quanlyyeucaubh/quanlyyeucaubh.co
     YeucaubaohanhComponent,
     ViewStationComponent,
     TracuubaohanhComponent,
-    QuanlyyeucaubhComponent
+    QuanlyyeucaubhComponent,
+    KichHoatBaoHanhComponent,
+    TraCuuHanBaoHanhComponent,
+    TramBaoHanhComponent,
+    ViewStationComponent,
+    ManageStationComponent,
+    KetQuaTraCuuHanBaoHanhComponent,
+    CreateProductComponent,
+    ViewAllProductComponent,
+    ViewDetailProductComponent,
+    ErrorPageComponent,
   ],
   imports: [
     HttpClientModule,
@@ -47,13 +71,8 @@ import { QuanlyyeucaubhComponent } from './view/quanlyyeucaubh/quanlyyeucaubh.co
     EditorModule,
     ReactiveFormsModule,
     FormsModule,
+    MatIconModule,
     RouterModule.forRoot([
-      {path: 'home', component: ViewchinhsachhdComponent},
-      {path: 'sign-up', component: SignUpComponent},
-      {path: 'sign-in', component: SignInComponent},
-      {path: 'admin/chinhsachhd', component: ChinhsachhdComponent, canActivate: [AuthGuard]},
-      {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
-      {path: 'station', component: ViewStationComponent},
     ]),
   ],
   providers: [],

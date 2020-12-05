@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Policy} from '../../model/Policy';
 import {AdminService} from '../../service/admin-service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -10,6 +10,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./chinhsachhd.component.css'],
 })
 export class ChinhsachhdComponent implements OnInit {
+  menuTabPrevious: any = null;
   firstPage = 1;
   idPolicy = this.firstPage;
   policy: Policy;
@@ -56,7 +57,9 @@ export class ChinhsachhdComponent implements OnInit {
     }
   };
 
-  constructor(private routerActive: ActivatedRoute, private adminService: AdminService) {
+  constructor(private routerActive: ActivatedRoute,
+              private adminService: AdminService,
+              private router: Router) {
     this.policyForm = new FormGroup({
       body: this.body
     });
@@ -75,12 +78,13 @@ export class ChinhsachhdComponent implements OnInit {
   }
 
   getPolicy(id: number) {
+    this.setColorMenu('menu-tab', id - 1);
     this.idPolicy = id;
     this.adminService.getPolicy(id).subscribe(result => {
       this.policy = result;
       this.policyForm.get('body').setValue(this.policy.content);
     }, error => {
-      console.log(error);
+      this.router.navigate(['error']).then();
     });
   }
 
@@ -88,11 +92,18 @@ export class ChinhsachhdComponent implements OnInit {
     this.policy.id = this.idPolicy;
     this.policy.content = this.policyForm.get('body').value;
     this.adminService.savePolicy(this.policy).subscribe(result => {
-      alert("saved");
+      alert("Lưu thành công");
     }, error => {
-      console.log(error);
-      alert('failed');
+      this.router.navigate(['error']).then();
     })
+  }
+
+  setColorMenu(name: string, stt: number) {
+    if (null != this.menuTabPrevious)
+      this.menuTabPrevious.style.color = "";
+    const ele = document.getElementsByName(name)[stt];
+    ele.style.color = "orange";
+    this.menuTabPrevious = ele;
   }
 
 }

@@ -1,0 +1,131 @@
+<div id="pnlKetQuaTraCuuHanBaoHanh">
+
+  <div class="wrap bg-color-white">
+    <div class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
+      <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">Kết quả tra cứu hạn
+        bảo hành</h3>
+      <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
+           class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+      <div class="clearfix"></div>
+
+      <p class="text-center" *ngIf="isWrongSerialNumber">
+        Không tìm thấy kết quả !
+      </p>
+
+      <div id="ketQua" *ngIf="warrantyCard != null">
+        <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+          <img class="center-block" [src]="warrantyCard.product.image" alt="Hình ảnh sản phẩm">
+        </div>
+
+
+        <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+          <p class="font-size-16 color-green font-bold">Thông tin sản phẩm</p>
+          <span [innerHTML]="warrantyCard.product.description"></span>
+        </div>
+
+        <div class="clearfix mgb15 mgb15x"></div>
+        <div class="col-sm-12 col-xs-12 pdl30 pdr30">
+          <p class="font-size-16 color-green font-bold">Thông tin khách hàng</p>
+
+          <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tên khách hàng:</div>
+          <div class="col-sm-8 col-xs-6">
+            <p name="txtten_kh" type="text" id="txtten_kh"
+               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+              {{warrantyCard.customer.fullName}}
+            </p>
+
+          </div>
+          <div class="clearfix mgb10 mgb10x"></div>
+          <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">ĐT liên hệ:</div>
+          <div class="col-sm-8 col-xs-6">
+            <p name="txtsdt_kh" type="text" id="txtsdt_kh"
+               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+              {{warrantyCard.customer.phone}}
+            </p>
+
+
+          </div>
+          <div class="clearfix mgb10 mgb10x"></div>
+
+          <span id="UpdatePanel2">
+                        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tỉnh| Thành phố: </div>
+                        <div class="col-sm-8 col-xs-6">
+                            <p name="drpTinh_KH"
+                               id="drpTinh_KH"
+                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+	                          {{warrantyCard.customer.province}}
+                            </p>
+                        </div>
+                        <div class="clearfix mgb10 mgb10x"></div>
+				        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Quận huyện: </div>
+                        <div class="col-sm-8 col-xs-6">
+                            <p name="drpHuyen_KH"
+                               id="drpHuyen_KH"
+                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+                              {{warrantyCard.customer.district}}
+                            </p>
+                        </div>
+                        <div class="clearfix mgb10 mgb10x"></div>
+				        <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Phưỡng xã: </div>
+                        <div class="col-sm-8 col-xs-6">
+                            <p name="drpXa_KH"
+                               id="drpXa_KH"
+                               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+                                {{warrantyCard.customer.ward}}
+                            </p>
+                        </div><div class="clearfix mgb10 mgb10x"></div>
+                        </span>
+
+          <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Địa chỉ:</div>
+          <div class="col-sm-8 col-xs-6">
+            <p name="txtdiachi_kh" type="text" id="txtdiachi_kh"
+               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+
+              {{warrantyCard.customer.address}}
+
+            </p>
+
+          </div>
+          <div class="clearfix mgb10 mgb10x"></div>
+
+          <p class="font-size-16 color-green font-bold">Nơi mua sản phẩm</p>
+          <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Tên cửa hàng:</div>
+          <div class="col-sm-8 col-xs-6">
+            <p name="txttench_kh" type="text" id="txttench_kh"
+               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+              {{warrantyCard.storeAddr}}
+            </p>
+          </div>
+          <div class="clearfix mgb10 mgb10x"></div>
+
+          <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">SĐT cửa hàng:</div>
+          <div class="col-sm-8 col-xs-6">
+            <p name="txtten_dn" type="text" id="txtten_dn"
+               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+              {{warrantyCard.storePhone}}
+            </p>
+          </div>
+          <div class="clearfix mgb10 mgb10x"></div>
+
+          <p class="font-size-16 color-green font-bold">Thông tin bảo hành</p>
+          <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Ngày bắt đầu bảo hành: </div>
+          <div class="col-sm-8 col-xs-6">
+            <p name="txtngaybatdau" type="text" id="txtngaybatdau"
+               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+              {{warrantyCard.startTime}}
+            </p>
+          </div>
+          <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr10 pdr10x">Ngày kết thúc bảo hành: </div>
+          <div class="col-sm-8 col-xs-6">
+            <p name="txtngayketthuc" type="text" id="txtngayketthuc"
+               class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x">
+              {{warrantyCard.endTime}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+</div>

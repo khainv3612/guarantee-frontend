@@ -20,4 +20,5 @@ export class Station {
   banknumber?: string;
   beneficiary?: string;
   status?: string;
+  area?: string;
 }

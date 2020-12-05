@@ -1,0 +1,27 @@
+<div id="pnlKetQuaTraCuuHanBaoHanh">
+  <div class="wrap bg-color-white">
+    <div class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
+      <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">
+        Chi tiết sản phẩm
+      </h3>
+      <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
+           class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+      <div class="clearfix"></div>
+
+      <div id="ketQua">
+        <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+          <img class="center-block" [src]="product.image" alt="Hình ảnh sản phẩm">
+        </div>
+
+
+        <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+          <p class="font-size-16 color-green font-bold">Thông tin sản phẩm</p>
+          <span [innerHTML]="product.description"></span>
+        </div>
+
+        <div class="clearfix mgb15 mgb15x"></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

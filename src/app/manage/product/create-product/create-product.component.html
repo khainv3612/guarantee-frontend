@@ -1,0 +1,115 @@
+<div id="pnlCreateOrUpdateProduct">
+
+  <div class="wrap bg-color-white">
+    <div class="container pdl60 pdr60 pdt10 pdb30 pdt10x pdb30x">
+      <div class="pdl60 pdr60">
+        <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">
+          Quản lý thông tin sản phẩm
+        </h3>
+
+        <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
+             class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+        <div class="clearfix"></div>
+
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+          <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+            <p class="font-size-16 color-green font-bold">Thông tin sản phẩm</p>
+
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">
+              Tên sản phẩm :
+              <label class="color-orange vertical-align-middle">
+                *
+              </label>
+            </div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="name" name="txtSerial_KH" type="text" id="txtSerial_KH"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
+                     maxlength="100"/>
+              <span id="nameRequired" style="color:Red"
+                    *ngIf="productForm.controls.name.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+                Lỗi, vì bạn chưa nhập tên sản phẩm.
+              </span>
+            </div>
+
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">
+              Mã sản phẩm :
+              <label class="color-orange vertical-align-middle">
+                *
+              </label>
+            </div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="productCode" name="txtSerial_KH" type="text" id="productCode"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
+                     maxlength="20" [readOnly]="isUpdateMode"/>
+              <span id="codeRequired" style="color:Red"
+                    *ngIf="productForm.controls.productCode.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+                Lỗi, vì bạn chưa nhập mã sản phẩm.
+              </span>
+            </div>
+
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">
+              Thời gian BH :
+              <label class="color-orange vertical-align-middle">
+                *
+              </label>
+            </div>
+            <div class="col-sm-8 col-xs-6">
+              <div class="monthUnit width_100">
+                <input formControlName="periodMonthWarranty"
+                       name="txtSerial_KH" type="number" id="periodMonthWarranty"
+                       class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+              </div>
+              <span id="periodMonthWarrantyRequired" style="color:Red"
+                    *ngIf="productForm.controls.periodMonthWarranty.errors?.required
+                                  && !isValidFormSubmitted && isValidFormSubmitted != null">
+                Lỗi, vì bạn chưa nhập thời gian bảo hành sản phẩm.
+              </span>
+            </div>
+
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">
+              Link hình ảnh :
+            </div>
+            <div class="col-sm-8 col-xs-6">
+              <input formControlName="image" name="txtSerial_KH" type="text" id="image"
+                     class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/>
+            </div>
+
+            <div class="clearfix mgb10 mgb10x"></div>
+
+
+          </div>
+
+          <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+            <img class="center-block" [src]="productForm.controls.image.value" alt="Hình ảnh sản phẩm">
+          </div>
+
+          <div class="clearfix mgb10 mgb10x"></div>
+
+          <div class="col-sm-6 col-xs-12 pdl30 pdr30">
+            <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">
+              Mô tả sản phẩm :
+            </div>
+          </div>
+
+          <div class="clearfix mgb10 mgb10x"></div>
+
+          <editor apiKey="46cgjpsw26c04md2bv7slhzvuf034btn6qsb3akrj1mieps5"
+                  formControlName="description" [init]="editorConfig"></editor>
+
+          <div class="clearfix mgb10 mgb10x"></div>
+            <input type="submit" name="cmdKichHoat" value="Lưu sản phẩm" id="cmdKichHoat"
+                   class="center-block cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

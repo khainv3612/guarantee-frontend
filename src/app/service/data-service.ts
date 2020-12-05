@@ -6,8 +6,8 @@ import {environment} from "../../environments/environment";
 import {District} from "../model/District";
 import {Ward} from "../model/Ward";
 import {TypeStation} from "../model/TypeStation";
-import {Station} from "../model/Station";
 import {WarrantyClaimModel} from "../model/WarrantyClaimModel";
+import {Station} from '../model/Station';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +43,6 @@ export class DataService {
   getAllStation(): Observable<Station[]> {
     return this.httpClient.get<Station[]>(this.urlStation + 'getall');
   }
-
   saveWarrantyClaim(warrantyClaimModel: WarrantyClaimModel) : Observable<boolean>{
     return this.httpClient.post<any>(this.urlWarranty + "save",warrantyClaimModel);
   }
@@ -66,5 +65,11 @@ export class DataService {
   checkSerial(serial: string) : Observable<any>{
     return this.httpClient.get<any>(this.urlWarranty + "checkserial/"+serial);
   }
+  getAllStationPending(): Observable<Station[]> {
+    return this.httpClient.get<Station[]>(this.urlStation + 'all-pending');
+  }
 
+  getAllStationAccepted(): Observable<Station[]> {
+    return this.httpClient.get<Station[]>(this.urlStation + 'all-accepted');
+  }
 }

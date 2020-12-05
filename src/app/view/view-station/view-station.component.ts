@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Station} from "../../model/Station";
-import {DataService} from "../../service/data-service";
-import {Province} from "../../model/Province";
-import {FormControl, FormGroup} from "@angular/forms";
+import {Station} from '../../model/Station';
+import {DataService} from '../../service/data-service';
+import {Province} from '../../model/Province';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-view-station',
@@ -16,37 +17,56 @@ export class ViewStationComponent implements OnInit {
   formFilter: FormGroup;
 
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService,
+              private router: Router) {
     this.formFilter = new FormGroup({
-      stationName: new FormControl(),
+      name: new FormControl(),
       area: new FormControl(),
       province: new FormControl()
-    })
+    });
     this.dataService.getAllStation().subscribe(data => {
       this.lstAllStation = data;
-      this.testFilter();
+      this.lstFilterStation = data;
     }, error => {
-      console.log(error);
-    })
+      this.router.navigate(['error']).then();
+    });
 
     this.dataService.getProvince().subscribe(data => {
       this.lstAllProvince = data;
     }, error => {
-      console.log(error);
-    })
+      this.router.navigate(['error']).then();
+    });
   }
 
   ngOnInit(): void {
   }
 
-  testFilter() {
-    this.lstFilterStation = this.lstAllStation.filter(province => province.id == 3);
-    console.log(this.lstFilterStation);
-  }
 
   filter() {
-if(true){
-  
-}
+    this.lstFilterStation = this.lstAllStation;
+    const name = this.formFilter.get('name').value;
+    const area = this.formFilter.get('area').value;
+    const province = this.formFilter.get('province').value;
+    if (undefined != name) {
+      if (name != '') {
+        this.lstFilterStation = this.lstFilterStation.filter(station => station.name.includes(name));
+      } else {
+        this.lstFilterStation = this.lstFilterStation.filter(station => station.name != name);
+      }
+    }
+    if (undefined != area) {
+      if (area != '') {
+        this.lstFilterStation = this.lstFilterStation.filter(station => station.area == area);
+      } else {
+        this.lstFilterStation = this.lstFilterStation.filter(station => station.area != area);
+      }
+    }
+    if (undefined != province) {
+      if (province != '') {
+        this.lstFilterStation = this.lstFilterStation.filter(station => station.province == province);
+      } else {
+        this.lstFilterStation = this.lstFilterStation.filter(station => station.province != province);
+      }
+    }
   }
 }

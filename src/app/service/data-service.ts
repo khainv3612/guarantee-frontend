@@ -63,4 +63,8 @@ export class DataService {
     return this.httpClient.post<any>(this.urlWarranty + "reject",serial);
   }
 
+  checkSerial(serial: string) : Observable<any>{
+    return this.httpClient.get<any>(this.urlWarranty + "checkserial/"+serial);
+  }
+
 }

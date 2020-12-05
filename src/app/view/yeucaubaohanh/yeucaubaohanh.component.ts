@@ -24,6 +24,7 @@ export class YeucaubaohanhComponent implements OnInit {
   capcha: number;
   isCapcha: boolean = false;
   isMessage: boolean = false;
+  isExitSerial: boolean = true;
 
   constructor(dataService: DataService) { 
     this.dataService = dataService;
@@ -88,6 +89,9 @@ export class YeucaubaohanhComponent implements OnInit {
   }
 
   validateForm(): boolean {
+    if(!this.isExitSerial){
+      return false;
+    }
     let result = true;
     let isVerifyCapcha = this.warrantyClaimFrom.get('verifyCode').value != this.capcha.toString();
     if (isVerifyCapcha){
@@ -101,6 +105,10 @@ export class YeucaubaohanhComponent implements OnInit {
     }
     this.getCapcha(100000, 999999);
     return result;
+  }
+
+  querrySerial(event){
+    this.dataService.checkSerial(event.target.value).subscribe(id => this.isExitSerial = true ,err => this.isExitSerial = false)
   }
 
   boxselect(name:String,event:any){

@@ -41,11 +41,11 @@
 							<td align="center" style="width:100px;">{{row.doneTime}}</td>
 							<td align="center" style="width:100px;">{{row.createTime}}</td>
 							<td align="center" style="width:100px;">
-								<button (click)="acceptBtn(row.id)" class="btn btn-success i-btn"><i
+								<button *ngIf="row.status != 'active' && row.status != 'reject'" (click)="acceptBtn(row.id)" class="btn btn-success i-btn"><i
 										class="fa fa-check"></i></button>
 							</td>
 							<td align="center" style="width:100px;">
-								<button (click)="rejectBtn(row.id)" class="btn btn-danger i-btn"><i
+								<button *ngIf="row.status != 'active' && row.status != 'reject'" (click)="rejectBtn(row.id)" class="btn btn-danger i-btn"><i
 										class="fa fa-close"></i></button>
 							</td>
 						</tr>

@@ -1,0 +1,110 @@
+<div id="pnlTraCuuYeuCauBaoHanh">
+
+  <div class="wrap bg-color-white">
+    <div class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
+
+      <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x">Tra cứu trình trạng
+        yêu cầu bảo hành/sửa chữa</h3>
+      <p class="mgt15 mgt15x text-center">Chọn chức năng tìm kiếm tình trạng yêu cầu bảo hành/ bảo trì</p>
+      <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
+           class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+      <div class="clearfix"></div>
+
+      <div class="col-sm-push-3 col-sm-6 col-xs-12 border-1px-gray mgb30x">
+        <ul class="nav nav-tabs nav-justified">
+
+          <li class="active"><a data-toggle="tab" href="#ycbh_serial"
+                                class="font-bold color-gray-2 bg-color-gray">Tra cứu bằng serial, mã phiếu</a>
+          </li>
+
+        </ul>
+
+        <div class="tab-content">
+          <div id="ycbh_phone" class="tab-pane fade in ">
+            <div class="mgt30 mgb30 mgl30 mgr30 pdl30 pdr30 mg10x">
+              <div id="pnlPhone_TraYCBH"
+                   onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;cmdTraYCBH1&#39;)">
+
+                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Số điện thoại:<label
+                  class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                <div class="col-sm-9 col-xs-8">
+                  <input name="txtPhone_TraYCBH" type="text" id="txtPhone_TraYCBH"
+                         class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"/> <span
+                  id="rfvPhone_TraYCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập số điện thoại.</span>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Mã xác nhận: <label
+                  class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                <div class="col-sm-9 col-xs-8">
+                  <input name="txtCode_TraYCBH1" type="text" id="txtCode_TraYCBH1"
+                         class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x"/>
+                  <label class="cr-4" style="padding: 3px 30px;">
+                    675814
+                  </label>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+
+                <div class="col-sm-push-3 col-sm-9 col-xs-12">
+                  <p class="color-orange mg0 mg0x">Lưu ý: Dòng có dấu (*) là bắt buộc</p>
+                  <div class="clearfix mgb10 mgb10x"></div>
+                  <input type="submit" name="cmdTraYCBH1" value="Tra cứu thông tin"
+                         onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;cmdTraYCBH1&quot;, &quot;&quot;, true, &quot;Phone_TraYCBH&quot;, &quot;&quot;, false, false))"
+                         id="cmdTraYCBH1" class="cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div id="ycbh_serial" class="tab-pane fade in active">
+            <div class="mgt30 mgb30 mgl30 mgr30 pdl30 pdr30 mg10x">
+              <div id="pnlSerial_TraYCBH"
+                   onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;cmdTraYCBH2&#39;)">
+
+                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Serial, mã phiếu:<label
+                  class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                <div class="col-sm-9 col-xs-8">
+                  <input name="txtSerial_TraYCBH" type="text" id="txtSerial_TraYCBH"
+                         class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x"
+                         placeholder="Nhập số serial hoặc mã phiếu sửa chữa"/> <span
+                  id="rfvSerial_TraYCBH" style="color:Red;display:none;">Lỗi, vì bạn chưa nhập serial.</span>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+                <div class="col-sm-3 col-xs-4 font-size-14 mgt5 mgt5x ">Mã xác nhận: <label
+                  class="color-orange vertical-align-middle">* &nbsp;</label></div>
+                <div class="col-sm-9 col-xs-8">
+                  <input name="txtCode_TraYCBH2" type="text" id="txtCode_TraYCBH2"
+                         class="width-calc-130px border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgr5 mgr5x"/>
+                  <label class="cr-4" style="padding: 3px 30px;">
+                    675814
+                  </label>
+                </div>
+                <div class="clearfix mgb10 mgb10x"></div>
+
+                <div class="col-sm-push-3 col-sm-9 col-xs-12">
+                  <p class="color-orange mg0 mg0x">Lưu ý: Dòng có dấu (*) là bắt buộc</p>
+                  <div class="clearfix mgb10 mgb10x"></div>
+                  <input type="submit" name="cmdTraYCBH2" value="Tra cứu thông tin"
+                         onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;cmdTraYCBH2&quot;, &quot;&quot;, true, &quot;Serial_TraYCBH&quot;, &quot;&quot;, false, false))"
+                         id="cmdTraYCBH2" class="cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div id="ycbh_file" class="tab-pane fade in ">
+            <div class="mgt30 mgb30 mgl30 mgr30 pdl30 pdr30 mg10x">
+
+                            <span id="lblLogin_TraYCBH" class="text_b12">Bạn vui lòng <a
+                              href='login.html'><b>Đăng nhập</b></a> để được sử dụng chức năng này.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+
+    </div>
+  </div>
+
+</div>

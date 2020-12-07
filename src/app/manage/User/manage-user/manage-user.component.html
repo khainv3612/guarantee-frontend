@@ -23,9 +23,14 @@
               <td scope="col" style="padding: 10px">{{user.username}}</td>
               <td scope="col" style="padding: 10px">{{user.role.role}}</td>
               <td class="text-center" scope="col">
+                <span>
+                <mat-icon color="accent" title="Chỉnh sửa" class="cursor-pointer" (click)="redirectEditPage(user)">
+                  edit
+                </mat-icon>
                 <mat-icon color="warn" title="Remove" class="cursor-pointer" (click)="deleteAccount(user.id)">
                   delete
                 </mat-icon>
+                  </span>
               </td>
             </tr>
           </table>

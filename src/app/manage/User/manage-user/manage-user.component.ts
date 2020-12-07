@@ -51,4 +51,8 @@ export class ManageUserComponent implements OnInit {
   redirectCreatePage() {
     this.router.navigateByUrl('/manage/create-user', {state: this.lstAllUsername});
   }
+
+  redirectEditPage(user: Account) {
+    this.router.navigateByUrl('/manage/edit-user', {state: [this.lstAllUsername, user]});
+  }
 }

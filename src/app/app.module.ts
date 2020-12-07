@@ -35,7 +35,8 @@ import {ViewAllProductComponent} from './manage/product/view-all-product/view-al
 import {ViewDetailProductComponent} from './manage/product/view-detail-product/view-detail-product.component';
 import {ErrorPageComponent} from './view/error-page/error-page.component';
 import {ManageUserComponent} from './manage/User/manage-user/manage-user.component';
-import { CreateUserComponent } from './manage/User/create-user/create-user.component';
+import {CreateUserComponent} from './manage/User/create-user/create-user.component';
+import {EditUserComponent} from './manage/User/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { CreateUserComponent } from './manage/User/create-user/create-user.compo
     ErrorPageComponent,
     ManageUserComponent,
     CreateUserComponent,
+    EditUserComponent,
   ],
   imports: [
     HttpClientModule,
@@ -81,6 +83,7 @@ import { CreateUserComponent } from './manage/User/create-user/create-user.compo
       {path: 'manage/chinhsachhd', component: ChinhsachhdComponent, canActivate: [TecnicianGuard]},
       {path: 'manage/user', component: ManageUserComponent, canActivate: [AdminGuard]},
       {path: 'manage/create-user', component: CreateUserComponent, canActivate: [AdminGuard]},
+      {path: 'manage/edit-user', component: EditUserComponent, canActivate: [AdminGuard]},
       {path: 'chinhsachhd', component: ViewchinhsachhdComponent},
       {path: 'station', component: ViewStationComponent},
       {path: 'kich-hoat-bao-hanh', component: KichHoatBaoHanhComponent},

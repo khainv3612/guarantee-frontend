@@ -17,6 +17,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {ViewchinhsachhdComponent} from './view/viewchinhsachhd/viewchinhsachhd.component';
 import {AuthGuard} from "./auth.guard";
+import { YeucaubaohanhComponent } from './view/yeucaubaohanh/yeucaubaohanh.component';
+import { TracuubaohanhComponent } from './view/tracuubaohanh/tracuubaohanh.component';
+import { QuanlyyeucaubhComponent } from './view/quanlyyeucaubh/quanlyyeucaubh.component';
 import {KichHoatBaoHanhComponent} from './view/kich-hoat-bao-hanh/kich-hoat-bao-hanh.component';
 import {TraCuuHanBaoHanhComponent} from './view/tra-cuu-han-bao-hanh/tra-cuu-han-bao-hanh.component';
 import {TraCuuYeuCauBaoHanhComponent} from './view/tra-cuu-yeu-cau-bao-hanh/tra-cuu-yeu-cau-bao-hanh.component';
@@ -48,6 +51,10 @@ import {EditUserComponent} from './manage/User/edit-user/edit-user.component';
     ForgotPassComponent,
     ChinhsachhdComponent,
     ViewchinhsachhdComponent,
+    YeucaubaohanhComponent,
+    ViewStationComponent,
+    TracuubaohanhComponent,
+    QuanlyyeucaubhComponent,
     KichHoatBaoHanhComponent,
     TraCuuHanBaoHanhComponent,
     TraCuuYeuCauBaoHanhComponent,

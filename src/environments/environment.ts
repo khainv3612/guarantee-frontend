@@ -3,8 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 
-import {Const} from '../app/const';
-const domainUrl = 'http://localhost:8080/';
+const domainUrl = 'http://localhost:8081/';
 
 export const environment = {
   production: false,
@@ -15,10 +14,10 @@ export const environment = {
   URL_API_WARD: domainUrl + 'api/ward/',
   URL_API_TYPESTATION: domainUrl + 'api/type-station/',
   URL_API_STATION: domainUrl + 'api/station/',
-  URL_API_WARRANTYCLAIM: domainUrl + 'api/',
   URL_API_WARRANTY_CARD:domainUrl + 'api/warranty/',
   URL_API_PRODUCT:domainUrl + 'api/product/',
-  PHONE_CONTACT: '0367924958'
+  PHONE_CONTACT: '0367924958',
+  URL_API_WARRANTYCLAIM: domainUrl + 'api/requestguarantee/',
 };
 
 /*

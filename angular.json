@@ -130,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "guarantee-frontend"
+  "defaultProject": "guarantee-frontend",
+  "cli": {
+    "analytics": false
+  }
 }

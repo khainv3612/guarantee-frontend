@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 
-const domainUrl = 'http://localhost:8081/';
+const domainUrl = 'https://api.chuyengialocnuocminhduc.com/';
 
 export const environment = {
   production: true,

@@ -47,7 +47,8 @@
         hạn bảo hành</a>
       </li>
       <li class='topLiLv1 ' name="menuTop" (click)="setColorMenu('menuTop',2)"><a class="" routerLink="yeu-cau-bao-hanh"
-                                                                                  title="Yêu cầu bảo hành">Yêu cầu bảo hành, sửa chữa</a>
+                                                                                  title="Yêu cầu bảo hành">Yêu cầu bảo
+        hành, sửa chữa</a>
       </li>
       <li class='topLiLv1 ' name="menuTop" (click)="setColorMenu('menuTop',3)"><a class=""
                                                                                   routerLink="tra-cuu-yeu-cau-bao-hanh"
@@ -101,5 +102,97 @@
       </li>
     </ul>
 
+  </div>
+</div>
+
+<div class="wrap top_1a visible-xs visible-sm">
+  <div class="container pdl0 pdr0 top_1b">
+    <div class="col-xs-12 col-xs">
+      <div class="menuMobile pull-left" style="">
+        <img src="assets/images/icon/menuMobile.png" alt="" class="imgMenuMo"/>
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+      <div class="pull-left text-uppercase mgt1 mgl5x pdt10x">Danh mục</div>
+
+      <div class="visible-xs pull-right display-inline-block mgt5x"><img src="assets/images/icon/icon-phone.png"
+                                                                         alt="kangaroo.com.vn" class=""
+                                                                         style="margin-top: -6px;"/> <b
+        class="font-size-20 font-bold mgr20">1900555566</b></div>
+    </div>
+  </div>
+</div>
+
+<div class="topMenuMobile">
+  <div class="topMenuMobile_b pdl5 pdr5 mgl5x mgr5x">
+    <div class="closeSeach" style="    height: 30px;width:100%;    border-bottom: 1px solid #ddd;">
+      <i class="fa fa-window-close pull-right color-red font-size-30" aria-hidden="true"></i>
+    </div>
+
+    <div class="menu" *ngIf="null==authService.getCurrentUser()||authService.getCurrentUser()=='anonymous'">
+      <ul id="Ul1">
+        <li class='topLiLv1 '><a class=""
+                                 routerLink="kich-hoat-bao-hanh"
+                                 title="Kích hoạt bảo hành">Kích hoạt
+          bảo hành</a>
+        </li>
+        <li class='topLiLv1 '><a class=""
+                                 routerLink="tra-cuu-han-bao-hanh"
+                                 title="Tra cứu hạn bảo hành">Tra cứu
+          hạn bảo hành</a>
+        </li>
+        <li class='topLiLv1 '><a class=""
+                                 routerLink="yeu-cau-bao-hanh"
+                                 title="Yêu cầu bảo hành">Yêu cầu bảo
+          hành, sửa chữa</a>
+        </li>
+        <li class='topLiLv1 '><a class=""
+                                 routerLink="tra-cuu-yeu-cau-bao-hanh"
+                                 title="Tra cứu yêu cầu bảo hành">Tra
+          cứu bảo hành, sửa chữa</a>
+        </li>
+        <li class='topLiLv1 '><a class="" routerLink="station"
+                                 title="Trạm bảo hành">Trạm bảo
+          hành</a>
+        </li>
+
+        <li class='topLiLv1 '><a class="" routerLink="chinhsachhd"
+                                 title="">Chính sách & Hướng dẫn</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="menu" *ngIf="null!=authService.getCurrentUser()&&authService.getCurrentUser()!='anonymous'">
+      <ul id="Ul2">
+        <li class='topLiLv1'>
+          <a class="" routerLink="quan-ly/san-pham" title="Kích hoạt bảo hành">
+            Quản lý sản phẩm
+          </a>
+        </li>
+        <li class='topLiLv1 '>
+          <a class="" routerLink="yeu-cau-bao-hanh.html" title="Yêu cầu bảo hành">
+            Quản lý yêu cầu sửa chữa
+          </a>
+        </li>
+        <li class='topLiLv1 '>
+          <a class="" routerLink="manage/station" title="Tra cứu yêu cầu bảo hành">
+            Quản lý trạm
+          </a>
+        </li>
+        <li class='topLiLv1 '>
+          <a class="" routerLink="manage/chinhsachhd" title="Trạm bảo hành">
+            Quản lý CSHD
+          </a>
+        </li>
+
+        <li class='topLiLv1 '>
+          <a class="" routerLink="manage-homepage" title="">
+            Quản lý giao diện
+          </a>
+        </li>
+        <li class='topLiLv1 '><a class="" routerLink="manage/user"
+                                 title="">Quản lý user</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

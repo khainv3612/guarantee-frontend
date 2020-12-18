@@ -35,6 +35,7 @@ import { ErrorPageComponent } from './view/error-page/error-page.component';
 import {TracuubaohanhComponent} from './view/tracuubaohanh/tracuubaohanh.component';
 import {YeucaubaohanhComponent} from './view/yeucaubaohanh/yeucaubaohanh.component';
 import {QuanlyyeucaubhComponent} from './manage/quanlyyeucaubh/quanlyyeucaubh.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {QuanlyyeucaubhComponent} from './manage/quanlyyeucaubh/quanlyyeucaubh.co
     TracuubaohanhComponent,
     YeucaubaohanhComponent,
     QuanlyyeucaubhComponent,
+    HomeComponent,
   ],
   imports: [
     HttpClientModule,

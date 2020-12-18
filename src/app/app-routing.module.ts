@@ -19,10 +19,11 @@ import {ViewDetailProductComponent} from './manage/product/view-detail-product/v
 import {CreateProductComponent} from './manage/product/create-product/create-product.component';
 import {ErrorPageComponent} from './view/error-page/error-page.component';
 import {TracuubaohanhComponent} from './view/tracuubaohanh/tracuubaohanh.component';
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: ViewchinhsachhdComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'manage/station', component: ManageStationComponent, canActivate: [SalerGuard]},

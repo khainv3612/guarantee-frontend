@@ -19,7 +19,7 @@ export const environment = {
   URL_API_ACCOUNT: domainUrl + 'api/account/',
   URL_API_WARRANTYCLAIM: domainUrl + 'api/requestguarantee/',
   URL_API_WARRANTY_CARD: domainUrl + 'api/warranty/',
-  PHONE_CONTACT: '0367924958'
+  PHONE_CONTACT: '0238 66 22 333'
 };
 
 /*

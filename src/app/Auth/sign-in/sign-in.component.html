@@ -1,48 +1,41 @@
-<div style="background-color:#b8b3b3;">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div style="width:460px; height:260px; background-color:#fff; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
-      <div style="background-image:url('assets/images/login_header.jpg'); height:60px;"></div>
-      <div class="pad_a20">
-        <div class="pad_t15" style="float:left; width:120px; ">Tên đăng nhập:</div>
-        <div class="pad_t15" style="float:left; width:300px;">
-          <input [formControlName]="'username'" name="txtuName" type="text" id="txtuName"
-                 class="tbox_22 text_b12" style="width:270px;"/>
-          <!--          <span style="color: red" *ngIf="isNeedCheck&&!loginForm.get('username').valid"></span>-->
+<div class="modal-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div style="text-align: center">
+            <img class="pdl10 pdt5"
+                 src="assets/images/icon/logo.png" alt="chuyengialocnuocminhduc.com"
+                 style="width: 140px; height: 50px">
         </div>
-        <div style="clear:both;"></div>
+        <div class="pad_a20">
 
-        <div class="pad_t20" style="float:left; width:120px;">Mật khẩu:</div>
-        <div class="pad_t20" style="float:left; width:300px;">
-          <input [formControlName]="'password'" name="password" type="password" id="password"
-                 class="tbox_22 text_b12" style="width:270px;"/>
+            <input [formControlName]="'username'" name="txtuName" type="text" id="txtuName"
+                   class="tbox_22 text_b12 text-align-left"
+                   placeholder="Username"/>
+            <div class="clearfix mgb10 mgb10x"></div>
+            <input [formControlName]="'password'" name="password" type="password" id="password"
+                   class="tbox_22 text_b12 text-align-left"
+                   placeholder="Password"/>
+
+            <div class="pad_t20" style="float:left;">
+                <span style="color: red" *ngIf="!isValidate">Bạn phải nhập Tên tài khoản và Mật khẩu</span> <span
+                    style="color: red"
+                    *ngIf="isValidate&&!isLogined">Tên tài khoản hoặc Mật khẩu không đúng</span>
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+            <div class="pad_t5" style="text-align: center;">
+                <input type="submit" name="cmdLogin" value="Đăng nhập "
+                       id="cmdLogin" class="cmd_01"/>
+            </div>
+            <div class="clearfix mgb10 mgb10x"></div>
+
+            <div class="pad_t5" style="text-align: center;">
+                <a (click)="openDialogForgot()">Quên mật khẩu</a>
+            </div>
+            <div style="clear:both;"></div>
+
         </div>
-        <div style="clear:both;"></div>
-        <div class="pad_t20" style="float:left; width:120px;"></div>
-        <div class="pad_t20" style="float:left; width:300px;">
-          <span style="color: red" *ngIf="!isValidate">Bạn phải nhập Tên tài khoản và Mật khẩu</span>
-          <span style="color: red" *ngIf="isValidate&&!isLogined">Tên tài khoản hoặc Mật khẩu không đúng</span>
-        </div>
-        <div style="clear:both;"></div>
 
-        <div class="pad_t5" style="float:left; width:120px;">&nbsp;</div>
-        <div class="pad_t5" style="float:left; width:300px;"></div>
-        <div style="clear:both;"></div>
-
-        <div class="pad_t5" style="float:left; width:120px;">&nbsp;</div>
-        <div class="pad_t5" style="float:left; width:300px;">
-
-          <input type="submit" name="cmdLogin" value="Đăng nhập "
-                 id="cmdLogin" class="cmd_01" style="width:80px;"/>
-        </div>
-        <div style="clear:both;"></div>
-
-        <div class="pad_t10" style="float:left; width:120px;">&nbsp;</div>
-        <div class="pad_t10 cursor-pointer" style="float:left; width:300px;">
-          <a (click)="openDialogForgot()">Quên mật
-            khẩu</a></div>
-        <div style="clear:both;"></div>
-
-      </div>
-    </div>
-  </form>
+    </form>
 </div>
+
+

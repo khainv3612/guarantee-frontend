@@ -6,8 +6,8 @@ import {environment} from "../../environments/environment";
 import {District} from "../model/District";
 import {Ward} from "../model/Ward";
 import {TypeStation} from "../model/TypeStation";
-import {Station} from '../model/Station';
 import {WarrantyClaimModel} from "../model/WarrantyClaimModel";
+import {Station} from '../model/Station';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,7 @@ export class DataService {
   urlTypeStation = environment.URL_API_TYPESTATION;
   urlStation = environment.URL_API_STATION;
   urlWarranty = environment.URL_API_WARRANTYCLAIM;
+  urlAccount = environment.URL_API_ACCOUNT;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -48,7 +49,7 @@ export class DataService {
     return this.httpClient.post<any>(this.urlWarranty + "save",warrantyClaimModel);
   }
 
-  getWarrantyClaim(serial: String) : Observable<WarrantyClaimModel>{
+  getWarrantyClaim(serial: String) : Observable<WarrantyClaimModel[]>{
     return this.httpClient.post<any>(this.urlWarranty + "get",serial);
   }
   getAllWarrantyClaim() : Observable<any>{
@@ -63,12 +64,18 @@ export class DataService {
     return this.httpClient.post<any>(this.urlWarranty + "reject",serial);
   }
 
-
+  checkSerial(serial: string) : Observable<any>{
+    return this.httpClient.get<any>(this.urlWarranty + "checkserial/"+serial);
+  }
   getAllStationPending(): Observable<Station[]> {
     return this.httpClient.get<Station[]>(this.urlStation + 'all-pending');
   }
 
   getAllStationAccepted(): Observable<Station[]> {
     return this.httpClient.get<Station[]>(this.urlStation + 'all-accepted');
+  }
+
+  getAllRoleUnderAdmin(): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.urlAccount + 'get-role-under-admin');
   }
 }

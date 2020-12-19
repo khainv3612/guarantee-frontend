@@ -1,0 +1,43 @@
+<div id="pnlTramBaoHanh">
+  <div class="wrap bg-color-white">
+
+    <div class="container pdb10 pdt0 pdt0x pdb10x">
+      <div class="clearfix"></div>
+      <div class="table-responsive mgt20 mgt20x">
+        <div style="width: 60%;margin: auto">
+          <div class="pdl0 pdl0x">
+            <button type="button" class="btn btn-primary btn-sm cursor-pointer" (click)="redirectCreatePage()">ADD NEW
+              USER
+            </button>
+          </div>
+          <table [cellSpacing]="0" border="1" id="grd_Tram" style="width:100%;border-collapse:collapse;"
+                 class="mgt10 mgt10x">
+            <tr style="background-color:Silver;font-size:12px;height:30px;">
+              <th scope="col" class="text-center width-35px">TT</th>
+              <th scope="col" class="text-center width-320px" style="padding: 10px">USERNAME</th>
+              <th scope="col" style="padding: 10px" class="text-center">ROLE</th>
+              <th class="text-center width-125px" scope="col">Thao tác</th>
+            </tr>
+            <tr *ngFor="let user of lstAllUser; index as i" style="font-size:12px;height:22px;">
+              <td scope="col" class="text-center">{{i + 1}}</td>
+              <td scope="col" style="padding: 10px">{{user.username}}</td>
+              <td scope="col" style="padding: 10px">{{user.role.role}}</td>
+              <td class="text-center" scope="col">
+                <span>
+                <mat-icon color="accent" title="Chỉnh sửa" class="cursor-pointer" (click)="redirectEditPage(user)">
+                  edit
+                </mat-icon>
+                <mat-icon color="warn" title="Remove" class="cursor-pointer" (click)="deleteAccount(user.id)">
+                  delete
+                </mat-icon>
+                  </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="clearfix mgt30 mgt30x"></div>
+    </div>
+  </div>
+
+</div>

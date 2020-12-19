@@ -718,7 +718,7 @@ a > h2:hover, a:hover {
 }
 
 .color-green {
-    color: #66cc33;
+    color: #0369B9;
 }
 
 .color-yellow {
@@ -754,7 +754,7 @@ a > h2:hover, a:hover {
 }
 
 .bg-color-green {
-    background: #66cc33;
+    background: #0369B9;
 }
 
 .bg-color-gray {
@@ -867,7 +867,7 @@ a > h2:hover, a:hover {
 }
 
 .hover_color_green:hover {
-    color: #13cbbf !important;
+    color: #0369B9 !important;
 }
 
 .hover_color_black:hover {
@@ -1978,7 +1978,7 @@ ul.menuTop > li > a {
     padding: 16px 0 10px 0 !important;
     text-transform: uppercase;
     font-weight: 400;
-    color: #666;
+    color: #fff;
     border-bottom: 2px;
 }
 
@@ -2000,7 +2000,7 @@ ul.menuTop > li.ac {
 
 ul.menuTop > li.ac > a {
     color: #f26522;
-    border-bottom: 2px solid #66cc33;
+    border-bottom: 2px solid #0369B9;
 }
 
 ul.menuTop li ul {
@@ -2740,11 +2740,11 @@ ul.menuTop li:hover ul {
     font-size: 17px;
     font-weight: bold;
     display: inline-block;
-    background: #66cc33;
+    background: #0369B9;
     color: #fff;
     padding: 3px 30px 3px;
     border: 0;
-    border: 1px solid #66cc33;
+    border: 1px solid #0369B9;
     transition: all 0.5s;
     text-transform: uppercase;
     vertical-align: top;
@@ -2752,7 +2752,7 @@ ul.menuTop li:hover ul {
 
 .cr:hover {
     background: #fff !important;
-    color: #66cc33 !important;
+    color: #0369B9 !important;
     transition: all 0.5s;
 }
 
@@ -2780,18 +2780,18 @@ ul.menuTop li:hover ul {
     font-size: 17px;
     font-weight: 400;
     display: inline-block;
-    background: #66cc33;
+    background: #0369B9;
     color: #fff;
     padding: 3px 20px 3px;
     border: 0;
-    border: 1px solid #66cc33;
+    border: 1px solid #0369B9;
     transition: all 0.5s;
     vertical-align: top;
 }
 
 .cr-3:hover {
     background: #fff !important;
-    color: #66cc33 !important;
+    color: #0369B9 !important;
     transition: all 0.5s;
 }
 
@@ -2908,7 +2908,7 @@ ul.menuTop li:hover ul {
 }
 
 .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
-    color: #66cc33;
+    color: #0369B9;
 }
 
 /*==============info_a===============*/
@@ -3652,9 +3652,9 @@ ul.menuTop li:hover ul {
     .menuMobile img {
         margin-left: 0;
         height: 28px;
-        border: 1px solid #66cc33;
+        border: 1px solid #0369B9;
         border-radius: 3px;
-        background: #66cc33;
+        background: #0369B9;
     }
 
     .menuMobile i {
@@ -3984,7 +3984,7 @@ ul.menuTop li:hover ul {
         box-shadow: 0 4px 2px -2px #ddd;
         top: 0;
         z-index: 5;
-        background: #fff;
+        background: #0369B9!important;
         border-bottom: 1px solid rgb(221, 221, 221);
         position: relative;
     }

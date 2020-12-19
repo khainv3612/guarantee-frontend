@@ -8,7 +8,7 @@
             <p class="mgt15 mgt15x text-center">Quý khách có yêu cầu về Bảo hành/ Bảo trì sản phẩm, vui long điền đầy đủ
                 thông tin dưới đây và gửi về cho chúng tôi.<br />
                 Nhân viên chăm sóc khách hàng sẽ liên hệ với quý khách để hỗ trợ trong thời gian sớm nhất.</p>
-            <img src="assets/images/icon/icon-line.png" alt="kangaroo.com.vn"
+            <img src="assets/images/icon/icon-line.png" alt="chuyengialocnuocminhduc.com"
                 class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x" />
                 <p *ngIf="isMessage" style="color:Red;" class="mgt15 mgt15x text-center">Lưu thành công</p>
             <div class="clearfix"></div>
@@ -107,27 +107,11 @@
                 <span id="UpdatePanel4">
                     <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Serial:</div>
                     <div class="col-sm-8 col-xs-6">
-                        <input name="txtSerial_YCBH" type="text" value="{{warrantyClaimModel.serial}}" formControlName="serial"
+                        <input name="txtSerial_YCBH" type="text" value="{{warrantyClaimModel.serial}}" formControlName="serial" (change)="querrySerial($event)"
                             id="txtSerial_YCBH" class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" />
-                            <span *ngIf="isSubmited&&warrantyClaimFrom.controls['serial'].errors.required" id="rfvTinh_YCBH"
+                            <span *ngIf="!isExitSerial||isSubmited&&warrantyClaimFrom.controls['serial'].errors.required" id="rfvTinh_YCBH"
                             style="color:Red;">Lỗi, vì không tìm thấy Serial trong hệ
                             thống.</span>
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Tên sản phẩm:</div>
-                    <div class="col-sm-8 col-xs-6">
-                        <input name="txtten_vt" type="text" id="txtten_vt" value="{{warrantyClaimModel.product}}" formControlName="product"
-                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" />
-
-
-                    </div>
-                    <div class="clearfix mgb10 mgb10x"></div>
-                    <div class="col-sm-4 col-xs-6 font-size-14 mgt5 mgt5x pdr30 pdr10x">Model sản phẩm: <label
-                            class="color-orange vertical-align-middle">* &nbsp;</label></div>
-                    <div class="col-sm-8 col-xs-6">
-                        <input name="txtmodel" type="text" id="txtmodel" value="{{warrantyClaimModel.modelProduct}}" formControlName="modelProduct"
-                            class="width_100 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x" /><span *ngIf="isSubmited&&warrantyClaimFrom.controls['modelProduct'].errors.required" id="rfvTinh_YCBH"
-                            style="color:Red;">Lỗi, vì bạn chưa nhập Model.</span>
                     </div>
                     <div class="clearfix mgb10 mgb10x"></div>
                 </span>

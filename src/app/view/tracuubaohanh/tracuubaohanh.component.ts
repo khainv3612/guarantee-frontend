@@ -12,6 +12,7 @@ export class TracuubaohanhComponent implements OnInit {
 
   searchForm: FormGroup;
   warrantyClaimModel: WarrantyClaimModel;
+  lstModels: WarrantyClaimModel[];
   message: string;
   dataService: DataService;
   isSubmited = false;
@@ -41,7 +42,8 @@ export class TracuubaohanhComponent implements OnInit {
     }
     let serial = this.searchForm.value.serial;
     this.dataService.getWarrantyClaim(serial).subscribe((result) => {
-     this.warrantyClaimModel = result;
+     this.lstModels = result;
+     this.warrantyClaimModel = this.lstModels[0];
     }, (error) => {
       this.message = error;
       this.warrantyClaimModel = null;

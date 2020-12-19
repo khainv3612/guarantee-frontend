@@ -24,7 +24,7 @@ export class ViewStationComponent implements OnInit {
       area: new FormControl(),
       province: new FormControl()
     });
-    this.dataService.getAllStation().subscribe(data => {
+    this.dataService.getAllStationAccepted().subscribe(data => {
       this.lstAllStation = data;
       this.lstFilterStation = data;
     }, error => {

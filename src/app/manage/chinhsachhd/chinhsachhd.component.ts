@@ -37,24 +37,7 @@ export class ChinhsachhdComponent implements OnInit {
     toolbar1: 'insertfile undo redo | styleselect | fontselect  | bold italic underline | alignleft aligncenter alignright alignjustify |' +
       ' bullist numlist outdent indent | link image | ' +
       'print preview media | forecolor backcolor emoticons imageupload export',
-    image_advtab: true,
-
-    file_picker_callback(callback: any, value: any, meta: any): void {
-      const input = document.createElement('input');
-      input.setAttribute('type', 'file');
-      input.setAttribute('accept', 'file/*');
-      input.click();
-      input.onchange = function (): void {
-        const file = input.files[0];
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          callback(e.target.result, {
-            alt: file.name
-          });
-        };
-        reader.readAsDataURL(file);
-      };
-    }
+    image_advtab: true
   };
 
   constructor(private routerActive: ActivatedRoute,

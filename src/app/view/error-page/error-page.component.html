@@ -14,6 +14,17 @@
         <div class="clearfix"></div>
 
       </div>
+
+      <div class="container pdl0 pdr0  pdb10 pdt0 pdt0x pdb10x" *ngIf="errorMessage != null && errorMessage != ''">
+        <h3 class="color-gray-2 font-bold font-size-18 text-uppercase text-center mgt20 mgt20x"
+            style="color:Red">
+          THÔNG TIN CHI TIẾT LỖI
+        </h3>
+
+        <div class="clearfix"></div>
+        <p>{{errorMessage}}</p>
+
+      </div>
     </div>
   </div>
 </div>

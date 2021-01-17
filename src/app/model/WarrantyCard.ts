@@ -10,7 +10,7 @@ export class WarrantyCard {
   startTime?: any;
   endTime?: any;
   soldDate?: any;
-  storeAddr: string;
-  storePhone: string;
+  storeAddr?: string;
+  storePhone?: string;
 
 }

@@ -1,0 +1,96 @@
+<div id="pnlTramBaoHanh">
+    <div class="wrap bg-color-white">
+        <div class="container pdl0 pdr0 pdt10 pdb10 pdt10x pdb10x">
+            <p class="mgt20 mgt20x text-center">
+                <span>
+                    <a name="menu-tab" class="cursor-pointer" (click)="getAllNonActive()">
+                        CHƯA KÍCH HOẠT BẢO HÀNH
+                    </a>
+                </span>
+                <span>
+                    <a name="menu-tab" class="cursor-pointer" (click)="getAllByStatus(1)">
+                        ĐÃ KÍCH HOẠT BẢO HÀNH
+                    </a>
+                </span>
+            </p>
+            <img src="assets/images/icon/icon-line.png" alt="chuyengialocnuocminhduc.com"
+                 class="display-table margin-auto mgt30 mgb30 mgt30x mgb30x"/>
+
+            <div class="clearfix"></div>
+
+            <form [formGroup]="formFilter" (submit)="filter()" *ngIf="!isNonActive">
+                <div class="pull-left">
+
+                    <div class="clearfix mgt5 mgt5x"></div>
+                    <input formControlName="txtSearch" name="txtSearch" type="text"
+                           id="txtSearch"
+                           class="width-320px btn height-30 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgl5"
+                           placeholder="Tìm kiếm theo mã bảo hành, tên KH hoặc SĐT"/>
+
+                    <span style="padding-left: 5px">
+                        <input type="submit" name="cmdSearch" value="Tìm kiếm"
+                               id="cmdSearch" class="height-30 cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+                    </span>
+                </div>
+            </form>
+
+            <form [formGroup]="formFilter" (submit)="filterNon()" *ngIf="isNonActive">
+                <div class="pull-left">
+
+                    <div class="clearfix mgt5 mgt5x"></div>
+                    <input formControlName="txtSearch" name="txtSearch" type="text"
+                           class="width-320px btn height-30 border-1px-gray pdl5 pdt5 pdb5 pdl5x pdt5x pdb5x mgl5"
+                           placeholder="Tìm kiếm theo mã bảo hành hoặc mã sản phẩm"/>
+
+                    <span style="padding-left: 5px">
+                        <input type="submit" name="cmdSearch" value="Tìm kiếm"
+                               class="height-30 cr-3 mgb10 mgb10x mgr5 mgr5x"/>
+                    </span>
+                </div>
+            </form>
+
+            <div class="clearfix"></div>
+
+            <div class="table-responsive mgt20 mgt20x" *ngIf="!isNonActive">
+                <div>
+                    <table [cellSpacing]="0" border="1" id="grd_Warranty" style="width:100%;border-collapse:collapse;">
+                        <tr style="background-color:Silver;font-size:12px;height:30px;">
+                            <th class="text-center" scope="col">TT</th>
+                            <th class="text-center pd10" scope="col">Mã bảo hành</th>
+                            <th class="text-center pd10" scope="col">Mã sản phẩm</th>
+                            <th class="text-center pd10" scope="col">Tên khách hàng</th>
+                            <th class="text-center pd10" scope="col">SĐT</th>
+                        </tr>
+                        <tr *ngFor="let w of lstWarrantyCard, index as i" style="font-size:12px;height:22px;">
+                            <th class="text-center pd10" scope="col">{{i + 1}}</th>
+                            <th class="pd10" scope="col">{{w.serialNumber}}</th>
+                            <th class="text-center pd10"
+                                scope="col">{{w.product != null ? w.product.productCode : ''}}</th>
+                            <th class="text-center pd10"
+                                scope="col">{{w.customer != null ? w.customer.fullName : ''}}</th>
+                            <th class="text-center pd10" scope="col">{{w.customer != null ? w.customer.phone : ''}}</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="table-responsive mgt20 mgt20x" *ngIf="isNonActive">
+                <div>
+                    <table [cellSpacing]="0" border="1" style="width:100%;border-collapse:collapse;">
+                        <tr style="background-color:Silver;font-size:12px;height:30px;">
+                            <th class="text-center" scope="col">TT</th>
+                            <th class="text-center pd10" scope="col">Mã bảo hành</th>
+                            <th class="text-center pd10" scope="col">Mã sản phẩm</th>
+                        </tr>
+                        <tr *ngFor="let w of lstWarrantyCardDTO, index as i" style="font-size:12px;height:22px;">
+                            <th class="text-center pd10" scope="col">{{i + 1}}</th>
+                            <th class="text-center pd10" scope="col">{{w.serialNumber}}</th>
+                            <th class="text-center pd10" scope="col">{{w.productCode}}</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

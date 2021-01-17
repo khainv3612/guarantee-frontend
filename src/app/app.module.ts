@@ -34,6 +34,7 @@ import { HomeComponent } from './home/home.component';
 import {ManageUserComponent} from './manage/User/manage-user/manage-user.component';
 import {CreateUserComponent} from './manage/User/create-user/create-user.component';
 import {EditUserComponent} from './manage/User/edit-user/edit-user.component';
+import { SerialComponent } from './manage/serial/serial.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {EditUserComponent} from './manage/User/edit-user/edit-user.component';
     ManageUserComponent,
     CreateUserComponent,
     EditUserComponent,
+    SerialComponent,
   ],
   imports: [
     HttpClientModule,

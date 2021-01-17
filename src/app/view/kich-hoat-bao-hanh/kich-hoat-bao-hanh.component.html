@@ -194,9 +194,13 @@
                             <span id="rfvCode_KH" style="color:Red"
                                   *ngIf="warrantyActiveForm.controls.verifyCode.errors?.required
                                   && !isValidFormSubmitted && isValidFormSubmitted != null">
-                                  Lỗi, vì bạn chưa nhập mã xác nhận.</span> <span id="rfvVerify1"
-                                                                                  *ngIf="!isValidFormSubmitted && isValidFormSubmitted != null&&!isVerify"
-                                                                                  style="color:Red;">Lỗi, vì mã xác nhận không khớp</span>
+                                  Lỗi, vì bạn chưa nhập mã xác nhận.
+                            </span>
+                            <span id="rfvVerify1"
+                                  *ngIf="!isValidFormSubmitted && isValidFormSubmitted != null &&! isVerify"
+                                  style="color:Red;">
+                                Lỗi, vì mã xác nhận không khớp
+                            </span>
 
                         </div>
                         <div class="clearfix mgb10 mgb10x"></div>

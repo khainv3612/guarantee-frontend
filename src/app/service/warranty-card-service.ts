@@ -23,12 +23,20 @@ export class WarrantyCardService {
   }
 
   uploadDataWarranty(file: File): Observable<any> {
-    let headers =  new HttpHeaders();
+    let headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     const formData: FormData = new FormData();
     formData.append('file', file);
     return this.httpClient.post<any>(this.urlWarrantyCard + 'uploadDataWarranty', formData, {
       headers
     });
+  }
+
+  getAllByStatus(status: number): Observable<any> {
+    return this.httpClient.get<any>(this.urlWarrantyCard + "status/" + status);
+  }
+
+  getAll(): Observable<any> {
+    return this.httpClient.get<any>(this.urlWarrantyCard + "getAll/");
   }
 }

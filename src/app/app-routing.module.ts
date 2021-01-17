@@ -24,6 +24,7 @@ import {ManageUserComponent} from "./manage/User/manage-user/manage-user.compone
 import {CreateUserComponent} from "./manage/User/create-user/create-user.component";
 import {EditUserComponent} from "./manage/User/edit-user/edit-user.component";
 import {AdminGuard} from "./Guard/admin/admin.guard";
+import {SerialComponent} from "./manage/serial/serial.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path: 'quan-ly/tai-khoan', component: ManageUserComponent, canActivate: [AdminGuard]},
   {path: 'quan-ly/tao-tai-khoan', component: CreateUserComponent, canActivate: [AdminGuard]},
   {path: 'quan-ly/chinh-sua-thong-tin-tai-khoan', component: EditUserComponent, canActivate: [AdminGuard]},
+  {path: 'quan-ly/ma-bao-hanh', component: SerialComponent, canActivate: [AdminGuard]},
   {path: 'error', component: ErrorPageComponent},
 ];
 

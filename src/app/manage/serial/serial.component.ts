@@ -70,7 +70,6 @@ export class SerialComponent implements OnInit {
         || w.customer?.fullName.toUpperCase().includes(txtSearch)
         || w.customer?.phone == txtSearch);
   }
-
   filterNon() {
     let txtSearch = this.formFilter.controls.txtSearch.value.toUpperCase();
     this.lstWarrantyCardDTO = this.lstWarrantyCardDTO.filter((w) => w.serialNumber.toUpperCase() == txtSearch
